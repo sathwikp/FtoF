@@ -6,9 +6,10 @@ $dsn = 'pgsql:'
     . 'host='.$dbopts["host"].';'
     . 'dbname='.ltrim($dbopts["path"],'/').';'
     . 'user='.$dbopts["user"].';'
-    . 'port='.$dbopts["port"].';'
-    . 'sslmode=require;'
-    . 'password='.$dbopts["pass"];
+    . 'port='.$dbopts["port"].';';
+//    . 'sslmode=require;'
+if (array_key_exists("pass",$dbopts))
+    $dsn .= 'password='.$dbopts["pass"];
 try
 {
 	$db = new PDO($dsn);
