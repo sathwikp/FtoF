@@ -9,8 +9,8 @@ $result = [
 	'description' => random_lipsum(),
 	'picture' => 'img/profiles/dupont.jpeg',
 	'stars' => '4',
-	'services' => [ServiceType::Stroller, ServiceType::CarSeat]
-	
+	'services' => [ServiceType::Stroller, ServiceType::CarSeat],
+	'_POST' => $_POST
 ]
 
 ];

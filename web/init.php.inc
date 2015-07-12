@@ -32,6 +32,15 @@ abstract class ServiceType
     const CarSeat = 1;
     const House = 2;
     const Babysit = 3;
+    
+    static public function GetTypes() { 
+    	return [
+    		ServiceType::Stroller => 'Stroller',
+    		ServiceType::CarSeat => 'Car Seat',
+    		ServiceType::House => 'House',
+    		ServiceType::Babysit => 'Babysitting'
+    	];
+    }
 }
 
 ?>

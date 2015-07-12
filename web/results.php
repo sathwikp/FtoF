@@ -31,6 +31,15 @@ $SCRIPTS[] =
      <form name="criteria"> 
      	<label for="location">Location</label>
      	<input type="text" name="location" class="form-control" />
+     	<?php
+     		foreach (ServiceType::GetTypes() as $key => $val) {
+     			echo '<div class="checkbox">'
+    				. '<label>'
+      				. '<input type="checkbox" name="service__'.$key.'" value="'.$key.'"> '. $val
+    				. '</label>'
+					. '</div>';
+     		}
+     	 ?>
      </form>
   </div>
   <div id="resultList" class="col-md-6">
