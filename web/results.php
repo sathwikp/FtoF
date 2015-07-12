@@ -3,30 +3,10 @@
 <?php
 
 $SCRIPTSRC[] = "js/jquery.tmpl.min.js";
+$SCRIPTSRC[] = "js/jquery-migrate-1.2.1.min.js";
+$SCRIPTSRC[] = "js/jquery.ba-bbq.min.js";
 
-$SCRIPTS[] =
-"$(document).ready(function() {
-	$('form[name=\"criteria\"] :input').change(function() {
-  		formData = $(this).closest('form').serialize();
-  		console.log(formData);
-  		// process the form
-        $.ajax({
-            type        : 'POST', 
-            url         : 'resultsAjax.php', 
-            data        : formData, 
-            dataType    : 'json', 
-        	encode      : true
-        }).done(function(data) {
-            console.log(data); 
-            $('#resultList').empty();
-            $('#resultTpl').tmpl(data).appendTo('#resultList');
-        });
-	});
-	$('form[name=\"criteria\"]').submit(function(e) {
-		e.preventDefault();
-		return false;
-	});
-});";
+$SCRIPTSRC[] = "js/results.js";
 
 $SCRIPTS[] =
 [
