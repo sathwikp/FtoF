@@ -2,7 +2,7 @@
 
 <?php
 
-$SCRIPTSRC[] = "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js";
+$SCRIPTSRC[] = "js/jquery.tmpl.min.js";
 
 $SCRIPTS[] =
 "$(document).ready(function() {
@@ -22,6 +22,10 @@ $SCRIPTS[] =
             $('#resultTpl').tmpl(data).appendTo('#resultList');
         });
 	});
+	$('form[name=\"criteria\"]').submit(function(e) {
+		e.preventDefault();
+		return false;
+	});
 });";
 
 $SCRIPTS[] =
@@ -32,7 +36,7 @@ $SCRIPTS[] =
 <div>${description}</div>
 <ul>
 {{each services}}
-<li>service</li>
+<li>service ${$value}</li>
 {{/each}}
 </ul>
 </div>'	
