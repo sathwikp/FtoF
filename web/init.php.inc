@@ -14,6 +14,7 @@ if (array_key_exists("pass",$dbopts))
 try
 {
 	$db = new PDO($dsn);
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $pe)
 {
@@ -24,6 +25,11 @@ catch(PDOException $pe)
 function random_lipsum($amount = 1, $what = 'paras', $start = 0) {
 	return (string) simplexml_load_file("http://www.lipsum.com/feed/xml?amount=$amount&what=$what&start=$start")->lipsum;
 }
+
+function preg_grep_keys($pattern, $input, $flags = 0) {
+    return array_intersect_key($input, array_flip(preg_grep($pattern, array_keys($input), $flags)));
+}
+
 
 //Classes
 abstract class ServiceType
