@@ -2,7 +2,7 @@
 
 <?php
 
-$sql = 	"select p.name, p.description, p.picture, count(*) "
+$sql = 	"select p.name, p.description, p.picture, count(*), array_to_json(array_agg(s.service_type)) as services "
 	. "from profile p, offered_service s "
 	. "where p.id = s.profile_id "
 	. "and s.available = TRUE ";
@@ -21,12 +21,15 @@ $q->execute();
 $result = [];
 
 while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
-	$result[] = array_merge($row,
+	$new_element = array_merge($row,
 	[	
 		'stars' => '4',
-		'services' => [ServiceType::Stroller, ServiceType::CarSeat],
+		//'services' => [ServiceType::Stroller, ServiceType::CarSeat],
 		//'_POST' => $_POST
 	]);
+
+	$new_element['services'] = json_decode($new_element['services']);
+	$result[] = $new_element;
 }
 
 echo json_encode($result);
