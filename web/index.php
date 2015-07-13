@@ -12,7 +12,8 @@ $SCRIPTSRC[] = "js/main.js";
 
 <?php include 'header.php.inc';?>
 
-  
+<body>
+
 <div class="head-panel">
 
 <div class="row">
@@ -226,5 +227,6 @@ Our platform will connect you with families at your destination in order to find
             <a class="navbar-btn btn-danger btn pull-right" href="http://youtube.com">Subscribe</a>
         </div>
     </div>
+</body>
 
 <?php include 'footer.php.inc';?>
