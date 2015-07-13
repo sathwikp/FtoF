@@ -12,7 +12,8 @@ $SCRIPTSRC[] = "js/main.js";
 
 <?php include 'header.php.inc';?>
 
-  
+<body>
+
 <div class="head-panel">
 
 <div class="row">
@@ -20,7 +21,7 @@ $SCRIPTSRC[] = "js/main.js";
  <div class="overlayLight"></div>
  	<div class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
-  		<a href="index.html" class="navbar-brand">FamilyToFamily</a>
+  		<a href="index.php" class="navbar-brand">FamilyToFamily</a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -35,9 +36,9 @@ $SCRIPTSRC[] = "js/main.js";
                       <li><a href="#">German</a></li>
                     </ul>
                 </li>
-                <li><a href="home.html">Sign up/Login</a></li>
-                <li><a href="home.html">Connect</a></li>
-                <li><a href="home.html"><img src="" class="img-responsive" /></a></li>
+                <li><a href="#">Sign up/Login</a></li>
+                <li><a href="#">Connect</a></li>
+                <li><a href="#"><img src="" class="img-responsive" /></a></li>
         		</li>
            </ul>
       </div>
@@ -226,5 +227,6 @@ Our platform will connect you with families at your destination in order to find
             <a class="navbar-btn btn-danger btn pull-right" href="http://youtube.com">Subscribe</a>
         </div>
     </div>
+</body>
 
 <?php include 'footer.php.inc';?>

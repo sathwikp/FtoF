@@ -77,9 +77,10 @@ $(window).bind( 'hashchange', function( event ){
 	});
 	
 	$('form[name="criteria"] :input[name="location"]').typeahead({
-	    //delay: 500,
 	    dynamic: true,
-	    display: ['citycountry'],
+	    hint: true,
+    	cache: true,
+	    display: ['citycountry', 'cityregioncountry'],
 	    source: {
 	    	location: {
         		url: {
@@ -91,20 +92,30 @@ $(window).bind( 'hashchange', function( event ){
         		}
     		}
 	    },
+	    template: "{{name}} ({{region}}), {{countryname}}",
 	    callback: {
         	onSubmit: pushFormParams,
         	onClickAfter: function (node, a, item, event) {
         		//console.log(item);
         		$('form[name="criteria"] :input[name="locationid"]').val(item.id); 
+        		$('form[name="criteria"] :input[name="location"]').val($(a).text());
         		pushFormParams(); 
         	}
     	}
 	});
   
 	$('form[name="criteria"] :input[name="location"]').change(function (){
-		console.log('onChange');
 	    $('form[name="criteria"] :input[name="locationid"]').val('');
 	});
   
+  	 $( "#datepickerArrival" ).datepicker({
+      changeMonth: true,//this option for allowing user to select month
+      changeYear: true //this option for allowing user to select from year range
+    });
+	
+	$( "#datepickerDeparture" ).datepicker({
+      changeMonth: true,//this option for allowing user to select month
+      changeYear: true //this option for allowing user to select from year range
+    });
   
 });
