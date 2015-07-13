@@ -30,6 +30,34 @@ function preg_grep_keys($pattern, $input, $flags = 0) {
     return array_intersect_key($input, array_flip(preg_grep($pattern, array_keys($input), $flags)));
 }
 
+function redirect_to_home() {
+	header( 'Location: ./index.php' ) ;
+	exit();
+}
+
+define ("__DATEFORMAT", 'm/d/Y');
+date_default_timezone_set('Europe/Paris');
+function parse_and_validate_dates($arrival, $departure){
+	$dep_date = DateTime::createFromFormat(__DATEFORMAT, $departure);
+	$arr_date = DateTime::createFromFormat(__DATEFORMAT, $arrival);
+	
+	if ($dep_date == FALSE || $arr_date == FALSE)
+	{
+		return FALSE;
+	}
+	
+	$now = new DateTime();
+	
+	if ($arr_date > $dep_date) {
+		return FALSE;
+	}
+
+	if ($dep_date < $now || $arr_date < $now) {
+		return FALSE;
+	}
+	
+	return [$arr_date, $dep_date];
+}
 
 //Classes
 abstract class ServiceType
