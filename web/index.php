@@ -21,7 +21,7 @@ $SCRIPTSRC[] = "js/main.js";
  <div class="overlayLight"></div>
  	<div class="navbar navbar-inverse navbar-static-top">
   	<div class="container">
-  		<a href="index.php" class="navbar-brand">FamilyToFamily</a>
+  		<a href="index.php" class="navbar-brand"><img src="img/F2F_word.png" class="img-responsive"/></a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
