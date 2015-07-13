@@ -299,12 +299,16 @@ label.filter{
 	text-align:left;
 }
 .family_image{
-background-color: #ebebeb;
+	background-color: #ebebeb;
   background-position: center center;
   background-size: cover;
   height: 100%;
   min-height: 168px;
   width: 33.33333%;
+  float:left;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
 }
 .topmost_row{
 	margin-top:64px;
@@ -314,4 +318,63 @@ background-color: #ebebeb;
   position: relative;
   margin-bottom: 12px;
   cursor: pointer;
+}
+.likeImage>img{
+	height:36px;
+	width:36px;
+	border-radius:10%;
+}
+.family_like{
+	float:right;
+	margin-top:10px;
+	margin-right:10px;
+}
+.item_sell{
+	height: 168px;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+}
+.items_description{
+	float:left;
+	padding-left: 10px;
+	width:66%;
+}
+.items_description>h3{
+	margin-top: 5px;
+	color:#16becf;
+	text-align: left;
+}
+.icons{
+	height:40px;
+	width:40px;
+}
+span.smallText{
+	float:left;
+}
+span.servicesNumber{
+	margin-top:10px;
+	font-size:10px;
+	color:#ff7300;
+	float:left;
+}
+.item_amenities{
+	clear:both;
+	padding-top: 7px;
+}
+.item_border{
+	padding:5px 10px;
+	float:left;
+	margin-right:8px;
+	display:inline;
+	border-radius:15%;
+	border:1px solid #ff7300;
+	font-size:10px;
+	color:#ff7300;
+	text-align:center;
+}
+.stars{
+  margin-top: -83px;
+  float: right;
 }
