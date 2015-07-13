@@ -387,3 +387,6 @@ span.servicesNumber{
   margin-top: -83px;
   float: right;
 }
+.item_border:hover{
+	background-color:#FDE7E0;;
+}
