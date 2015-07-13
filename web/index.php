@@ -80,7 +80,7 @@ $SCRIPTSRC[] = "js/main.js";
 <hr/>
 <div class="row features">
 	<div class="col-md-12">
-    	<div class="col-lg-4 col-sm-6 col-xs-12">
+    	<div class="col-lg-4 col-sm-6 col-xs-12 bubble">
             <div class="bubble-head" id="borrow-head">
      			<div class="inner-bubble">
                     <div class="bubble-header">
@@ -96,7 +96,7 @@ $SCRIPTSRC[] = "js/main.js";
                 </div>
             </div>
         </div>
-    	<div class="col-lg-4 col-sm-6 col-xs-12">
+    	<div class="col-lg-4 col-sm-6 col-xs-12 bubble">
     	<div class="bubble-head" id="lend-head">
         	<div class="inner-bubble">
                 <div class="bubble-header">
@@ -112,7 +112,7 @@ $SCRIPTSRC[] = "js/main.js";
               </div>
         </div>
      </div>
-     	<div class="col-lg-4 col-sm-12 col-xs-12">
+     	<div class="col-lg-4 col-sm-12 col-xs-12 bubble">
      	<div class="bubble-head" id="share-head">
         	<div class="inner-bubble">
                 <div class="bubble-header">
@@ -139,7 +139,7 @@ $SCRIPTSRC[] = "js/main.js";
     <div class="col-lg-3">
     </div>
     <div class="col-lg-3 col-sm-4 col-xs-12">
-    	<div class="sectionHeader">
+    	<div class="sectionHeader hidden-xs">
     	<em>Borrow</em>
         </div>
     </div>
@@ -180,7 +180,7 @@ Our platform will connect you to families travelling at your destination so that
     
         </div>
         <div class="col-lg-3 col-sm-6 col-xs-12">
-    	<div class="sectionHeaderRight">
+    	<div class="sectionHeaderRight hidden-xs">
     	<em>Lend</em>
         </div>
     </div>
@@ -198,7 +198,7 @@ Our platform will connect you to families travelling at your destination so that
     	
     </div>
     <div class="col-lg-3 col-sm-4 col-xs-12">
-    	<div class="sectionHeader">
+    	<div class="sectionHeader hidden-xs">
     	<em>Share</em>
         </div>
     </div>
