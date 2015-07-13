@@ -1,6 +1,7 @@
 <?php require 'init.php.inc';?>
 
 <?php
+header('Content-Type: application/json; Charset=UTF-8');
 
 $sql = 	"select p.name, p.description, p.picture, count(*), array_to_json(array_agg(s.service_type)) as services "
 	. "from profile p, offered_service s "

@@ -180,7 +180,7 @@ div.bubble-head:hover{
 	font-size:1.1em;
 	font-weight:bold;
 }
-input[type=text] ,input[type=password] {
+input[type=text] ,input[type=password], input[type=search] {
   -webkit-appearance: none;
   outline: none;
   border: 1px solid #ff7300;
