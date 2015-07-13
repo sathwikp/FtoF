@@ -34,7 +34,7 @@ $SCRIPTS[] =
   
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="search.html" class="navbar-brand">Family to Family</a>
+            <a href="index.php" class="navbar-brand">Family to Family</a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -42,9 +42,9 @@ $SCRIPTS[] =
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="search.html">Signup/Login</a></li>
-                    <li><a href="search.html">Connect</a></li>
+                    <li><a href=index.php">Home</a></li>
+                    <li><a href="#">Signup/Login</a></li>
+                    <li><a href="#">Connect</a></li>
                </ul>
           </div>
         </div>
@@ -69,9 +69,6 @@ $SCRIPTS[] =
             </label>
             <label>
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
-            </label>
-            <label>
-            <input type="submit" name="submit" id="submit" value="Search">
             </label>
             </div>
         </div>

@@ -55,7 +55,9 @@ $(document).ready(function(){
 	
 	$('form[name="search"] :input[name="location"]').typeahead({
 	    dynamic: true,
-	    display: ['citycountry'],
+	    hint: true,
+    	cache: true,
+	    display: ['citycountry', 'cityregioncountry'],
 	    source: {
 	    	location: {
         		url: {
@@ -67,11 +69,12 @@ $(document).ready(function(){
         		}
     		}
 	    },
+	    template: "{{name}} ({{region}}), {{countryname}}",
 	    callback: {
         	//onSubmit: pushFormParams,
         	onClickAfter: function (node, a, item, event) {
-        		//console.log(item);
         		$('form[name="search"] :input[name="locationid"]').val(item.id); 
+        		$('form[name="search"] :input[name="location"]').val($(a).text());
         		// pushFormParams(); 
         	}
     	}
