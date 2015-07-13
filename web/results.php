@@ -2,7 +2,10 @@
 
 <?php
 
+$PAGETITLE = "F2F | Search Results";
+
 $SCRIPTSRC[] = "js/jquery.tmpl.min.js";
+$SCRIPTSRC[] = "js/jquery.typeahead.min.js";
 $SCRIPTSRC[] = "js/jquery-migrate-1.2.1.min.js";
 $SCRIPTSRC[] = "js/jquery.ba-bbq.min.js";
 
@@ -29,8 +32,15 @@ $SCRIPTS[] =
 
   <div class="col-md-3 col-md-offset-1">
      <form name="criteria"> 
-     	<label for="location">Location</label>
-     	<input type="text" name="location" class="form-control" />
+     	<input name="locationid" type="hidden" />
+     	<div class="typeahead-container">
+	     	<label for="location">Location</label>
+        	<div class="typeahead-field">
+     			<span class="typeahead-query">
+     				<input name="location" type="search" placeholder="Search" autocomplete="off" />
+     			</span>
+     		</div>
+     	</div>
      	<?php
      		foreach (ServiceType::GetTypes() as $key => $val) {
      			echo '<div class="checkbox">'
