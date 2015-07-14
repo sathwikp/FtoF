@@ -221,12 +221,9 @@ Our platform will connect you with families at your destination in order to find
 </div>
 </div>
 </div>
-    <div class="navbar navbar-default navbar-static-bottom">
-    	<div class="container">
-        	<p class="navbar-text pull-left">Copyright © Family to Family. All rights reserved.</p>
-            <a class="navbar-btn btn-danger btn pull-right" href="http://youtube.com">Subscribe</a>
-        </div>
-    </div>
-</body>
 
 <?php include 'footer.php.inc';?>
+
+</body>
+
+<?php include 'endpage.php.inc';?>

@@ -32,35 +32,25 @@ $SCRIPTS[] =
 . '				</div>'
 . '			</div>'
 . '		</div>'
-. '		<div class="item_sell padded padded_half">'
+. '		<div class="item_sell padded git pull">'
 . '			<div class="items_description">'
 . '				<h3 class="hidden-xs">'
-. '					${name}'
+. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a>'
 . '				</h3>'
 . '				<span class="hidden-xs smallText">'
 . '					Paris, France'
 . '				</span>'
 . '				<br/>'
 . '				<span class="hidden-xs servicesNumber">'
-. '					8 services'
+. '					${services_no} service(s)'
 . '				</span>'
 . '				<div class="item_amenities">'
+. '                 {{each services}}'
 . '					<div class="item_border">'
-. '						<img src="img/Baby_trolley.png" class="img-responsive icons"/>'
-. '						5$/day'
+. '						<img src="${pic}" class="img-responsive icons" alt="${name}" title="${name}" />'
+. '						${price_per_day}&#8364;/day'
 . '					</div>'
-. '					<div class="item_border">'
-. '						<img src="img/Bike_icon.png" class="img-responsive icons"/>'
-. '						5$/day'
-. '					</div>'
-. '					<div class="item_border">'
-. '						<img src="img/Taxi_icon.png" class="img-responsive icons"/>'
-. '						5$/day'
-. '					</div>'
-. '					<div class="item_border">'
-. '						<img src="img/Teddy_bear_icon.png" class="img-responsive icons"/>'
-. '						5$/day'
-. '					</div>'
+. '					{{/each}}'
 . '				</div>'
 . '				<div class="stars">'
 . '					<img src="img/star.png" class="reponsive" />'
@@ -93,6 +83,7 @@ $SCRIPTS[] =
                     <li><a href=index.php">Home</a></li>
                     <li><a href="#">Signup/Login</a></li>
                     <li><a href="#">Connect</a></li>
+                    <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
         </div>
@@ -164,9 +155,11 @@ $SCRIPTS[] =
         </div>
     </div>
     </form>
-  </body>
-
 
 <?php include 'footer.php.inc';?>
+
+</body>
+
+<?php include 'endpage.php.inc';?>
 
 <?php require 'destroy.php.inc';?>

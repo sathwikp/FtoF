@@ -63,16 +63,25 @@ function parse_and_validate_dates($arrival, $departure){
 abstract class ServiceType
 {
     const Stroller = 0;
-    const CarSeat = 1;
-    const House = 2;
-    const Babysit = 3;
+    const Bike = 1;
+    const Transfer = 2;
+    const Toys = 3;
     
     static public function GetTypes() { 
     	return [
     		ServiceType::Stroller => 'Stroller',
-    		ServiceType::CarSeat => 'Car Seat',
-    		ServiceType::House => 'House',
-    		ServiceType::Babysit => 'Babysitting'
+    		ServiceType::Bike => 'Bike',
+    		ServiceType::Transfer => 'Airport Transfer',
+    		ServiceType::Toys => 'Baby Toys'
+    	];
+    }
+    
+    static public function GetPics() { 
+    	return [
+    		ServiceType::Stroller => 'img/Baby_trolley.png',
+    		ServiceType::Bike => 'img/Bike_icon.png',
+    		ServiceType::Transfer => 'img/Taxi_icon.png',
+    		ServiceType::Toys => 'img/Teddy_bear_icon.png'
     	];
     }
 }

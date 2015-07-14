@@ -52,9 +52,12 @@ $(window).bind( 'hashchange', function( event ){
 		dataType    : 'json', 
 		encode      : true
 	}).done(function(data) {
-		console.log(data); 
+		//console.log(data); 
 		$('#resultList').empty();
 		$('#resultTpl').tmpl(data).appendTo('#resultList');
+		$("#resultList li:has(a)").click(function() {
+      		window.location = $("a:first",this).attr("href");
+   		});
 	});
   }
 })
@@ -107,5 +110,5 @@ $(window).bind( 'hashchange', function( event ){
 	$('form[name="criteria"] :input[name="location"]').change(function (){
 	    $('form[name="criteria"] :input[name="locationid"]').val('');
 	});
-  
+ 
 });
