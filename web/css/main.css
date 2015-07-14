@@ -58,7 +58,7 @@ background-color:#fff ;
 }
 .search .navbar{
 	background-color:#ff7300;
-	padding-bottom:12px;
+	padding-bottom:5px;
 	padding-top:12px;
 }
 .search .navbar-inverse .navbar-brand {
@@ -109,7 +109,7 @@ div.bubble-head:hover{
 	opacity:1;
 }
 #lend-section{
-	background: url(../img/F2F5.jpg) no-repeat 0 fixed;
+	background: url(../img/F2F2.jpg) no-repeat 0 fixed;
 	height: 520px;
 	position: relative;
 	-webkit-background-size: cover;
@@ -389,4 +389,9 @@ span.servicesNumber{
 }
 .item_border:hover{
 	background-color:#FDE7E0;;
+}
+img.cart{
+ height:40px;
+ width:40px;
+ margin-top:-10px;
 }

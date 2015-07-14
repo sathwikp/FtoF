@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title><?php echo $PAGETITLE; ?></title>
     <!-- favicon -->
-    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="icon" type="image/png" href="img/F2F_short.png">
     <!-- core bootstrap style guide -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <!-- animation style guide -->

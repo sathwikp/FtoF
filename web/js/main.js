@@ -36,7 +36,7 @@ $(document).ready(function(){
 	    });
 	});
 	
-    $('form[name="search"]').submit(function(e) {
+   $('form[name="search"]').submit(function(e) {
 		e.preventDefault();
 		var formData = $(this).serialize();
 		document.location.href = $.param.fragment('results.php', formData );	
