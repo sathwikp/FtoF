@@ -38,8 +38,7 @@ $SCRIPTSRC[] = "js/main.js";
                 </li>
                 <li><a href="#">Sign up/Login</a></li>
                 <li><a href="#">Connect</a></li>
-                <li><a href="#"><img src="" class="img-responsive" /></a></li>
-        		</li>
+                <li><a href="home.html"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
            </ul>
       </div>
  	</div>
