@@ -395,3 +395,49 @@ img.cart{
 div#footer{
 	background-color:#f8f8f8;
 }
+
+
+.round-button {
+	background-color: transparent;
+	border:0;
+	margin-bottom:0;
+	vertical-align: middle;
+}
+
+.round-button span{
+  display : block;
+}
+
+.round-button > span {
+  position: relative;
+  width       : 45px;
+  height      : 45px;
+  line-height : 45px;
+   border-radius: 50%;
+}
+
+.baby-button > span {
+	background  :  #ffffff url('../img/baby_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.older-baby-button > span {
+	background  :  #ffffff url('../img/older_baby_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.boy-button > span {
+	background  :  #ffffff url('../img/boy_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.round-button > span > span {
+	position: absolute;
+	bottom:0;
+	left:0;
+	width       : 20px;
+  	height      : 20px;
+  	line-height : 20px;
+  	border-radius: 50%;
+  	background-color: #9cd5e4 ; 
+}

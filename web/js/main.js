@@ -91,4 +91,9 @@ $(document).ready(function(){
 		//console.log('onChange');
 	    $('form[name="search"]').submit();
 	});
+	
+	$('.round-button').click(function(){
+		var theCurrVal=Number($(this).find('span > span').text());
+		$(this).find('span > span').text(theCurrVal+1);
+	});
 });
