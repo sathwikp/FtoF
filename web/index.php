@@ -68,12 +68,15 @@ $SCRIPTSRC[] = "js/main.js";
             </label>
             <label>
             <button type="button" class="round-button baby-button"><span><span>0</span></span></button>
+            <input name="babyno" type="hidden" value="0" />            
             </label>
             <label>
             <button type="button" class="round-button older-baby-button"><span><span>0</span></span></button>
+            <input name="oldbabyno" type="hidden" value="0" />
             </label>
             <label>
             <button type="button" class="round-button boy-button"><span><span>0</span></span></button>
+            <input name="boyno" type="hidden" value="0" />
             </label>                                    
             <label>
             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>

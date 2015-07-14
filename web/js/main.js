@@ -93,7 +93,9 @@ $(document).ready(function(){
 	});
 	
 	$('.round-button').click(function(){
-		var theCurrVal=Number($(this).find('span > span').text());
-		$(this).find('span > span').text(theCurrVal+1);
+		var theCurrVal=Number($(this).next('input').val());
+		var theNewVal = theCurrVal+1;
+		$(this).next('input').val(theNewVal);
+		$(this).find('span > span').text(theNewVal);
 	});
 });
