@@ -55,11 +55,9 @@ $SCRIPTSRC[] = "js/main.js";
             <input name="locationid" type="hidden" />
 			<label for="location">
 				<div class="typeahead-container">
-     			<div class="typeahead-field">
      			<span class="typeahead-query">		
      					<input name="location" type="search" placeholder="Where are you travelling to?" autocomplete="off" />
      			</span>
-     			</div>
      			</div>
 			</label>
             <label>

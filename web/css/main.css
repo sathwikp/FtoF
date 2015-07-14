@@ -188,13 +188,14 @@ div.bubble-head:hover{
 input[type=text] ,input[type=password], input[type=search] {
   -webkit-appearance: none;
   outline: none;
-  border: 1px solid #ff7300;
+  border: 1.5px solid #ff7300;
   background: #ffffff;
   padding: 14px;
   font-size: 0.98em;
   color: #4C4C4C;
   font-family:Georgia, palatino, 'book antiqua', 'palatino linotype', serif;
   width:360px;
+  height:47px;
 }
 #datepickerArrival ,#datepickerDeparture{
 	width:160px;
@@ -388,7 +389,7 @@ span.servicesNumber{
   float: right;
 }
 .item_border:hover{
-	background-color:#FDE7E0;;
+	background-color:#FDE7E0;
 }
 img.cart{
  height:40px;

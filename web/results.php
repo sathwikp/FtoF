@@ -106,11 +106,9 @@ $SCRIPTS[] =
         	<div class="formSubmission">
 			<label for="location">
 				<div class="typeahead-container">
-     			<div class="typeahead-field">
      			<span class="typeahead-query">		
      					<input name="location" type="search" placeholder="Where are you travelling to?" autocomplete="off" >
      			</span>
-     			</div>
      			</div>
 			</label>
 

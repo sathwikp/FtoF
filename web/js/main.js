@@ -39,7 +39,18 @@ $(document).ready(function(){
    $('form[name="search"]').submit(function(e) {
 		e.preventDefault();
 		var formData = $(this).serialize();
-		document.location.href = $.param.fragment('results.php', formData );	
+		var emptyfields = $('form[name="search"] :input').filter(function() {
+        		return $.trim(this.value).length === 0;
+    		});
+
+		if (!emptyfields.length > 0) {
+    		document.location.href = $.param.fragment('results.php', formData );
+		} else {
+			$(emptyfields).each(function(){
+				console.log($(this));
+			});
+		}
+		
 		return false;
 	});
 	
@@ -65,13 +76,13 @@ $(document).ready(function(){
         	onClickAfter: function (node, a, item, event) {
         		$('form[name="search"] :input[name="locationid"]').val(item.id); 
         		$('form[name="search"] :input[name="location"]').val($(a).text());
-        		// pushFormParams(); 
+    			$("#datepickerArrival").focus();
         	}
     	}
 	});
   
 	$('form[name="search"] :input[name="location"]').change(function (){
-		console.log('onChange');
+		//console.log('onChange');
 	    $('form[name="search"] :input[name="locationid"]').val('');
 	});
 });
