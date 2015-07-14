@@ -54,6 +54,7 @@ $(window).bind( 'hashchange', function( event ){
 	}).done(function(data) {
 		//console.log(data); 
 		$('#resultList').empty();
+		$('#resultno').text($(data).length);
 		$('#resultTpl').tmpl(data).appendTo('#resultList');
 		$("#resultList li:has(a)").click(function() {
       		window.location = $("a:first",this).attr("href");

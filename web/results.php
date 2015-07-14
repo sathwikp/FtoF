@@ -135,7 +135,7 @@ $SCRIPTS[] =
                     <div class="background_white">
                         <div class="hidden-xs">
                     		<div class="total_search_result">
-                            	<p>No of search result</p>
+                            	<p><span id='resultno'></span> search results</p>
                             </div>
                             <hr class="divider">
                         </div>
