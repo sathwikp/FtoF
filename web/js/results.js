@@ -11,7 +11,7 @@ function clear_form_elements(ele) {
             case 'select-one':
             case 'text':
             case 'textarea':
-            default:
+			case 'search':
                 $(this).val('');
                 break;
         }
@@ -107,15 +107,5 @@ $(window).bind( 'hashchange', function( event ){
 	$('form[name="criteria"] :input[name="location"]').change(function (){
 	    $('form[name="criteria"] :input[name="locationid"]').val('');
 	});
-  
-  	 $( "#datepickerArrival" ).datepicker({
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true //this option for allowing user to select from year range
-    });
-	
-	$( "#datepickerDeparture" ).datepicker({
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true //this option for allowing user to select from year range
-    });
   
 });

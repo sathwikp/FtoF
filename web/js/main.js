@@ -36,19 +36,7 @@ $(document).ready(function(){
 	    });
 	});
 	
-	 $( "#datepickerArrival" ).datepicker({
-		 minDate: 0,
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true //this option for allowing user to select from year range
-    });
-	
-	$( "#datepickerDeparture" ).datepicker({
-		minDate: 0,
-      changeMonth: true,//this option for allowing user to select month
-      changeYear: true //this option for allowing user to select from year range
-    });
-    
-    $('form[name="search"]').submit(function(e) {
+   $('form[name="search"]').submit(function(e) {
 		e.preventDefault();
 		var formData = $(this).serialize();
 		document.location.href = $.param.fragment('results.php', formData );	

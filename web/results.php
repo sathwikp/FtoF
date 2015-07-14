@@ -9,20 +9,68 @@ $SCRIPTSRC[] = "js/jquery.typeahead.min.js";
 $SCRIPTSRC[] = "js/jquery-migrate-1.2.1.min.js";
 $SCRIPTSRC[] = "js/jquery.ba-bbq.min.js";
 
+$SCRIPTSRC[] = "js/datepicker.js";
 $SCRIPTSRC[] = "js/results.js";
 
 $SCRIPTS[] =
 [
 ['id' => 'resultTpl', 'type' => 'text/x-jquery-tmpl'],
-'<div>
-<h3>${name}</h3>
-<div>${description}</div>
-<ul>
-{{each services}}
-<li>service ${$value}</li>
-{{/each}}
-</ul>
-</div>'	
+//'<li>
+//<h3>${name}</h3>
+//<div>${description}</div>
+//<ul>
+//{{each services}}
+//<li>service ${$value}</li>
+//{{/each}}
+//</ul>
+//</li>'	
+  '<li class="family_item background_white">'
+. '		<div class="family_image" style="background-image:url(\'img/F2F2.jpg\')">'
+. '			<div class="family_like">'
+. '				<div class="likeImage like_inactive">'
+. '					<img src="img/like_inactive.png" class="img-responsive" />'
+. '				</div>'
+. '			</div>'
+. '		</div>'
+. '		<div class="item_sell padded padded_half">'
+. '			<div class="items_description">'
+. '				<h3 class="hidden-xs">'
+. '					${name}'
+. '				</h3>'
+. '				<span class="hidden-xs smallText">'
+. '					Paris, France'
+. '				</span>'
+. '				<br/>'
+. '				<span class="hidden-xs servicesNumber">'
+. '					8 services'
+. '				</span>'
+. '				<div class="item_amenities">'
+. '					<div class="item_border">'
+. '						<img src="img/Baby_trolley.png" class="img-responsive icons"/>'
+. '						5$/day'
+. '					</div>'
+. '					<div class="item_border">'
+. '						<img src="img/Bike_icon.png" class="img-responsive icons"/>'
+. '						5$/day'
+. '					</div>'
+. '					<div class="item_border">'
+. '						<img src="img/Taxi_icon.png" class="img-responsive icons"/>'
+. '						5$/day'
+. '					</div>'
+. '					<div class="item_border">'
+. '						<img src="img/Teddy_bear_icon.png" class="img-responsive icons"/>'
+. '						5$/day'
+. '					</div>'
+. '				</div>'
+. '				<div class="stars">'
+. '					<img src="img/star.png" class="reponsive" />'
+. '					<img src="img/star.png" class="reponsive" />'
+. '					<img src="img/star.png" class="reponsive" />'
+. '					<img src="img/star.png" class="reponsive" />'
+. '				</div>'
+. '			</div>'
+. '		</div>'
+. '	</li>'
 ];
 
 ?>
@@ -34,7 +82,7 @@ $SCRIPTS[] =
   
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="index.php" class="navbar-brand">Family to Family</a>
+            <a href="index.php" class="navbar-brand"><img src="img/F2F_word.png" class="img-responsive"/></a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -108,8 +156,10 @@ $SCRIPTS[] =
 						</div>
                     </div>
                 </div>
-                <div class="srp-list col-sm-8 col-md-9" id="resultList" >
-
+                <div class="srp-list col-sm-8 col-md-9" >
+                	<div class="row hidden-xs topmost_row"></div>
+                    <ul id="resultList">
+					</ul>
             </div>
         </div>
     </div>
