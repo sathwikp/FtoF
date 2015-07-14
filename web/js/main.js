@@ -39,7 +39,8 @@ $(document).ready(function(){
    $('form[name="search"]').submit(function(e) {
 		e.preventDefault();
 		var formData = $(this).serialize();
-		var emptyfields = $('form[name="search"] :input').filter(function() {
+		var emptyfields = $('form[name="search"] :input[type="text"]')
+			.filter(function() {
         		return $.trim(this.value).length === 0;
     		});
 
@@ -84,5 +85,10 @@ $(document).ready(function(){
 	$('form[name="search"] :input[name="location"]').change(function (){
 		//console.log('onChange');
 	    $('form[name="search"] :input[name="locationid"]').val('');
+	});
+	
+	$('form[name="search"] :button[type="submit"]').click(function (){
+		//console.log('onChange');
+	    $('form[name="search"]').submit();
 	});
 });

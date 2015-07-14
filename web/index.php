@@ -56,7 +56,7 @@ $SCRIPTSRC[] = "js/main.js";
 			<label for="location">
 				<div class="typeahead-container">
      			<span class="typeahead-query">		
-     					<input name="location" type="search" placeholder="Where are you travelling to?" autocomplete="off" />
+     					<input name="location" type="text" placeholder="Where are you travelling to?" autocomplete="off" />
      			</span>
      			</div>
 			</label>
@@ -67,7 +67,8 @@ $SCRIPTSRC[] = "js/main.js";
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
             <label>
-            <input type="submit" name="submit" id="submit" value="Search">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            <!-- <input type="submit" name="submit" id="submit" value="Search"> -->
             </label>
             </form>
             </div>
