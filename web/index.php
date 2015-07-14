@@ -75,7 +75,7 @@ $SCRIPTSRC[] = "js/main.js";
             <input name="oldbabyno" type="hidden" value="0" />
             </label>
             <label>
-            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 7?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
             <input name="boyno" type="hidden" value="0" />
             </label>                                    
             <label>

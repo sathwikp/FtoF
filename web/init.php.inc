@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 // Database connection
 $dbopts = parse_url(getenv('DATABASE_URL'));
 
@@ -85,5 +87,8 @@ abstract class ServiceType
     	];
     }
 }
+
+include_once 'class.user.php';
+$user = new USER($db);
 
 ?>
