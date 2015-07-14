@@ -107,11 +107,10 @@ background-color:#fff ;
 	font-size:1.9em;
 	font-weight:600;
 	text-align:center;
-	text-decoration: underline;
-	font-family:Georgia, palatino, 'book antiqua', 'palatino linotype', serif;	
+	font-family: 'Pacifico', cursive;
 }
 .bubble-text{
-	font-family:Georgia, palatino, 'book antiqua', 'palatino linotype', serif;	
+	font-family:Open Sans;	
 	width: 65%;
   	margin-left: 20%;
   	margin-top: 9%;
@@ -145,13 +144,13 @@ div.bubble-head:hover{
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .sectionText{
-	font-family:Georgia, palatino, 'book antiqua', 'palatino linotype', serif;
+	font-family:Open Sans;
 	font-size:1.1em;
 	color:#fff;
 	line-height:2;
 }
 .innerContainer > h4 {
-	font-family:Georgia, palatino, 'book antiqua', 'palatino linotype', serif;
+	font-family:Open Sans;
 	color:#ff7300;
 }
 .innerContainer{
@@ -167,14 +166,12 @@ div.bubble-head:hover{
 .sectionHeader > em{
 	color:rgb(165, 231, 216);
 	font-size:4em;
-	font-weight:bold;
-	font-family: Georgia, palatino, 'book antiqua', 'palatino linotype', serif;
+	font-family: 'Pacifico', cursive;
 }
 .sectionHeaderRight > em{
 	color:rgb(165, 231, 216);
 	font-size:4em;
-	font-weight:bold;
-	font-family: Georgia, palatino, 'book antiqua', 'palatino linotype', serif;
+	font-family: 'Pacifico', cursive;
 }
 .bubble{
 	padding-top:10px;
@@ -182,8 +179,7 @@ div.bubble-head:hover{
 .punchLine{
 	font-size:3vw;
 	color:#fff;
-	font-family:'Courier New', courier-ps-w01, courier-ps-w02, courier-ps-w10, monospace;
-	font-weight:bold;
+	font-family: 'Pacifico', cursive;
 	text-align:center;
 	margin-top:8%;
 }
@@ -203,13 +199,14 @@ div.bubble-head:hover{
 input[type=text] ,input[type=password], input[type=search] {
   -webkit-appearance: none;
   outline: none;
-  border: 1px solid #ff7300;
+  border: 1.5px solid #ff7300;
   background: #ffffff;
-  padding: 14px;
+  padding: 12px;
   font-size: 0.98em;
   color: #4C4C4C;
-  font-family:Georgia, palatino, 'book antiqua', 'palatino linotype', serif;
+  font-family:Open Sans;
   width:360px;
+  height:47px;
 }
 #datepickerArrival ,#datepickerDeparture{
 	width:120px;
@@ -222,17 +219,17 @@ input[type=text] ,input[type=password], input[type=search] {
 	margin-top:25%;
 	text-align:center;
 }
-input[type=submit]{
+button[type=submit], input[type=submit]{
   outline: 0;
   border:1px solid #ff7300;
   color: #ffffff;
   background: #ff7300; /* Old browsers */
-  padding: 14px 20px 14px 20px;
+  padding: 12px 25px 12px 25px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 5%;
 }
-input[type=submit]:hover{
+button[type=submit]:hover, input[type=submit]:hover{
   border: 1px solid #ff7300;
   background: #DA8E04; /* Old browsers */
 }
@@ -411,6 +408,7 @@ span.servicesNumber{
   margin-top: -83px;
   float: right;
 }
+
 .search .item_border:hover{
 	background-color:#FDE7E0;;
 }
@@ -536,4 +534,65 @@ div#footer{
 }
 .review-byuser > div{
 	padding-bottom:20px;
+}
+
+
+.round-button {
+	background-color: transparent;
+	border:0;
+	margin-bottom:0;
+	vertical-align: middle;
+}
+
+.round-button span{
+  display : block;
+}
+
+.round-button > span {
+  position: relative;
+  width       : 45px;
+  height      : 45px;
+  line-height : 45px;
+  border-radius: 50%;
+  border:1px solid #ff7300;
+}
+
+.baby-button > span {
+	background  :  #ffffff url('../img/baby_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.older-baby-button > span {
+	background  :  #ffffff url('../img/older_baby_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.boy-button > span {
+	background  :  #ffffff url('../img/boy_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.round-button > span > span {
+	position: absolute;
+	width       : 20px;
+  	height      : 20px;
+  	line-height : 20px;
+  	border-radius: 50%;
+  	color:#777777;
+}
+
+.round-button > span > span.counter {
+	bottom:-3px;
+	left:-3px;
+	background-color: #9cd5e4 ; 
+}
+
+.round-button > span > span.decrease {
+	top:-3px;
+	right:-3px;
+	background-color: #cccccc ; 
+}
+
+.round-button > span > span.decrease:hover {
+  	background-color: #9cd5e4 ; 
 }

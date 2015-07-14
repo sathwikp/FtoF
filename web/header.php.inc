@@ -6,6 +6,8 @@
     <title><?php echo $PAGETITLE; ?></title>
     <!-- favicon -->
     <link rel="icon" type="image/png" href="img/F2F_short.png">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <!-- core bootstrap style guide -->
     <link rel="stylesheet" href="css/bootstrap.css" />
     <!-- animation style guide -->

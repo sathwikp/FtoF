@@ -55,11 +55,9 @@ $SCRIPTSRC[] = "js/main.js";
             <input name="locationid" type="hidden" />
 			<label for="location">
 				<div class="typeahead-container">
-     			<div class="typeahead-field">
      			<span class="typeahead-query">		
-     					<input name="location" type="search" placeholder="Where are you travelling to?" autocomplete="off" />
+     					<input name="location" type="text" placeholder="Where are you travelling to?" autocomplete="off" />
      			</span>
-     			</div>
      			</div>
 			</label>
             <label>
@@ -69,7 +67,19 @@ $SCRIPTSRC[] = "js/main.js";
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
             <label>
-            <input type="submit" name="submit" id="submit" value="Search">
+            <button type="button" class="round-button baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <input name="babyno" type="hidden" value="0" />            
+            </label>
+            <label>
+            <button type="button" class="round-button older-baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <input name="oldbabyno" type="hidden" value="0" />
+            </label>
+            <label>
+            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <input name="boyno" type="hidden" value="0" />
+            </label>                                    
+            <label>
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </label>
             </form>
             </div>
@@ -221,12 +231,9 @@ Our platform will connect you with families at your destination in order to find
 </div>
 </div>
 </div>
-    <div class="navbar navbar-default navbar-static-bottom">
-    	<div class="container">
-        	<p class="navbar-text pull-left">Copyright © Family to Family. All rights reserved.</p>
-            <a class="navbar-btn btn-danger btn pull-right" href="http://youtube.com">Subscribe</a>
-        </div>
-    </div>
-</body>
 
 <?php include 'footer.php.inc';?>
+
+</body>
+
+<?php include 'endpage.php.inc';?>

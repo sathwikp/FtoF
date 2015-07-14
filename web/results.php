@@ -32,41 +32,42 @@ $SCRIPTS[] =
 . '				</div>'
 . '			</div>'
 . '		</div>'
-. '		<div class="item_sell padded padded_half">'
+. '		<div class="item_sell padded git pull">'
 . '			<div class="items_description">'
 . '				<h3 class="hidden-xs">'
-. '					${name}'
+. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a>'
 . '				</h3>'
 . '				<span class="hidden-xs smallText">'
 . '					Paris, France'
 . '				</span>'
 . '				<br/>'
 . '				<span class="hidden-xs servicesNumber">'
-. '					8 services'
+. '					${services_no} service(s)'
 . '				</span>'
 . '				<div class="item_amenities">'
+. '                 {{each services}}'
 . '					<div class="item_border">'
-. '						<img src="img/Baby_trolley.png" class="img-responsive icons"/>'
-. '						5$/day'
+. '						<img src="${pic}" class="img-responsive icons" alt="${name}" title="${name}" />'
+. '						${price_per_day}&#8364;/day'
 . '					</div>'
-. '					<div class="item_border">'
-. '						<img src="img/Bike_icon.png" class="img-responsive icons"/>'
-. '						5$/day'
-. '					</div>'
-. '					<div class="item_border">'
-. '						<img src="img/Taxi_icon.png" class="img-responsive icons"/>'
-. '						5$/day'
-. '					</div>'
-. '					<div class="item_border">'
-. '						<img src="img/Teddy_bear_icon.png" class="img-responsive icons"/>'
-. '						5$/day'
-. '					</div>'
+. '					{{/each}}'
 . '				</div>'
 . '				<div class="stars">'
+. '					{{if stars >= 1}}'
 . '					<img src="img/star.png" class="reponsive" />'
+. '					{{/if}}'
+. '					{{if stars >= 2}}'
 . '					<img src="img/star.png" class="reponsive" />'
+. '					{{/if}}'
+. '					{{if stars >= 3}}'
 . '					<img src="img/star.png" class="reponsive" />'
+. '					{{/if}}'
+. '					{{if stars >= 4}}'
 . '					<img src="img/star.png" class="reponsive" />'
+. '					{{/if}}'
+. '					{{if stars >= 5}}'
+. '					<img src="img/star.png" class="reponsive" />'
+. '					{{/if}}'
 . '				</div>'
 . '			</div>'
 . '		</div>'
@@ -93,6 +94,7 @@ $SCRIPTS[] =
                     <li><a href=index.php">Home</a></li>
                     <li><a href="#">Signup/Login</a></li>
                     <li><a href="#">Connect</a></li>
+                    <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
         </div>
@@ -104,11 +106,9 @@ $SCRIPTS[] =
         	<div class="formSubmission">
 			<label for="location">
 				<div class="typeahead-container">
-     			<div class="typeahead-field">
      			<span class="typeahead-query">		
      					<input name="location" type="search" placeholder="Where are you travelling to?" autocomplete="off" >
      			</span>
-     			</div>
      			</div>
 			</label>
 
@@ -133,7 +133,7 @@ $SCRIPTS[] =
                     <div class="background_white">
                         <div class="hidden-xs">
                     		<div class="total_search_result">
-                            	<p>No of search result</p>
+                            	<p><span id='resultno'></span> search results</p>
                             </div>
                             <hr class="divider">
                         </div>
@@ -164,9 +164,11 @@ $SCRIPTS[] =
         </div>
     </div>
     </form>
-  </body>
-
 
 <?php include 'footer.php.inc';?>
+
+</body>
+
+<?php include 'endpage.php.inc';?>
 
 <?php require 'destroy.php.inc';?>

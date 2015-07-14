@@ -39,7 +39,19 @@ $(document).ready(function(){
    $('form[name="search"]').submit(function(e) {
 		e.preventDefault();
 		var formData = $(this).serialize();
-		document.location.href = $.param.fragment('results.php', formData );	
+		var emptyfields = $('form[name="search"] :input[type="text"]')
+			.filter(function() {
+        		return $.trim(this.value).length === 0;
+    		});
+
+		if (!emptyfields.length > 0) {
+    		document.location.href = $.param.fragment('results.php', formData );
+		} else {
+			$(emptyfields).each(function(){
+				console.log($(this));
+			});
+		}
+		
 		return false;
 	});
 	
@@ -65,13 +77,38 @@ $(document).ready(function(){
         	onClickAfter: function (node, a, item, event) {
         		$('form[name="search"] :input[name="locationid"]').val(item.id); 
         		$('form[name="search"] :input[name="location"]').val($(a).text());
-        		// pushFormParams(); 
+    			$("#datepickerArrival").focus();
         	}
     	}
 	});
   
 	$('form[name="search"] :input[name="location"]').change(function (){
-		console.log('onChange');
+		//console.log('onChange');
 	    $('form[name="search"] :input[name="locationid"]').val('');
 	});
+	
+	$('form[name="search"] :button[type="submit"]').click(function (){
+		//console.log('onChange');
+	    $('form[name="search"]').submit();
+	});
+	
+	$('.round-button').click(function(){
+		var theCurrVal=Number($(this).siblings('input').val());
+		var theNewVal = theCurrVal+1;
+		$(this).siblings('input').val(theNewVal);
+		$(this).find('span > span.counter').text(theNewVal);
+	});
+	
+	$('.decrease').click(function(e){
+		var theCurrVal=Number($(this).closest('.round-button').siblings('input').val());
+		if (theCurrVal > 0) {
+			var theNewVal = theCurrVal-1;
+			$(this).closest('.round-button').siblings('input').val(theNewVal);
+			$(this).parent().find('span.counter').text(theNewVal);
+		}
+		e.preventDefault();
+		return false;
+	});
+	
+	  $('[data-toggle="tooltip"]').tooltip();
 });
