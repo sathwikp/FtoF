@@ -65,8 +65,6 @@ try {
  	    return str_replace($bad,"",$string);
  		}
  		
- 		echo "reading more fields \n";
- 		
  		$email_message .= "First Name: ".clean_string($first_name)."\n";
  		$email_message .= "Last Name: ".clean_string($last_name)."\n";
  		$email_message .= "Email: ".clean_string($email_from)."\n";
@@ -76,9 +74,6 @@ try {
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name);
 
 
-    	echo $email_message;
-    	echo $email_subject;
-/*
 		echo "instantiating message \n";
 		$sendemail->addTo('daria.dubin@googlemail.com')->
 		          setFrom($email_from)->
@@ -89,7 +84,7 @@ try {
 		echo "Sending message \n";          
 		$response = $sendgrid->send($sendemail);
 
-		print_r($response);*/
+		print_r($response);
 	}
 
 
