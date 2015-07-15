@@ -163,7 +163,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
                         	<div class="TotalPrice">
                                 <h3 class="service-price total-price">
-                                    <span><?php echo round($departure_date->diff($arrival_date)->days * $service['price_per_day'],2); ?></span>$
+                                    <span><?php echo round($departure_date->diff($arrival_date)->days * $service['price_per_day'],2); ?></span>&#8364;
                                 </h3>   
                                 <div>
                                     <img class="tickMark" src="img/Check_icon.png" />
@@ -182,8 +182,6 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 		}
 
 	}
-	
-	
 	?>
         </div>
 		
