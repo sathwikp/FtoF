@@ -11,11 +11,11 @@ try {
 	$sendgrid = new SendGrid($api_user, $api_key);
 
 	echo "instantiating Email \n";
-	$sendemail    = new SendGrid\Email();
+	$sendemail = new SendGrid\Email();
 
 	if(isset($_POST['email'])) {
 
-		function died($error) {
+	/*	function died($error) {
 		    echo "We are very sorry, but there were error(s) found with the form you submitted. ";
 		    echo "These errors appear below.<br /><br />";
 		    echo $error."<br /><br />";
@@ -63,7 +63,7 @@ try {
  			$bad = array("content-type","bcc:","to:","cc:","href");
  	    return str_replace($bad,"",$string);
  		}
-
+*/
  		$email_message .= "First Name: ".clean_string($first_name)."\n";
  		$email_message .= "Last Name: ".clean_string($last_name)."\n";
  		$email_message .= "Email: ".clean_string($email_from)."\n";
