@@ -64,7 +64,9 @@ try {
  			$bad = array("content-type","bcc:","to:","cc:","href");
  	    return str_replace($bad,"",$string);
  		}
-
+ 		
+ 		echo "reading more fields \n";
+ 		/*
  		$email_message .= "First Name: ".clean_string($first_name)."\n";
  		$email_message .= "Last Name: ".clean_string($last_name)."\n";
  		$email_message .= "Email: ".clean_string($email_from)."\n";
@@ -73,10 +75,10 @@ try {
 
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name)
 
- 		echo "reading more fields \n";
+
     	echo $email_message;
     	echo $email_subject;
-/*
+
 		echo "instantiating message \n";
 		$sendemail->addTo('daria.dubin@googlemail.com')->
 		          setFrom($email_from)->
