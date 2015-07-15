@@ -148,7 +148,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> <span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/day </span></h3>
+                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> </h3>
 				<p class="font-color"><?php echo $service['service_desc'];?></p>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
@@ -161,12 +161,12 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
                         	<div class="TotalPrice">
+                        	    <div>
+                        	    	<span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/day </span>
+                        	    </div>
                                 <h3 class="service-price total-price">
                                     <span><?php echo round(($departure_date->diff($arrival_date)->days+1) * $service['price_per_day'],2); ?></span>&#8364;
-                                </h3>   
-                                <div>
-                                    <img class="tickMark" src="img/Check_icon.png" />
-                                </div>   
+                                </h3>    
                             </div>                  	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
@@ -182,8 +182,20 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	}
 	?>
 				</form>
+		        <div class="row item-divider">
+                	<div class="Total-price">
+                    	<h3 class="TotalAmountLabel" style="display: inline;color: #16becf;">
+                                  Total Amount :
+                        </h3>
+                        <h3 id="Amount">
+                        	1452323$
+                        </h3>
+                    	<button type="button" class="btn" id="modalBtn">Book Now</button>
+                    </div>
+                </div>				
         	</div>
 		</div>
+
 		
     <?php 
 
@@ -230,6 +242,36 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
+        
+            <div id="SendMail" class="modal fade" role="dialog">
+            	<div class="modal-dialog">
+                	<div class="modal-content">
+                       <form accept-charset="UTF-8" action="MAILTO:someone@example.com" data-remote="true" method="post">
+                    	<div class="modal-header">
+                        	<button type="button" class="close" data-dismiss="modal">×</button>
+                        	Mail the Seller             
+                        </div>
+        				<div class="modal-body">
+          						<p>
+                                 <label for="send_to">Enter your mail id:</label>
+            						<input id="send_to" name="send_to" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your email id">
+          						</p>
+          						<span class="share-error"></span>
+          						<p>
+          				  			<label for="email_message">Personal message:</label>
+           							 <textarea id="email_message" name="message" rows="3" placeholder="Please enter your message here!"></textarea>
+          						</p>
+        					</div>
+                     <div class="modal-footer">
+                         <input class="btn btn-primary" name="commit" type="submit" value="Send Email">
+                     </div>
+                     
+                     </div>
+                      </form>
+                </div>
+             
+            </div>
+	</div>
 			 
 <?php include 'footer.php.inc';?>
 
