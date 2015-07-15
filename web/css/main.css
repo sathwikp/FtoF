@@ -107,7 +107,7 @@ background-color:#fff ;
 	font-size:1.9em;
 	font-weight:600;
 	text-align:center;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 }
 .bubble-text{
 	font-family:Open Sans;	
@@ -166,22 +166,25 @@ div.bubble-head:hover{
 .sectionHeader > em{
 	color:rgb(165, 231, 216);
 	font-size:4em;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 }
 .sectionHeaderRight > em{
 	color:rgb(165, 231, 216);
 	font-size:4em;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 }
 .bubble{
 	padding-top:10px;
 }
 .punchLine{
-	font-size:3vw;
+	font-size:3.3vw;
 	color:#fff;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 	text-align:center;
 	margin-top:8%;
+}
+.smallPunchLine{
+	font-size:2.5vw;
 }
 .search .navbar-brand>img{
   margin-top: -32px;

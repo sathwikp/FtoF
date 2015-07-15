@@ -49,7 +49,8 @@ $SCRIPTSRC[] = "js/main.js";
  	<div class="row">
     	<div class="col-lg-12 col-sm-12 col-xs-12">
             <div class="punchLine">
-                <p>My Travel companion is my family</p>
+                <p>We make travelling with children easier</p>
+                <p class="smallPunchLine">Find all you need at destination</p>
             </div>
             <div class="formSubmission">
             <form name="search" action="results.php">
