@@ -37,9 +37,6 @@ try {
     	$telephone = $_POST['telephone']; // not required
     	$comments = $_POST['comments']; // required
 
-    	echo "reading more fields \n";
-    	echo $first_name;
- /*
     	$error_message = "";
     	$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
   		if(!preg_match($email_exp,$email_from)) {
@@ -76,6 +73,10 @@ try {
 
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name)
 
+ 		echo "reading more fields \n";
+    	echo $email_message;
+    	echo $email_subject;
+/*
 		echo "instantiating message \n";
 		$sendemail->addTo('daria.dubin@googlemail.com')->
 		          setFrom($email_from)->
