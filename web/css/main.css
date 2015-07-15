@@ -631,10 +631,7 @@ div#footer{
 }
 
 .round-button > span > span.decrease:hover {
-<<<<<<< HEAD
-  	background-color:  #ff7300; 
-=======
-  	background-color: #9cd5e4 ; 
+	background-color:  #ff7300; 
 }
 .srp-list >  ul{
 	margin-left:-5%;
@@ -673,5 +670,4 @@ input[type=email], textarea{
 #Amount{
 	display:inline;
 	color:#ff7300;
->>>>>>> 7b41279f1ecae87e4910d5479e57106328a6380d
 }
