@@ -36,8 +36,9 @@ try {
     	$email_from = $_POST['email']; // required
     	$telephone = $_POST['telephone']; // not required
     	$comments = $_POST['comments']; // required
-    	
+
     	echo "reading more fields \n";
+    	echo $first_name;
  /*
     	$error_message = "";
     	$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
