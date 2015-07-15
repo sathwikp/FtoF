@@ -31,7 +31,7 @@ $sql = 	"select p.name, p.description, p.picture, l.name as location, l.countryn
 	. "and p.id = s.profile_id "
 	. "and s.available = TRUE "
 	. "and p.id = :id "
-	. "and period && '["
+	. "and period @> '["
 	. $arrival_date->format('Y-m-d').", "
 	. $departure_date->format('Y-m-d')."]'::daterange "
 	. "group by p.name, p.description, p.picture, l.name, l.countryname, l.region ";
@@ -51,7 +51,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
   <body class="family">  
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="index.php" class="navbar-brand"><img src="img/F2F_word.png" class="img-responsive"/></a>
+            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/></a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -126,7 +126,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	$sql = 	"select service_type, available, period, price_fix, price_per_day, service_desc "
 		. "from offered_service "
 		. "where profile_id = :id "
-		. "and period && '["
+		. "and period @> '["
 		. $arrival_date->format('Y-m-d').", "
 		. $departure_date->format('Y-m-d')."]'::daterange ";
 

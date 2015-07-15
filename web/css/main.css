@@ -578,6 +578,7 @@ div#footer{
 .boy-button > span {
 	background  :   url('../img/boy_face_white.png') no-repeat center center;
 	  background-size: 42px 42px;
+	  	  margin-right:5px;
 }
 
 .search .baby-button > span {
@@ -593,6 +594,7 @@ div#footer{
 .search .boy-button > span {
 	background  :   url('../img/boy_face.png') no-repeat center center;
 	  background-size: 42px 42px;
+	  	  margin-right:5px;
 }
 
 .round-button > span > span {
@@ -633,7 +635,7 @@ div#footer{
 .round-button > span > span.decrease:hover {
 	background-color:  #ff7300; 
 }
-.srp-list >  ul{
+.srp-list > div > ul{
 	margin-left:-5%;
 }
 .modal-header{

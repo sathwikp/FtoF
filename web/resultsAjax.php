@@ -13,15 +13,14 @@ list($arrival_date, $departure_date) = $datespair;
 
 $services = array_map("intval",preg_grep_keys("/service__\d+/",$_POST));
 
-//intval($_POST['babyno']),
-//intval($_POST['oldbabyno']),
-//intval($_POST['boyno'])
+$location_id = intval($_POST['locationid']);
 
 $sql = 	"select p.id, p.name, p.description, p.picture, count(*) as services_no, array_to_json(array_agg(s.service_type)) as services_type,  array_to_json(array_agg(s.price_per_day)) as services_price_per_day "
 	. "from profile p, offered_service s "
 	. "where p.id = s.profile_id "
 	. "and s.available = TRUE "
-	. "and s.period && '["
+	. "and p.location_id = ".$location_id. " " 
+	. "and s.period @> '["
 	. $arrival_date->format('Y-m-d').", "
 	. $departure_date->format('Y-m-d')."]'::daterange ";
 	
