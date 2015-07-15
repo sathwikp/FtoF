@@ -195,6 +195,10 @@ div.bubble-head:hover{
 	color:#F4EFEF;
 	font-size:1.1em;
 	font-weight:bold;
+	margin-top:30px;
+}
+.family .navbar-inverse .navbar-nav > li > a, .search .navbar-inverse .navbar-nav > li > a {
+	margin-top:0px;
 }
 input[type=text] ,input[type=password], input[type=search] {
   -webkit-appearance: none;
@@ -213,14 +217,14 @@ input[type=text] ,input[type=password], input[type=search] {
 	width:120px !important;
 }
 .navbar-brand>img{
-	margin-top:-20px;
+	margin-top:0px;
 	margin-left: -6px;
 }
 .formSubmission{
 	margin-top:25%;
 	text-align:center;
 }
-button[type=submit], input[type=submit]{
+button[type=submit], input[type=submit], .Total-price button[type=button]{
   outline: 0;
   border:1px solid #ff7300;
   color: #ffffff;
@@ -230,9 +234,10 @@ button[type=submit], input[type=submit]{
   -moz-border-radius: 2px;
   border-radius: 5%;
 }
-button[type=submit]:hover, input[type=submit]:hover{
+button[type=submit]:hover, input[type=submit]:hover, .Total-price button[type=button]:hover{
   border: 1px solid #ff7300;
   background: #DA8E04; /* Old browsers */
+  color:#fff;
 }
 .search .formSubmission{
 	margin-top:1%;
@@ -495,15 +500,17 @@ div#footer{
 }
 .service-price{
 	color: #ff7300;
+	font-size:18px;
 }
 .total-price{
-	margin-right:-20px;
+	font-size:24px;
 }
 .tickMark{
 	width:30px;
 }
 .TotalPrice{
 	text-align:center;
+	margin-top:15px;
 }
 .Add-cart{
 	width:80px;
@@ -624,5 +631,47 @@ div#footer{
 }
 
 .round-button > span > span.decrease:hover {
+<<<<<<< HEAD
   	background-color:  #ff7300; 
+=======
+  	background-color: #9cd5e4 ; 
+}
+.srp-list >  ul{
+	margin-left:-5%;
+}
+.modal-header{
+	background-color:#edefed;
+	color:#565a5c;
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:16px;
+}
+.modal-footer input[type=submit], .modal-footer button[type=submit]{
+	padding:8px 15px 8px 15px;
+}
+.modal-footer button[type=submit]:hover, .modal-footer input[type=submit]:hover{
+  border: 1px solid #ff7300;
+  background: #DA8E04; /* Old browsers */
+}
+.modal-body label{
+	display:block;
+	padding-top:12px;
+	padding-bottom:4px;
+}
+input[type=email], textarea{
+	  padding: 10px;
+  width: 80%;
+}
+.Total-price{
+	float:right;
+	padding-right:7%;
+	padding-top:1%;
+}
+.TotalAmountLabel{
+	display:inline;
+	color:#16becf;
+}
+#Amount{
+	display:inline;
+	color:#ff7300;
+>>>>>>> 7b41279f1ecae87e4910d5479e57106328a6380d
 }

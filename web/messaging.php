@@ -11,7 +11,7 @@ try {
 	$sendgrid = new SendGrid($api_user, $api_key);
 
 	echo "instantiating Email \n";
-	$sendemail    = new SendGrid\Email();
+	$sendemail = new SendGrid\Email();
 
 	if(isset($_POST['email'])) {
 
@@ -22,7 +22,7 @@ try {
 		    echo "Please go back and fix these errors.<br /><br />";
 		    die();
 		}
-
+		
 		if(!isset($_POST['first_name']) ||
 	        !isset($_POST['last_name']) ||
 	        !isset($_POST['email']) ||
@@ -30,12 +30,16 @@ try {
 	        !isset($_POST['comments'])) {
 	        died('We are sorry, but there appears to be a problem with the form you submitted.');       
 	    }
+	    
 	    $first_name = $_POST['first_name']; // required
     	$last_name = $_POST['last_name']; // required
     	$email_from = $_POST['email']; // required
     	$telephone = $_POST['telephone']; // not required
     	$comments = $_POST['comments']; // required
- 
+
+    	echo "reading more fields \n";
+    	echo $first_name;
+ /*
     	$error_message = "";
     	$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
   		if(!preg_match($email_exp,$email_from)) {
@@ -82,67 +86,13 @@ try {
 		echo "Sending message \n";          
 		$response = $sendgrid->send($sendemail);
 
-		print_r($response);
+		print_r($response);*/
 	}
-*/
+
 
 } catch (Exception $e) {
 	print_r($e);
 }
 ?>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
 
-<form name="contactform" method="post" action="messaging.php">
-<table width="450px">
-<tr>
- <td valign="top">
-  <label for="first_name">First Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="first_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="last_name">Last Name *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="last_name" maxlength="50" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="email">Email Address *</label>
- </td>
- <td valign="top">
-  <input  type="text" name="email" maxlength="80" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="telephone">Telephone Number</label>
- </td>
- <td valign="top">
-  <input  type="text" name="telephone" maxlength="30" size="30">
- </td>
-</tr>
-<tr>
- <td valign="top">
-  <label for="comments">Comments *</label>
- </td>
- <td valign="top">
-  <textarea  name="comments" maxlength="1000" cols="25" rows="6"></textarea>
- </td>
-</tr>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php"> Email Form </a>
- </td>
-</tr>
-</table>
-</form>
-</html>
 </pre>
