@@ -11,12 +11,11 @@ try {
 	$sendgrid = new SendGrid($api_user, $api_key);
 
 	echo "instantiating Email \n";
-	$email    = new SendGrid\Email();
+	$sendemail    = new SendGrid\Email();
 
-/*	if(isset($_POST['email'])) {
+	if(isset($_POST['email'])) {
 
 		function died($error) {
-		    // your error code can go here
 		    echo "We are very sorry, but there were error(s) found with the form you submitted. ";
 		    echo "These errors appear below.<br /><br />";
 		    echo $error."<br /><br />";
@@ -74,14 +73,14 @@ try {
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name)
 
 		echo "instantiating message \n";
-		$email->addTo('daria.dubin@googlemail.com')->
+		$sendemail->addTo('daria.dubin@googlemail.com')->
 		          setFrom($email_from)->
 		          setSubject($email_subject)->
 		          setText($email_message)->
-		          setHtml('<strong'.$email_message.'</strong>');
+		          setHtml('<strong> Hello World! </strong>');
 
 		echo "Sending message \n";          
-		$response = $sendgrid->send($email);
+		$response = $sendgrid->send($sendemail);
 
 		print_r($response);
 	}
@@ -96,7 +95,7 @@ try {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
-<form name="contactform" method="post" action="send_form_email.php">
+<form name="contactform" method="post" action="messaging.php">
 <table width="450px">
 <tr>
  <td valign="top">
@@ -140,7 +139,7 @@ try {
 </tr>
 <tr>
  <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php">Email Form</a>
+  <input type="submit" value="Submit">   <a href="http://www.freecontactform.com/email_form.php"> Email Form </a>
  </td>
 </tr>
 </table>
