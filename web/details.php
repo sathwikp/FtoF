@@ -31,7 +31,7 @@ $sql = 	"select p.name, p.description, p.picture, l.name as location, l.countryn
 	. "and p.id = s.profile_id "
 	. "and s.available = TRUE "
 	. "and p.id = :id "
-	. "and period && '["
+	. "and period @> '["
 	. $arrival_date->format('Y-m-d').", "
 	. $departure_date->format('Y-m-d')."]'::daterange "
 	. "group by p.name, p.description, p.picture, l.name, l.countryname, l.region ";
@@ -51,7 +51,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
   <body class="family">  
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="index.php" class="navbar-brand"><img src="img/F2F_word.png" class="img-responsive"/></a>
+            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/></a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -74,7 +74,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
     	<div classs="row">
 			<div class="family-summary">
 				<div class="col-lg-2 col-sm-3 col-xs-3">
-					<img alt="Family Name" src="img\IdCard1.png" />
+					<img alt="Family Name" src="img/IdCard1.png" />
 				</div>
 				<div class="family-highlight col-lg-5 col-sm-6 col-xs-6">
 					<h2><?php echo $profile['name']; ?></h2>
@@ -82,10 +82,10 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 					<div class="font-color"><span class="services"><?php echo $profile['serviceno']; ?></span> services</div>
 				</div>
 				<div class="family-highlight col-lg-2 hidden-sm hidden-xs">
-					<img alt="Star" src="img\star.png" />
-                    <img alt="Star" src="img\star.png" />
-                    <img alt="Star" src="img\star.png" />
-                    <img alt="Star" src="img\star.png" />
+					<img alt="Star" src="img/star.png" />
+                    <img alt="Star" src="img/star.png" />
+                    <img alt="Star" src="img/star.png" />
+                    <img alt="Star" src="img/star.png" />
                     4/5
 				</div>
 				<div class="family-highlight col-lg-3 col-sm-3 col-xs-3">
@@ -126,7 +126,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	$sql = 	"select service_type, available, period, price_fix, price_per_day, service_desc "
 		. "from offered_service "
 		. "where profile_id = :id "
-		. "and period && '["
+		. "and period @> '["
 		. $arrival_date->format('Y-m-d').", "
 		. $departure_date->format('Y-m-d')."]'::daterange ";
 
@@ -148,7 +148,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> <span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/day </span></h3>
+                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> </h3>
 				<p class="font-color"><?php echo $service['service_desc'];?></p>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
@@ -161,16 +161,16 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
                         	<div class="TotalPrice">
+                        	    <div>
+                        	    	<span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/day </span>
+                        	    </div>
                                 <h3 class="service-price total-price">
                                     <span><?php echo round(($departure_date->diff($arrival_date)->days+1) * $service['price_per_day'],2); ?></span>&#8364;
-                                </h3>   
-                                <div>
-                                    <img class="tickMark" src="img/Check_icon.png" />
-                                </div>   
+                                </h3>    
                             </div>                  	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_to_Cart_icon.png" /></a>
+                        	<a href=""><img class="Add-cart" alt="" src="img/Add_to_Cart_icon.png" /></a>
                         </div>
                     </div>              
                 </div>                
@@ -182,8 +182,20 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	}
 	?>
 				</form>
+		        <div class="row item-divider">
+                	<div class="Total-price">
+                    	<h3 class="TotalAmountLabel" style="display: inline;color: #16becf;">
+                                  Total Amount :
+                        </h3>
+                        <h3 id="Amount">
+                        	1452323$
+                        </h3>
+                    	<button type="button" class="btn" id="modalBtn">Book Now</button>
+                    </div>
+                </div>				
         	</div>
 		</div>
+
 		
     <?php 
 
@@ -214,7 +226,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 
                     <div class="col-lg-8 col-sm-12 col-xs-12 review-user">
                     	<div class="col-lg-2 col-sm-2 col-xs-2 user-icon-div">
-                    		<img class="user-icon" alt="" src="img\Profile_user_icon.png" />
+                    		<img class="user-icon" alt="" src="img/Profile_user_icon.png" />
                             <div class="font-color"><?php echo $review['name']; ?></div>
                         </div>
                         <div class="col-lg-10 col-sm-10 col-xs-10 review-byuser"> 
@@ -230,6 +242,36 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
+        
+            <div id="SendMail" class="modal fade" role="dialog">
+            	<div class="modal-dialog">
+                	<div class="modal-content">
+                       <form accept-charset="UTF-8" action="MAILTO:someone@example.com" data-remote="true" method="post">
+                    	<div class="modal-header">
+                        	<button type="button" class="close" data-dismiss="modal">×</button>
+                        	Mail the Seller             
+                        </div>
+        				<div class="modal-body">
+          						<p>
+                                 <label for="send_to">Enter your mail id:</label>
+            						<input id="send_to" name="send_to" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your email id">
+          						</p>
+          						<span class="share-error"></span>
+          						<p>
+          				  			<label for="email_message">Personal message:</label>
+           							 <textarea id="email_message" name="message" rows="3" placeholder="Please enter your message here!"></textarea>
+          						</p>
+        					</div>
+                     <div class="modal-footer">
+                         <input class="btn btn-primary" name="commit" type="submit" value="Send Email">
+                     </div>
+                     
+                     </div>
+                      </form>
+                </div>
+             
+            </div>
+	</div>
 			 
 <?php include 'footer.php.inc';?>
 

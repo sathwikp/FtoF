@@ -107,7 +107,7 @@ background-color:#fff ;
 	font-size:1.9em;
 	font-weight:600;
 	text-align:center;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 }
 .bubble-text{
 	font-family:Open Sans;	
@@ -166,22 +166,25 @@ div.bubble-head:hover{
 .sectionHeader > em{
 	color:rgb(165, 231, 216);
 	font-size:4em;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 }
 .sectionHeaderRight > em{
 	color:rgb(165, 231, 216);
 	font-size:4em;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 }
 .bubble{
 	padding-top:10px;
 }
 .punchLine{
-	font-size:3vw;
+	font-size:3.3vw;
 	color:#fff;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Indie Flower', cursive;
 	text-align:center;
 	margin-top:8%;
+}
+.smallPunchLine{
+	font-size:2.5vw;
 }
 .search .navbar-brand>img{
   margin-top: -32px;
@@ -419,7 +422,7 @@ span.servicesNumber{
 }
 
 .search .item_border:hover{
-	background-color:#FDE7E0;;
+	background-color:#FDE7E0;
 }
 img.cart{
  height:40px;
@@ -558,35 +561,60 @@ div#footer{
 	vertical-align: middle;
 }
 
-.round-button span{
+span.round-button-cont{
+	margin-right:5px;
+	margin-left:5px;	
+}
+
+span.rightmost-cont{
+	margin-right:15px;
+}
+
+.round-button span, span.round-button-cont{
   display : block;
 }
 
-.round-button > span {
+.round-button > span, span.round-button-cont {
   position: relative;
   width       : 45px;
   height      : 45px;
   line-height : 45px;
   border-radius: 50%;
-  border:1px solid #ff7300;
+  /*border:1px solid #ff7300;*/
 }
 
 .baby-button > span {
-	background  :  #ffffff url('../img/baby_face.png') no-repeat center center;
+	background  :   url('../img/baby_face_white.png') no-repeat center center;
 	  background-size: 42px 42px;
 }
 
 .older-baby-button > span {
-	background  :  #ffffff url('../img/older_baby_face.png') no-repeat center center;
+	background  :  url('../img/older_baby_face_white.png') no-repeat center center;
 	  background-size: 42px 42px;
 }
 
 .boy-button > span {
-	background  :  #ffffff url('../img/boy_face.png') no-repeat center center;
+	background  :   url('../img/boy_face_white.png') no-repeat center center;
 	  background-size: 42px 42px;
 }
 
-.round-button > span > span {
+.search .baby-button > span {
+	background  :   url('../img/baby_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.search .older-baby-button > span {
+	background  :  url('../img/older_baby_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+}
+
+.search .boy-button > span {
+	background  :   url('../img/boy_face.png') no-repeat center center;
+	  background-size: 42px 42px;
+	  	  margin-right:5px;
+}
+
+.round-button > span > span, span.round-button-cont > span.decrease {
 	position: absolute;
 	width       : 20px;
   	height      : 20px;
@@ -596,21 +624,37 @@ div#footer{
 }
 
 .round-button > span > span.counter {
+	bottom:-5px;
+	left:-5px;
+	background-color: #ffffff ; 
+}
+
+.search .round-button > span > span.counter {
 	bottom:-3px;
 	left:-3px;
 	background-color: #9cd5e4 ; 
 }
 
-.round-button > span > span.decrease {
-	top:-3px;
-	right:-3px;
-	background-color: #cccccc ; 
+span.decrease {
+	top:-8px;
+	right:-12px;
+	background  : transparent url('../img/delete_button.png') no-repeat center center;
+	background-size: 20px 20px;
+	cursor: pointer;
+	cursor: hand; 
 }
 
-.round-button > span > span.decrease:hover {
-  	background-color: #9cd5e4 ; 
+.search span.decrease {
+	top:-8px;
+	right:-10px;
+	background  : #9cd5e4 url('../img/delete_button.png') no-repeat center center;
+	background-size: 21px 21px;
+	cursor: pointer;
+	cursor: hand; 
 }
-.srp-list >  ul{
+
+
+.srp-list > div > ul{
 	margin-left:-5%;
 }
 .modal-header{

@@ -39,4 +39,8 @@ $(document).ready(function(){
     	$(this).datepicker( "option", "maxDate", $(this).attr('data-maxdate') );
     });
 
+	$("#modalBtn").click(function(){
+        $("#SendMail").modal();
+    });
+    
 });

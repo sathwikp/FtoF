@@ -67,16 +67,32 @@ function parse_and_validate_dates($arrival, $departure){
 abstract class ServiceType
 {
     const Stroller = 0;
-    const Bike = 1;
-    const Transfer = 2;
-    const Toys = 3;
+	const CarSeat = 1;
+	const BabyChair = 2;
+	const Toys = 3; // / Books
+    const Bike = 4; //Bike / Roller
+	const FamilyCar = 5;
+	const House = 6;
+    const Transfer = 7;
+    const Babysit = 8; 
+    const Activity = 9;
+    const Teaching = 10;
+    const Others = 11;
     
     static public function GetTypes() { 
     	return [
     		ServiceType::Stroller => 'Stroller',
-    		ServiceType::Bike => 'Bike',
+    		ServiceType::Bike => 'Bike / Rollers',
     		ServiceType::Transfer => 'Airport Transfer',
-    		ServiceType::Toys => 'Baby Toys'
+    		ServiceType::Toys => 'Baby Toys / Books',
+			ServiceType::CarSeat => 'Baby Car Seat',
+			ServiceType::BabyChair => 'Baby Chair',
+			ServiceType::FamilyCar => 'Family Car',
+			ServiceType::House => 'Family-friendly House',
+			ServiceType::Babysit => 'Baby Sitting',
+			ServiceType::Activity => 'Children Activity',
+			ServiceType::Teaching => 'Teaching Lessons',
+			ServiceType::Others => 'Others',
     	];
     }
     
@@ -85,7 +101,16 @@ abstract class ServiceType
     		ServiceType::Stroller => 'img/Baby_trolley.png',
     		ServiceType::Bike => 'img/Bike_icon.png',
     		ServiceType::Transfer => 'img/Taxi_icon.png',
-    		ServiceType::Toys => 'img/Teddy_bear_icon.png'
+    		ServiceType::Toys => 'img/Teddy_bear_icon.png',
+    		
+			ServiceType::CarSeat => 'img/Baby_trolley.png',
+			ServiceType::BabyChair => 'img/Baby_trolley.png',
+			ServiceType::FamilyCar => 'img/Baby_trolley.png',
+			ServiceType::House => 'img/Baby_trolley.png',
+			ServiceType::Babysit => 'img/Baby_trolley.png',
+			ServiceType::Activity => 'img/Baby_trolley.png',
+			ServiceType::Teaching => 'img/Baby_trolley.png',
+			ServiceType::Others => 'img/Baby_trolley.png',
     	];
     }
 }

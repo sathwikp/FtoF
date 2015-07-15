@@ -84,7 +84,7 @@ $SCRIPTS[] =
   
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="index.php" class="navbar-brand"><img src="img/F2F_word.png" class="img-responsive"/></a>
+            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/></a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -120,17 +120,18 @@ $SCRIPTS[] =
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
             <label>
-            <button type="button" class="round-button baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
-            <input name="babyno" type="hidden" value="0" />            
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="babyno" type="hidden" value="0" /></span>            
             </label>
             <label>
-            <button type="button" class="round-button older-baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
-            <input name="oldbabyno" type="hidden" value="0" />
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><button type="button" class="round-button older-baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="oldbabyno" type="hidden" value="0" /></span>
             </label>
             <label>
-            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
-            <input name="boyno" type="hidden" value="0" />
-            </label>                                               
+            <span class='round-button-cont rightmost-cont' data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><button type="button" class="round-button boy-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="boyno" type="hidden" value="0" /></span>
+            </label>                                    
+                                               
             </div>
         </div>
     </div>
@@ -147,7 +148,7 @@ $SCRIPTS[] =
                         </div>
                         <div class="filter_padding">
                            	<div class="filters">
-                            	<h4>Rental</h4>
+                            	<h4>Services</h4>
                                 	<div class="filters-wrapper">
      	<?php
      		foreach (ServiceType::GetTypes() as $key => $val) {
@@ -159,6 +160,21 @@ $SCRIPTS[] =
      		}
      	 ?>                                	
                                     </div>
+                                    <h4>Languages</h4>
+                                	<div class="filters-wrapper">
+    									<label for="french" class="filter">
+      										<input type="checkbox" class="ui_checkbox" name="french" value="french"> <span class="ui_checkbox_target"></span> French
+      									</label>
+      									<br />
+    									<label for="english" class="filter">
+      										<input type="checkbox" class="ui_checkbox" name="english" value="english"> <span class="ui_checkbox_target"></span> English
+      									</label>
+      									<br />     
+    									<label for="spanish" class="filter">
+      										<input type="checkbox" class="ui_checkbox" name="spanish" value="spanish"> <span class="ui_checkbox_target"></span> Spanish
+      									</label>
+      									<br />           									      									                                		
+                                	</div>
 							</div>
                             <hr class="divider">
 						</div>

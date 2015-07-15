@@ -47,6 +47,7 @@ $(window).bind( 'hashchange', function( event ){
 			$(this).parent().find('span > span.counter').text($(this).val());
 		});
 	});
+
 	
 	var overlay = $("<div />").css({
     	position: "absolute",
@@ -65,22 +66,20 @@ $(window).bind( 'hashchange', function( event ){
     	dfd.resolve();
   	}, 500 );
   	// apply options from hash
-	$.when(dfd.promise(),
-		$.ajax({
+	$.when($.ajax({
 			type        : 'POST', 
 			url         : 'resultsAjax.php', 
 			data        : $.param(hashOptions), 
 			dataType    : 'json', 
 			encode      : true
-		}).done(function(data) {
-			//console.log(data); 
+		}), dfd.promise()).done(function(ajaxObj) {
+			var data = ajaxObj[0];
 			$('#resultList').empty();
 			$('#resultno').text($(data).length);
 			$('#resultTpl').tmpl(data).appendTo('#resultList');
 			$("#resultList li:has(a)").click(function() {
       			window.location = $("a:first",this).attr("href");
    			});
-   		})).then(function(){
    			overlay.remove();
    		});
   }
@@ -131,9 +130,9 @@ $(window).bind( 'hashchange', function( event ){
     	}
 	});
   
-	$('form[name="criteria"] :input[name="location"]').change(function (){
-	    $('form[name="criteria"] :input[name="locationid"]').val('');
-	});
+	//$('form[name="criteria"] :input[name="location"]').change(function (){
+	//    $('form[name="criteria"] :input[name="locationid"]').val('');
+	//});
 
 	$('.round-button, .round-button span').click(function(){pushFormParams();});
 });

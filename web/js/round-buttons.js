@@ -9,11 +9,13 @@ $(document).ready(function() {
 	
 	
 	$('.decrease').click(function(e){
-		var theCurrVal=Number($(this).closest('.round-button').siblings('input').val());
+		var theCurrVal = Number($(this).closest('span.round-button-cont').
+			find('input').val());
 		if (theCurrVal > 0) {
 			var theNewVal = theCurrVal-1;
-			$(this).closest('.round-button').siblings('input').val(theNewVal);
-			$(this).parent().find('span.counter').text(theNewVal);
+			$(this).closest('span.round-button-cont').find('input').val(theNewVal);
+			$(this).closest('span.round-button-cont').
+				find('span.counter').text(theNewVal);
 		}
 		e.preventDefault();
 		return false;
