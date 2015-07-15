@@ -1,6 +1,6 @@
 <?php require 'init.php.inc'; ?>
 
-<?php require 'vendor/autoload.php'; ?>
+<?php require '../vendor/autoload.php'; ?>
 
 <pre>
 
