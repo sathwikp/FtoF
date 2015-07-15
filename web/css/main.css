@@ -318,6 +318,9 @@ button[type=submit]:hover, input[type=submit]:hover, .Total-price button[type=bu
   position: absolute;
   width: 1px;
 }
+.chk{
+	background:url('../img/Check_mark_icon.png') no-repeat 50%;
+}
 label{
  font-weight:normal;
 }
@@ -507,6 +510,9 @@ div#footer{
 }
 .tickMark{
 	width:30px;
+}
+.checkMark{
+	cursor:pointer;
 }
 .TotalPrice{
 	text-align:center;
