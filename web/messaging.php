@@ -7,10 +7,8 @@
 <?php
 
 try {
-	echo "instantiating SendGrid \n";
 	$sendgrid = new SendGrid($api_user, $api_key);
 
-	echo "instantiating Email \n";
 	$sendemail = new SendGrid\Email();
 
 	if(isset($_POST['email'])) {
@@ -73,8 +71,6 @@ try {
 
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name);
 
-
-		echo "instantiating message \n";
 		$sendemail->addTo('daria.dubin@googlemail.com')->
 		          setFrom($email_from)->
 		          setSubject($email_subject)->
@@ -84,11 +80,11 @@ try {
 		echo "Sending message \n";          
 		$response = $sendgrid->send($sendemail);
 
-		print_r($response);
+		print_r("Your message has been sent ");
 	}
 
 
-} catch (Exception $e) {
+} catch (Exception $e) {!
 	print_r($e);
 }
 ?>
