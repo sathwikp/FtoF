@@ -2,6 +2,8 @@
 <pre>
 <?php
 
+require 'vendor/autoload.php';
+
 $sendgrid = new SendGrid($api_user, $api_key);
 $email    = new SendGrid\Email();
 
