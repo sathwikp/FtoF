@@ -79,7 +79,7 @@ try {
 		          setFrom($email_from)->
 		          setSubject($email_subject)->
 		          setText($email_message)->
-		          setHtml('<strong> Hello World! </strong>');
+		          setHtml('<strong>'.$email_message.'</strong>');
 
 		echo "Sending message \n";          
 		$response = $sendgrid->send($sendemail);
