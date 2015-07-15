@@ -7,10 +7,8 @@
 <?php
 
 try {
-	echo "instantiating SendGrid \n";
 	$sendgrid = new SendGrid($api_user, $api_key);
 
-	echo "instantiating Email \n";
 	$sendemail = new SendGrid\Email();
 
 	if(isset($_POST['email'])) {
@@ -64,34 +62,29 @@ try {
  			$bad = array("content-type","bcc:","to:","cc:","href");
  	    return str_replace($bad,"",$string);
  		}
-
+ 		
  		$email_message .= "First Name: ".clean_string($first_name)."\n";
  		$email_message .= "Last Name: ".clean_string($last_name)."\n";
  		$email_message .= "Email: ".clean_string($email_from)."\n";
  		$email_message .= "Telephone: ".clean_string($telephone)."\n";
         $email_message .= "Comments: ".clean_string($comments)."\n";
 
-        $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name)
+        $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name);
 
- 		echo "reading more fields \n";
-    	echo $email_message;
-    	echo $email_subject;
-/*
-		echo "instantiating message \n";
-		$sendemail->addTo('daria.dubin@googlemail.com')->
+		$sendemail->addTo('family2family.email@gmail.com')->
 		          setFrom($email_from)->
 		          setSubject($email_subject)->
 		          setText($email_message)->
-		          setHtml('<strong> Hello World! </strong>');
+		          setHtml('<strong>'.$email_message.'</strong>');
 
 		echo "Sending message \n";          
 		$response = $sendgrid->send($sendemail);
 
-		print_r($response);*/
+		print_r("Your message has been sent ");
 	}
 
 
-} catch (Exception $e) {
+} catch (Exception $e) {!
 	print_r($e);
 }
 ?>
