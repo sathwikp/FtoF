@@ -44,7 +44,7 @@
                       <li><a href="#">German</a></li>
                     </ul>
                 </li>
-                <li><a href="home.html">Sign up/Login</a></li>
+                <li><a href="#Login" data-toggle="modal">Sign up/Login</a></li>
                 <li><a href="home.html">Connect</a></li>
                 <li><a href="home.html"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
            </ul>
@@ -221,6 +221,36 @@ Our platform will connect you with families at your destination in order to find
 </div>
 </div>
 </div>
+	
+    <div id="Login" class="modal fade" role="dialog">
+            	<div class="modal-dialog">
+                	<div class="modal-content">
+                       <form accept-charset="UTF-8" action="Signin" data-remote="true" method="post">
+                    	<div class="modal-header">
+                        	<button type="button" class="close" data-dismiss="modal">×</button>
+                        	Sign-in            
+                        </div>
+        				<div class="modal-body">
+          						<p>
+                                 <label for="userName">Enter your User Name:</label>
+            						<input id="userName" name="userName" type="text" value="" class="input-large input-block" placeholder="Enter your user name">
+          						</p>
+          						<span class="share-error"></span>
+          						<p>
+          				  			<label for="password">Password:</label>
+           							 <input type="password" id="password" name="password">
+          						</p>
+        					</div>
+                     <div class="modal-footer">
+                         <input class="btn btn-primary" name="commit" type="submit" value="Login">
+                     </div>
+                     	</form>
+                     </div>
+                      
+                </div>
+             
+            </div>
+            
     <div class="navbar navbar-default navbar-static-bottom" id="footer">
     	<div class="container">
         	<p class="navbar-text pull-left">Copyright © Family to Family. All rights reserved.</p>
