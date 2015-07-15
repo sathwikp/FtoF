@@ -69,16 +69,16 @@ $SCRIPTSRC[] = "js/main.js";
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
             <label>
-            <button type="button" class="round-button baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><span><span class="counter">0</span><span class="decrease"></span></span></button>
-            <input name="babyno" type="hidden" value="0" />            
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="babyno" type="hidden" value="0" /></span>            
             </label>
             <label>
-            <button type="button" class="round-button older-baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><span><span class="counter">0</span><span class="decrease"></span></span></button>
-            <input name="oldbabyno" type="hidden" value="0" />
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><button type="button" class="round-button older-baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="oldbabyno" type="hidden" value="0" /></span>
             </label>
             <label>
-            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease"></span></span></button>
-            <input name="boyno" type="hidden" value="0" />
+            <span class='round-button-cont rightmost-cont' data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><button type="button" class="round-button boy-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="boyno" type="hidden" value="0" /></span>
             </label>                                    
             <label>
             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
