@@ -24,7 +24,7 @@ catch(PDOException $pe)
 }
 
 $api_user='app38733322@heroku.com';
-$api_key='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';
+$api_key='uyw72sji2997';
 // Functions
 function random_lipsum($amount = 1, $what = 'paras', $start = 0) {
 	return (string) simplexml_load_file("http://www.lipsum.com/feed/xml?amount=$amount&what=$what&start=$start")->lipsum;
