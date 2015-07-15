@@ -71,7 +71,7 @@ try {
 
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name);
 
-		$sendemail->addTo('daria.dubin@googlemail.com')->
+		$sendemail->addTo('family2family.email@gmail.com')->
 		          setFrom($email_from)->
 		          setSubject($email_subject)->
 		          setText($email_message)->
