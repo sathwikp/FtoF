@@ -42,24 +42,47 @@ $(window).bind( 'hashchange', function( event ){
         default:
             $el.val(val);
     	}
+    	
+    	$('.round-button').siblings('input').each(function(){
+			$(this).parent().find('span > span.counter').text($(this).val());
+		});
 	});
+	
+	var overlay = $("<div />").css({
+    	position: "absolute",
+    	width: "100%",
+    	height: "100%",
+    	left: 0,
+    	top: 0,
+    	zIndex: 1000000,  // to be on the safe side
+    	background: "#aaaaaa url(img/loading.gif) no-repeat 50% 50%",
+    	opacity: 0.4,
+        filter: "alpha(opacity=40)" /* For IE8 and earlier */
+	}).appendTo($("#resultContainer").css("position", "relative"));
   
-  // apply options from hash
-	$.ajax({
-		type        : 'POST', 
-		url         : 'resultsAjax.php', 
-		data        : $.param(hashOptions), 
-		dataType    : 'json', 
-		encode      : true
-	}).done(function(data) {
-		//console.log(data); 
-		$('#resultList').empty();
-		$('#resultno').text($(data).length);
-		$('#resultTpl').tmpl(data).appendTo('#resultList');
-		$("#resultList li:has(a)").click(function() {
-      		window.location = $("a:first",this).attr("href");
+  	var dfd = jQuery.Deferred();
+  	setTimeout(function() {
+    	dfd.resolve();
+  	}, 500 );
+  	// apply options from hash
+	$.when(dfd.promise(),
+		$.ajax({
+			type        : 'POST', 
+			url         : 'resultsAjax.php', 
+			data        : $.param(hashOptions), 
+			dataType    : 'json', 
+			encode      : true
+		}).done(function(data) {
+			//console.log(data); 
+			$('#resultList').empty();
+			$('#resultno').text($(data).length);
+			$('#resultTpl').tmpl(data).appendTo('#resultList');
+			$("#resultList li:has(a)").click(function() {
+      			window.location = $("a:first",this).attr("href");
+   			});
+   		})).then(function(){
+   			overlay.remove();
    		});
-	});
   }
 })
   // trigger hashchange to capture any hash data on init
@@ -70,7 +93,7 @@ $(window).bind( 'hashchange', function( event ){
   		$('form[name="criteria"]').serializeArray().map(function(x){
   			formData[x.name] = x.value;
   		});
-  		console.log(formData);
+  		//console.log(formData);
   		$.bbq.pushState( formData , 2);
 	}
   	
@@ -111,5 +134,6 @@ $(window).bind( 'hashchange', function( event ){
 	$('form[name="criteria"] :input[name="location"]').change(function (){
 	    $('form[name="criteria"] :input[name="locationid"]').val('');
 	});
- 
+
+	$('.round-button, .round-button span').click(function(){pushFormParams();});
 });

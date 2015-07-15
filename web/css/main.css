@@ -209,11 +209,12 @@ input[type=text] ,input[type=password], input[type=search] {
   font-size: 0.98em;
   color: #4C4C4C;
   font-family:Open Sans;
-  width:360px;
+  width:320px;
   height:47px;
 }
-#datepickerArrival ,#datepickerDeparture{
-	width:120px;
+
+.datepickerArrival, .datepickerDeparture, #datepickerArrival, #datepickerDeparture{
+	width:120px !important;
 }
 .navbar-brand>img{
 	margin-top:0px;
@@ -585,7 +586,7 @@ div#footer{
   	height      : 20px;
   	line-height : 20px;
   	border-radius: 50%;
-  	color:#777777;
+  	color:#555555;
 }
 
 .round-button > span > span.counter {

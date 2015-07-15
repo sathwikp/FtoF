@@ -13,7 +13,7 @@
     <!-- animation style guide -->
     <link rel="stylesheet" href="css/animate.css" />
     <!-- Load jQuery UI CSS  -->
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" href="css/base/jquery-ui.min.css" />
     <link rel="stylesheet" href="css/jquery.typeahead.min.css" />
     <!-- custom style guide -->
     <link rel="stylesheet" href="css/main.css" />
@@ -23,7 +23,7 @@
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
     <script src="js/jquery-2.1.4.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 	<?php
 		if (isset($SCRIPTSRC)) {

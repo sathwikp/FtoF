@@ -7,6 +7,7 @@ $SCRIPTSRC[] = "js/jquery-migrate-1.2.1.min.js";
 $SCRIPTSRC[] = "js/jquery.ba-bbq.min.js";
 
 $SCRIPTSRC[] = "js/datepicker.js";
+$SCRIPTSRC[] = "js/round-buttons.js";
 $SCRIPTSRC[] = "js/main.js";
 
 ?>
