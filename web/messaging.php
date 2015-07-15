@@ -22,8 +22,7 @@ try {
 		    echo "Please go back and fix these errors.<br /><br />";
 		    die();
 		}
-		echo "email is set \n";
-/*
+		
 		if(!isset($_POST['first_name']) ||
 	        !isset($_POST['last_name']) ||
 	        !isset($_POST['email']) ||
@@ -31,6 +30,8 @@ try {
 	        !isset($_POST['comments'])) {
 	        died('We are sorry, but there appears to be a problem with the form you submitted.');       
 	    }
+	    echo "email is set \n";
+	    /*
 	    $first_name = $_POST['first_name']; // required
     	$last_name = $_POST['last_name']; // required
     	$email_from = $_POST['email']; // required
