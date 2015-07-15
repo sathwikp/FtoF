@@ -114,7 +114,9 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
-        
+        <div class="services-row">
+        	<div class="container">
+				<form>
     <?php 
 
 
@@ -131,12 +133,10 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	
 	$q = $db->prepare($sql);
 	$q->execute($qparams);
-	
+	$i=0;
 	while ($service = $q->fetch(PDO::FETCH_ASSOC)) {
 			
 			?>
-			
-			<div class="container">
             	<div class="row item-divider">
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
@@ -151,19 +151,17 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 				<p class="font-color"><?php echo $service['service_desc'];?></p>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<form>
                                 <label>
-                                    <input placeholder="Arrival" type="text" name="arrival" class="datepickerArrival" value="<?php echo $arrival_date->format(__DATEFORMAT); ?>">
+                                    <input placeholder="Arrival" type="text" name="arrival__<?php echo $i; ?>" class="datepickerArrival" value="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
                                 </label>
                                 <label>
-                                    <input placeholder="Departure" type="text" name="departure" class="datepickerDeparture" value="<?php echo $departure_date->format(__DATEFORMAT); ?>">
+                                    <input placeholder="Departure" type="text" name="departure__<?php echo $i++; ?>" class="datepickerDeparture" value="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
                                 </label>
-							</form>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
                         	<div class="TotalPrice">
                                 <h3 class="service-price total-price">
-                                    <span><?php echo round($departure_date->diff($arrival_date)->days * $service['price_per_day'],2); ?></span>&#8364;
+                                    <span><?php echo round(($departure_date->diff($arrival_date)->days+1) * $service['price_per_day'],2); ?></span>&#8364;
                                 </h3>   
                                 <div>
                                     <img class="tickMark" src="img/Check_icon.png" />
@@ -175,7 +173,6 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                         </div>
                     </div>              
                 </div>                
-            </div>
             
             <?php
 
@@ -183,8 +180,9 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 
 	}
 	?>
-        </div>
-		
+				</form>
+        	</div>
+		</div>
 		<div class="reviews-row">
         	<div class="container">
             	<div class="row family_description_box">
