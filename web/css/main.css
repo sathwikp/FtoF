@@ -208,8 +208,9 @@ input[type=text] ,input[type=password], input[type=search] {
   width:320px;
   height:47px;
 }
-#datepickerArrival ,#datepickerDeparture{
-	width:120px;
+
+.datepickerArrival, .datepickerDeparture, #datepickerArrival, #datepickerDeparture{
+	width:120px !important;
 }
 .navbar-brand>img{
 	margin-top:-20px;
