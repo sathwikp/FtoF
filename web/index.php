@@ -68,15 +68,15 @@ $SCRIPTSRC[] = "js/main.js";
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
             <label>
-            <button type="button" class="round-button baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <button type="button" class="round-button baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><span><span class="counter">0</span><span class="decrease"></span></span></button>
             <input name="babyno" type="hidden" value="0" />            
             </label>
             <label>
-            <button type="button" class="round-button older-baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <button type="button" class="round-button older-baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><span><span class="counter">0</span><span class="decrease"></span></span></button>
             <input name="oldbabyno" type="hidden" value="0" />
             </label>
             <label>
-            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease"></span></span></button>
             <input name="boyno" type="hidden" value="0" />
             </label>                                    
             <label>
