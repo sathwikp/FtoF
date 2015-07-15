@@ -30,14 +30,15 @@ try {
 	        !isset($_POST['comments'])) {
 	        died('We are sorry, but there appears to be a problem with the form you submitted.');       
 	    }
-	    echo "email is set \n";
-	    /*
+	    
 	    $first_name = $_POST['first_name']; // required
     	$last_name = $_POST['last_name']; // required
     	$email_from = $_POST['email']; // required
     	$telephone = $_POST['telephone']; // not required
     	$comments = $_POST['comments']; // required
- 
+    	
+    	echo "reading more fields \n";
+ /*
     	$error_message = "";
     	$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
   		if(!preg_match($email_exp,$email_from)) {
