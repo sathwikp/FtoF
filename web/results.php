@@ -138,11 +138,6 @@ $SCRIPTS[] =
     	<div class="container">
         	<div class="row">
             	<div class="filters_column col-sm-4 col-md-3 hidden-xs">
-                	<div class="background_gray">
-                    	<div class="map_gray_img">
-							<a href="mapURL goes here" class="map_search">Search on map</a>
-						</div>
-					</div>
                     <div class="background_white">
                         <div class="hidden-xs">
                     		<div class="total_search_result">
