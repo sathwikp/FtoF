@@ -86,6 +86,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                     <img alt="Star" src="img\star.png" />
                     <img alt="Star" src="img\star.png" />
                     <img alt="Star" src="img\star.png" />
+                    4/5
 				</div>
 				<div class="family-highlight col-lg-3 col-sm-3 col-xs-3">
                 	<div class="sharing">
@@ -183,52 +184,49 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 				</form>
         	</div>
 		</div>
+		
+    <?php 
+
+
+	{
+	$qparams = [];
+	$sql = 	"select p.name, r.id_reviewer, r.review, r.rating, to_char(r.date, 'FMDay, FMDDth FMMonth HH24:MI:SS') as datetime "
+		. "from reviews r, profile p "
+		. "where r.id_reviewed = :id "
+		. "and r.id_reviewer = p.id ";
+
+	$qparams[":id"] = $id;
+	
+	$q = $db->prepare($sql);
+	$q->execute($qparams);
+	?>		
+		
 		<div class="reviews-row">
         	<div class="container">
             	<div class="row family_description_box">
                 	<div class="reviews container col-lg-12 col-sm-12 col-xs-12">
-						<h3>8 Reviews</h3>
+						<h3><?php echo $q->rowCount(); ?> Reviews</h3>
                     </div>
+    <?php
+    	while ($review = $q->fetch(PDO::FETCH_ASSOC)) {
+			
+	?>
+                
                     <div class="col-lg-8 col-sm-12 col-xs-12 review-user">
                     	<div class="col-lg-2 col-sm-2 col-xs-2 user-icon-div">
                     		<img class="user-icon" alt="" src="img\Profile_user_icon.png" />
-                            <div class="font-color">Henry</div>
+                            <div class="font-color"><?php echo $review['name']; ?></div>
                         </div>
                         <div class="col-lg-10 col-sm-10 col-xs-10 review-byuser"> 
-                        	<div class="font-color">Room was great in convenient location. Scott provided easy and timely check in information. Scott's housemates were all friendly and nice. Highly recommend. Note, Hot Water is at a premium in this flat.</div> 
-                            <div  class="font-color">17 July 2015</div>  
+                        	<div class="font-color"><?php echo $review['review']; ?></div> 
+                            <div  class="font-color"><?php echo $review['datetime']; ?></div>  
                         </div>
                     </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 review-user">
-                    	<div class="col-lg-2 col-sm-2 col-xs-2 user-icon-div">
-                    		<img class="user-icon" alt="" src="img\Profile_user_icon.png" />
-                            <div class="font-color">Henry</div>
-                        </div>
-                        <div class="col-lg-10 col-sm-10 col-xs-10 review-byuser"> 
-                        	<div class="font-color">Room was great in convenient location. Scott provided easy and timely check in information. Scott's housemates were all friendly and nice. Highly recommend. Note, Hot Water is at a premium in this flat.</div> 
-                            <div  class="font-color">17 July 2015</div>  
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 review-user">
-                    	<div class="col-lg-2 col-sm-2 col-xs-2 user-icon-div">
-                    		<img class="user-icon" alt="" src="img\Profile_user_icon.png" />
-                            <div class="font-color">Henry</div>
-                        </div>
-                        <div class="col-lg-10 col-sm-10 col-xs-10 review-byuser"> 
-                        	<div class="font-color">Room was great in convenient location. Scott provided easy and timely check in information. Scott's housemates were all friendly and nice. Highly recommend. Note, Hot Water is at a premium in this flat.</div> 
-                            <div  class="font-color">17 July 2015</div>  
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-sm-12 col-xs-12 review-user">
-                    	<div class="col-lg-2 col-sm-2 col-xs-2 user-icon-div">
-                    		<img class="user-icon" alt="" src="img\Profile_user_icon.png" />
-                            <div class="font-color">Henry</div>
-                        </div>
-                        <div class="col-lg-10 col-sm-10 col-xs-10 review-byuser"> 
-                        	<div class="font-color">Room was great in convenient location. Scott provided easy and timely check in information. Scott's housemates were all friendly and nice. Highly recommend. Note, Hot Water is at a premium in this flat.</div> 
-                            <div  class="font-color">17 July 2015</div>  
-                        </div>
-                    </div>
+    <?php
+    	}
+    }
+			
+	?>                                  
                 </div>
             </div>
         </div>
