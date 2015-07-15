@@ -13,7 +13,7 @@ try {
 	echo "instantiating Email \n";
 	$email    = new SendGrid\Email();
 
-	if(isset($_POST['email'])) {
+/*	if(isset($_POST['email'])) {
 
 		function died($error) {
 		    // your error code can go here
@@ -85,12 +85,16 @@ try {
 
 		print_r($response);
 	}
-
+*/
 
 } catch (Exception $e) {
 	print_r($e);
 }
 ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
 
 <form name="contactform" method="post" action="send_form_email.php">
 <table width="450px">
@@ -141,5 +145,5 @@ try {
 </tr>
 </table>
 </form>
-
+</html>
 </pre>
