@@ -152,10 +152,10 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                                 <label>
-                                    <input placeholder="Arrival" type="text" name="arrival__<?php echo $i; ?>" class="datepickerArrival" value="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
+                                    <input placeholder="Arrival" type="text" name="arrival__<?php echo $i; ?>" class="datepickerArrival" value="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-mindate="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-maxdate="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
                                 </label>
                                 <label>
-                                    <input placeholder="Departure" type="text" name="departure__<?php echo $i++; ?>" class="datepickerDeparture" value="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
+                                    <input placeholder="Departure" type="text" name="departure__<?php echo $i++; ?>" class="datepickerDeparture" value="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-mindate="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-maxdate="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
                                 </label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
