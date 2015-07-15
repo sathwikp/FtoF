@@ -10,6 +10,7 @@ $SCRIPTSRC[] = "js/jquery-migrate-1.2.1.min.js";
 $SCRIPTSRC[] = "js/jquery.ba-bbq.min.js";
 
 $SCRIPTSRC[] = "js/datepicker.js";
+$SCRIPTSRC[] = "js/round-buttons.js";
 $SCRIPTSRC[] = "js/results.js";
 
 $SCRIPTS[] =
@@ -118,6 +119,18 @@ $SCRIPTS[] =
             <label>
             <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
+            <label>
+            <button type="button" class="round-button baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <input name="babyno" type="hidden" value="0" />            
+            </label>
+            <label>
+            <button type="button" class="round-button older-baby-button" data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <input name="oldbabyno" type="hidden" value="0" />
+            </label>
+            <label>
+            <button type="button" class="round-button boy-button" data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><span><span class="counter">0</span><span class="decrease">-</span></span></button>
+            <input name="boyno" type="hidden" value="0" />
+            </label>                                               
             </div>
         </div>
     </div>
@@ -158,8 +171,10 @@ $SCRIPTS[] =
                 </div>
                 <div class="srp-list col-sm-8 col-md-9" >
                 	<div class="row hidden-xs topmost_row"></div>
-                    <ul id="resultList">
-					</ul>
+                    <div id="resultContainer">
+                    	<ul id="resultList">
+						</ul>
+					</div>
             </div>
         </div>
     </div>

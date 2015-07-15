@@ -205,7 +205,7 @@ input[type=text] ,input[type=password], input[type=search] {
   font-size: 0.98em;
   color: #4C4C4C;
   font-family:Open Sans;
-  width:360px;
+  width:320px;
   height:47px;
 }
 #datepickerArrival ,#datepickerDeparture{
