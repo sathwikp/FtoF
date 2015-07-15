@@ -74,7 +74,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
     	<div classs="row">
 			<div class="family-summary">
 				<div class="col-lg-2 col-sm-3 col-xs-3">
-					<img alt="Family Name" src="img\IdCard1.png" />
+					<img alt="Family Name" src="img/IdCard1.png" />
 				</div>
 				<div class="family-highlight col-lg-5 col-sm-6 col-xs-6">
 					<h2><?php echo $profile['name']; ?></h2>
@@ -82,10 +82,10 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 					<div class="font-color"><span class="services"><?php echo $profile['serviceno']; ?></span> services</div>
 				</div>
 				<div class="family-highlight col-lg-2 hidden-sm hidden-xs">
-					<img alt="Star" src="img\star.png" />
-                    <img alt="Star" src="img\star.png" />
-                    <img alt="Star" src="img\star.png" />
-                    <img alt="Star" src="img\star.png" />
+					<img alt="Star" src="img/star.png" />
+                    <img alt="Star" src="img/star.png" />
+                    <img alt="Star" src="img/star.png" />
+                    <img alt="Star" src="img/star.png" />
                     4/5
 				</div>
 				<div class="family-highlight col-lg-3 col-sm-3 col-xs-3">
@@ -170,7 +170,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                             </div>                  	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_to_Cart_icon.png" /></a>
+                        	<a href=""><img class="Add-cart" alt="" src="img/Add_to_Cart_icon.png" /></a>
                         </div>
                     </div>              
                 </div>                
@@ -214,7 +214,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 
                     <div class="col-lg-8 col-sm-12 col-xs-12 review-user">
                     	<div class="col-lg-2 col-sm-2 col-xs-2 user-icon-div">
-                    		<img class="user-icon" alt="" src="img\Profile_user_icon.png" />
+                    		<img class="user-icon" alt="" src="img/Profile_user_icon.png" />
                             <div class="font-color"><?php echo $review['name']; ?></div>
                         </div>
                         <div class="col-lg-10 col-sm-10 col-xs-10 review-byuser"> 
