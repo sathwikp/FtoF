@@ -15,14 +15,15 @@ try {
 
 	if(isset($_POST['email'])) {
 
-	/*	function died($error) {
+		function died($error) {
 		    echo "We are very sorry, but there were error(s) found with the form you submitted. ";
 		    echo "These errors appear below.<br /><br />";
 		    echo $error."<br /><br />";
 		    echo "Please go back and fix these errors.<br /><br />";
 		    die();
 		}
-
+		echo "email is set \n";
+/*
 		if(!isset($_POST['first_name']) ||
 	        !isset($_POST['last_name']) ||
 	        !isset($_POST['email']) ||
@@ -63,7 +64,7 @@ try {
  			$bad = array("content-type","bcc:","to:","cc:","href");
  	    return str_replace($bad,"",$string);
  		}
-*/
+
  		$email_message .= "First Name: ".clean_string($first_name)."\n";
  		$email_message .= "Last Name: ".clean_string($last_name)."\n";
  		$email_message .= "Email: ".clean_string($email_from)."\n";
@@ -82,9 +83,9 @@ try {
 		echo "Sending message \n";          
 		$response = $sendgrid->send($sendemail);
 
-		print_r($response);
+		print_r($response);*/
 	}
-*/
+
 
 } catch (Exception $e) {
 	print_r($e);
