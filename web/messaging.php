@@ -1,4 +1,4 @@
-<?php require 'web/init.php.inc'; ?>
+<?php require 'init.php.inc'; ?>
 <pre>
 <?php
 
