@@ -74,13 +74,8 @@ $SCRIPTS[] =
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
                     <li><a href=index.php"><?php echo localiztion("Home", "Accueil"); ?></a></li>
                     <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
-=======
-                    <li><a href=index.php">Home</a></li>
-                    <li><a href="#">Signup/Login</a></li>
->>>>>>> 2c3d4f1a25129b534c031a699af0d1f2e0c2e4ef
                     <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>

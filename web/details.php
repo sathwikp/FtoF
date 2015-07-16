@@ -320,25 +320,25 @@ a2a_config.icon_color = "#888888";
 									"Vos coordonnées seront transmisent à la famille pour qu'ils puissent vous contacter."); ?>									
 								</p>
           						<p>
-                                 <label for="first_name">Enter your first name*:</label>
-            						<input id="first_name" name="first_name" type="text" value="" class="input-large input-block" placeholder="Enter your first name">
+                                 <label for="first_name"><?php echo localization("Enter your first name","Prénom"); ?>*:</label>
+            						<input id="first_name" name="first_name" type="text" value="" class="input-large input-block" placeholder="<?php echo localization("Enter your first name", "Entrez votre prénom"); ?>">
           						
-                                 <label for="last_name">Enter your last name*:</label>
-            						<input id="last_name" name="last_name" type="text" value="" class="input-large input-block" placeholder="Enter your last name">
+                                 <label for="last_name<?php echo localization("Enter your last name", "Nom"); ?>*:</label>
+            						<input id="last_name" name="last_name" type="text" value="" class="input-large input-block" placeholder="<?php echo localization("Enter your last name", "Entrez votre nom"); ?>">
           						
-                                 <label for="email_from">Enter your e-mail address*:</label>
-            						<input id="email_from" name="email_from" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your e-mail address">
+                                 <label for="email_from"><?php echo localization("Enter your e-mail address", "Mail adresse"); ?>*:</label>
+            						<input id="email_from" name="email_from" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="<?php echo localization("Enter your e-mail address", "Entrez votre adresse mail"); ?>">
           						
-                                 <label for="phone_number">Enter your phone number:</label>
-            						<input id="phone_number" name="phone_number" type="text" value="" class="input-large input-block" placeholder="Enter your phone number">
+                                 <label for="phone_number"><?php echo localization("Enter your phone number", "Numéro de téléphone"); ?>:</label>
+            						<input id="phone_number" name="phone_number" type="text" value="" class="input-large input-block" placeholder="<?php echo localization("Enter your phone number", "Entrez votre téléphone"); ?>">
           						
-          				  			<label for="comments">Additional comments:</label>
-           							 <textarea id="comments" name="comments" rows="3" placeholder="Please enter your comments here!"></textarea>
+          				  			<label for="comments"><?php echo localization("Additional comments","Commentaires"); ?>:</label>
+           							 <textarea id="comments" name="comments" rows="3" placeholder="<?php echo localization("Please enter your comments here!", "Entrez vos commentaires ici !"); ?>"></textarea>
           						</p>
           						<span class="share-error"></span>
         					</div>
                      <div class="modal-footer">
-                         <input class="btn btn-primary" name="commit" type="submit" value="Book">
+                         <input class="btn btn-primary" name="commit" type="submit" value="<?php echo localization("Book", "Réserver"); ?>">
                      </div>
                      
                      </div>
