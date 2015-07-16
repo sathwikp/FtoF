@@ -283,7 +283,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
           						<p>In order to confirm your booking, please complete this form.</p>
           						<p>Your details will be sent to the family, who will contact you to follow up.</p>
           						<p>
-                                 <label for="send_to">Enter your first name*:</label>
+                                 <label for="first_name">Enter your first name*:</label>
             						<input id="first_name" name="first_name" type="text" value="" class="input-large input-block" placeholder="Enter your first name">
           						</p>
           						<p>
@@ -299,8 +299,8 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
             						<input id="phone_number" name="phone_number" type="text" value="" class="input-large input-block" placeholder="Enter your phone number">
           						</p>
           						<p>
-          				  			<label for="email_message">Additional comments:</label>
-           							 <textarea id="email_message" name="message" rows="3" placeholder="Please enter your message here!"></textarea>
+          				  			<label for="comments">Additional comments:</label>
+           							 <textarea id="comments" name="comments" rows="3" placeholder="Please enter your comments here!"></textarea>
           						</p>
           						<span class="share-error"></span>
         					</div>

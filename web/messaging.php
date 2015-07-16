@@ -4,18 +4,27 @@
 
 <?php
 
+function sanitize($input) {
+    return htmlspecialchars(trim($input));
+}
+
+header('Content-Type: application/json; Charset=UTF-8');
+
+// Sanitize all the incoming data
+$sanitized = array_map('sanitize', $_POST);
+
     	$error_message = [];
 		if(!isset($_POST['first_name']) ||
 	        !isset($_POST['last_name']) ||
-	        !isset($_POST['email'])     ||
+	        !isset($_POST['email_from'])     ||
 	        !isset($_POST['comments'])) {
 	        $error_message[] = "Please complete all the mandatory fields.";
 	    }
 	    
 	    $first_name = $_POST['first_name']; // required
     	$last_name = $_POST['last_name']; // required
-    	$email_from = $_POST['email']; // required
-    	$telephone = $_POST['telephone']; // not required
+    	$email_from = $_POST['email_from']; // required
+    	$telephone = $_POST['phone_number']; // not required
     	$comments = $_POST['comments']; // required
 
 
@@ -37,37 +46,51 @@
 		}
  
   		if(count($error_message) > 0) {
- 		    died($error_message);
+ 		    echo json_encode([
+ 		    	'success' => FALSE,
+ 		    	'error' => $error_message
+ 		    ]);
+
+		} else {
+
+			$email_message = "First Name: ".($first_name)."\n";
+			$email_message .= "Last Name: ".($last_name)."\n";
+			$email_message .= "Email: ".($email_from)."\n";
+			if (strlen($telephone)>0)
+				$email_message .= "Telephone: ".($telephone)."\n";
+			$email_message .= "Comments: ".($comments)."\n";
+			
+				
+			$html_message = '<html><head/><body>';
+			$html_message .= "First Name: ".($first_name)."<br/>";
+			$html_message .= "Last Name: ".($last_name)."<br/>";
+			$html_message .= "Email: ".($email_from)."<br/>";
+			if (strlen($telephone)>0)
+				$html_message .= "Telephone: ".($telephone)."<br/>";
+			$html_message .= "<br/>Comments: ".nl2br($comments);
+			$html_message .= '</body></html>';
+
+			$email_subject = "New message from: ".($first_name)." ".($last_name);
+
+			$sendgrid = new SendGrid($api_user, $api_key);
+			$sendemail = new SendGrid\Email();
+
+			$sendemail->addTo('family2family.email@gmail.com')->
+					  setFrom($email_from)->
+					  setSubject($email_subject)->
+					  setText($email_message)->
+					  setHtml($html_message);
+		
+			$response = $sendgrid->send($sendemail);
+			
+			echo json_encode([
+				'success' => TRUE,
+				'response' => $response
+			]);
+
 		}
- 
-   		function clean_string($string) {
- 			$bad = array("content-type","bcc:","to:","cc:","href");
- 	    return str_replace($bad,"",$string);
- 		}
- 		
- 		$email_message .= "First Name: ".clean_string($first_name)."\n";
- 		$email_message .= "Last Name: ".clean_string($last_name)."\n";
- 		$email_message .= "Email: ".clean_string($email_from)."\n";
- 		$email_message .= "Telephone: ".clean_string($telephone)."\n";
-        $email_message .= "Comments: ".clean_string($comments)."\n";
-
-        $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name);
-
-		$sendgrid = new SendGrid($api_user, $api_key);
-		$sendemail = new SendGrid\Email();
-
-		$sendemail->addTo('family2family.email@gmail.com')->
-		          setFrom($email_from)->
-		          setSubject($email_subject)->
-		          setText($email_message)->
-		          setHtml('<strong>'.$email_message.'</strong>');
-
-		echo "Sending message \n";          
-		$response = $sendgrid->send($sendemail);
-
-		print_r("Your message has been sent ");
 
 
 ?>
 
-</pre>
+<?php require 'destroy.php.inc'; ?>

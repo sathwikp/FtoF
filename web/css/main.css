@@ -203,7 +203,7 @@ div.bubble-head:hover{
 .family .navbar-inverse .navbar-nav > li > a, .search .navbar-inverse .navbar-nav > li > a {
 	margin-top:0px;
 }
-input[type=text] ,input[type=password], input[type=search] {
+input[type=text],input[type=password], input[type=search], input[type=email] {
   -webkit-appearance: none;
   outline: none;
   border: 1.5px solid #ff7300;
@@ -215,6 +215,7 @@ input[type=text] ,input[type=password], input[type=search] {
   width:320px;
   height:47px;
 }
+
 
 .datepickerArrival, .datepickerDeparture, #datepickerArrival, #datepickerDeparture{
 	width:120px !important;
@@ -695,9 +696,9 @@ span.decrease {
 	padding-top:12px;
 	padding-bottom:4px;
 }
-input[type=email], textarea{
-	  padding: 10px;
-  width: 80%;
+.modal-body input, .modal-body textarea{
+	padding: 10px;
+  	width: 80%;
 }
 .Total-price{
 	float:right;
