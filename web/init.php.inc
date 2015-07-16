@@ -63,6 +63,10 @@ function parse_and_validate_dates($arrival, $departure){
 	return [$arr_date, $dep_date];
 }
 
+function localization($en, $fr) {
+	return $en;
+}
+
 //Classes
 abstract class ServiceType
 {

@@ -78,13 +78,8 @@ $SCRIPTS[] =
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-<<<<<<< HEAD
-                    <li><a href=index.php"><?php echo localiztion("Home", "Accueil"); ?></a></li>
+                    <li><a href=index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
                     <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
-=======
-                    <li><a href=index.php">Home</a></li>
-                    <li><a href="#">Signup/Login</a></li>
->>>>>>> 2c3d4f1a25129b534c031a699af0d1f2e0c2e4ef
                     <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
@@ -98,7 +93,7 @@ $SCRIPTS[] =
 			<label for="location">
 				<div class="typeahead-container">
      			<span class="typeahead-query">		
-     					<input name="location" type="search" placeholder="<?php echo localizaztion("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" >
+     					<input name="location" type="search" placeholder="<?php echo localization("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" >
      			</span>
      			</div>
 			</label>
@@ -111,7 +106,7 @@ $SCRIPTS[] =
             </label>
 			
             <label>
-            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localozation("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>">
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localization("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>">
 			<button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
             <input name="babyno" type="hidden" value="0" />
 			</span>            
