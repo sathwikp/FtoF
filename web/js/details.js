@@ -10,7 +10,11 @@ $(document).ready(function(){
       	var thisdate = $(this).datepicker('getDate');
 		var dayDiff = Math.abs(Math.ceil((otherdate - thisdate) / (1000 * 60 * 60 * 24)))+1;
 		var theTotalFld = $(this).closest('div').siblings().find('div.TotalPrice > h3 > span');
-		theTotalFld.text(Math.round(dayDiff*price*100)/100); //rounds to 2 decimal places
+		var theTotalFld2 = $(this).closest('.Available').
+			siblings('.AddedToCart').find('div.TotalPrice > h3 > span');
+		$.each([theTotalFld, theTotalFld2], function(i,x){
+			x.text(Math.round(dayDiff*price*100)/100); //rounds to 2 decimal places
+		}); 
       	$(this).closest('div').find('.datepickerDeparture').datepicker( "option", "minDate", dateText );
 		//$( "#datepickerDeparture" ).focus();
       }
@@ -28,7 +32,11 @@ $(document).ready(function(){
       	var thisdate = $(this).datepicker('getDate');
 		var dayDiff = Math.abs(Math.ceil((otherdate - thisdate) / (1000 * 60 * 60 * 24)))+1;
 		var theTotalFld = $(this).closest('div').siblings().find('div.TotalPrice > h3 > span');
-		theTotalFld.text(Math.round(dayDiff*price*100)/100); //rounds to 2 decimal places
+		var theTotalFld2 = $(this).closest('.Available').
+			siblings('.AddedToCart').find('div.TotalPrice > h3 > span');
+		$.each([theTotalFld, theTotalFld2], function(i,x){
+			x.text(Math.round(dayDiff*price*100)/100); //rounds to 2 decimal places
+		}); 
       //	$( "#datepickerDeparture" ).datepicker( "option", "minDate", dateText );
 		//$( "#datepickerDeparture" ).focus();
       }

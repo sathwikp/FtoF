@@ -4,12 +4,12 @@
 
 <?php
 
+    	$error_message = [];
 		if(!isset($_POST['first_name']) ||
 	        !isset($_POST['last_name']) ||
-	        !isset($_POST['email']) ||
-	        !isset($_POST['telephone']) ||
+	        !isset($_POST['email'])     ||
 	        !isset($_POST['comments'])) {
-	        died('We are sorry, but there appears to be a problem with the form you submitted.');       
+	        $error_message[] = "Please complete all the mandatory fields.";
 	    }
 	    
 	    $first_name = $_POST['first_name']; // required
@@ -18,7 +18,7 @@
     	$telephone = $_POST['telephone']; // not required
     	$comments = $_POST['comments']; // required
 
-    	$error_message = [];
+
   		if(!filter_var($email_from, FILTER_VALIDATE_EMAIL)) {
    			$error_message[] = 'The Email Address you entered does not appear to be valid.';
  		}

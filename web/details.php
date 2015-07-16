@@ -17,6 +17,7 @@ $PAGETITLE = "F2F | Services Detail";
 
 //$SCRIPTSRC[] = "js/jquery.tmpl.min.js";
 
+$SCRIPTSRC[] = "js/Click.js";
 $SCRIPTSRC[] = "js/details.js";
 
 ?>
@@ -141,7 +142,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 			
 			?>
             	<div class="row item-divider">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
                                 <div class="item_border">
@@ -172,9 +173,38 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                             </div>                  	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<input type="checkbox" name="service__<?php echo $service['service_type']; ?>" value="<?php echo $service['service_type']; ?>">
+                        	<label for="service__<?php echo $service['service_type']; ?>" class="filter"></label>
+                        	<input type="checkbox" class="ui_checkbox" name="service__<?php echo $service['service_type']; ?>" value="<?php echo $service['service_type']; ?>">
+
+                            <a href="javascript:void(0);" class="add-to-cart"><img class="Add-cart" alt="" src="img/Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" /></a>
+                        	
                         </div>
-                    </div>              
+                    </div>   
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                   <img alt="" src="<?php echo ServiceType::GetPics()[$service['service_type']]; ?>" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> added to cart</h3>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice"> 
+                                <h3 class="service-price total-price">
+                                    <span><?php echo round(($departure_date->diff($arrival_date)->days+1) * $service['price_per_day'],2); ?></span>&#8364;
+                                </h3>  
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	<a href="javascript:void(0);" class="remove-from-cart"><img class="Remove-cart" alt="" src="img/Cross_icon.png" /></a>
+                        </div>
+                    </div>                    
                 </div>                
             
             <?php
@@ -253,14 +283,26 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
           						<p>In order to confirm your booking, please complete this form.</p>
           						<p>Your details will be sent to the family, who will contact you to follow up.</p>
           						<p>
-                                 <label for="send_to">Enter your e-mail address:</label>
-            						<input id="send_to" name="send_to" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your e-mail address">
+                                 <label for="send_to">Enter your first name*:</label>
+            						<input id="first_name" name="first_name" type="text" value="" class="input-large input-block" placeholder="Enter your first name">
           						</p>
-          						<span class="share-error"></span>
+          						<p>
+                                 <label for="last_name">Enter your last name*:</label>
+            						<input id="last_name" name="last_name" type="text" value="" class="input-large input-block" placeholder="Enter your last name">
+          						</p>
+          						<p>
+                                 <label for="email_from">Enter your e-mail address*:</label>
+            						<input id="email_from" name="email_from" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your e-mail address">
+          						</p>
+          						 <p>
+                                 <label for="phone_number">Enter your phone number:</label>
+            						<input id="phone_number" name="phone_number" type="text" value="" class="input-large input-block" placeholder="Enter your phone number">
+          						</p>
           						<p>
           				  			<label for="email_message">Additional comments:</label>
            							 <textarea id="email_message" name="message" rows="3" placeholder="Please enter your message here!"></textarea>
           						</p>
+          						<span class="share-error"></span>
         					</div>
                      <div class="modal-footer">
                          <input class="btn btn-primary" name="commit" type="submit" value="Book">
