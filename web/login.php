@@ -12,7 +12,7 @@ if(isset($_POST['btn-login']))
 	}
 	else
 	{
-		$error = "Wrong credentials!";
+		$error = localization("Wrong credentials!", "Identification incorrecte !");
 	}	
 }
 ?>
@@ -28,7 +28,7 @@ if(isset($_POST['btn-login']))
 <div class="container">
     	<div class="form-container">
         <form method="post">
-            <h2>Sign in.</h2><hr />
+            <h2><?php echo localization("Sign in", "Connection"); ?>.</h2><hr />
             <?php
 			if(isset($error))
 			{
@@ -40,19 +40,19 @@ if(isset($_POST['btn-login']))
 			}
 			?>
             <div class="form-group">
-            	<input type="text" class="form-control" name="txt_uname_email" placeholder="E-mail address" required />
+            	<input type="text" class="form-control" name="txt_uname_email" placeholder="<?php echo localization("E-mail address", "Adresse mail"); ?>" required />
             </div>
             <div class="form-group">
-            	<input type="password" class="form-control" name="txt_password" placeholder="Your Password" required />
+            	<input type="password" class="form-control" name="txt_password" placeholder="<?php echo localization("Your Password", "Mot de passe"); ?>" required />
             </div>
             <div class="clearfix"></div><hr />
             <div class="form-group">
             	<button type="submit" name="btn-login" class="btn btn-block btn-primary">
-                	<i class="glyphicon glyphicon-log-in"></i>&nbsp;SIGN IN
+                	<i class="glyphicon glyphicon-log-in"></i>&nbsp;<?php echo localization("SIGN IN", "CONNECTION"); ?>
                 </button>
             </div>
             <br />
-            <label>Don't have account yet ! <a href="sign-up.php">Sign Up</a></label>
+            <label><?php echo localization("Don't have account yet !", "Pas encore de compte !"); ?> <a href="sign-up.php"><?php echo localization("Sign Up", "Inscription"); ?></a></label>
         </form>
        </div>
 </div>
