@@ -81,7 +81,7 @@ $SCRIPTS[] =
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href=index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
+                    <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
 
                     <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
                </ul>
