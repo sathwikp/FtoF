@@ -42,7 +42,8 @@ $SCRIPTS[] =
 .'				{{/if}}'
 .'				</a>'
 .'			</div>'
-.'			<div style="margin-top: 48px;margin-left: -10px;text-align:right">Rating'
+.'			<div style="margin-top: 48px;margin-left: -10px;text-align:right">'
+. 				localization("Rating","Évaluation")
 .'				<h3 style="color:#EA4A4A;text-align:right">${stars}/5</h3>'
 .'			</div>'
 .'		</div>'
@@ -54,7 +55,8 @@ $SCRIPTS[] =
 . '                 {{each services}}'
 . '					<div class="item_border">'
 . '						<img src="${pic}" class="img-responsive icons" alt="${name}" title="${name}" />'
-. '						${price_per_day}&#8364;/day'
+. '						${price_per_day}&#8364;/'
+. 						localization("day","jour")
 . '					</div>'
 . '					{{/each}}'
 . '				</div>'
