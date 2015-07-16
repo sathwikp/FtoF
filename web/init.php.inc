@@ -63,8 +63,9 @@ function parse_and_validate_dates($arrival, $departure){
 	return [$arr_date, $dep_date];
 }
 
-
-$_SESSION['lang'] = 'fr';
+if (!isset($_SESSION['lang'])) {
+	$_SESSION['lang'] = 'en';
+}
 
 if (isset($_GET['lang'])) {
 	$lang = strtolower(trim($_GET['lang']));
