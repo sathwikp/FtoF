@@ -100,18 +100,18 @@ abstract class ServiceType
     
     static public function GetTypes() { 
     	return [
-    		ServiceType::Stroller => localization("'Stroller'","'Poussette'"),
-    		ServiceType::Bike => localization("'Bike / Rollers'", "'Vélo / Rollers'"),
-    		ServiceType::Transfer => localization("'Airport Transfer'", "'Transfert aéroport'"),
-    		ServiceType::Toys => localization("'Baby Toys / Books'", "'Jouets / Livres'"),
-			ServiceType::CarSeat => localization("'Baby Car Seat'", "'Siège auto'"),
-			ServiceType::BabyChair => localization("'Baby Chair'", "'Chaise haute'"),
-			ServiceType::FamilyCar => localization("'Family Car'"", "'Voiture familiale'"),
-			ServiceType::House => localization("'Family-friendly House'", "'Maison familiale'"),
-			ServiceType::Babysit => localization("'Baby Sitting'", "'Baby Sitting'"),
-			ServiceType::Activity => localization("'Children Activity'", "'Activités enfantines'"),
-			ServiceType::Teaching => localization("'Teaching Lessons'", "'Cours particuliers'"),
-			ServiceType::Others => localization("'Others'", "'Autres'"),
+    		ServiceType::Stroller => localization("Stroller","Poussette"),
+    		ServiceType::Bike => localization("Bike / Rollers", "Vélo / Rollers"),
+    		ServiceType::Transfer => localization("Airport Transfer", "Transfert aéroport"),
+    		ServiceType::Toys => localization("Baby Toys / Books", "Jouets / Livres"),
+			ServiceType::CarSeat => localization("Baby Car Seat", "Siège auto"),
+			ServiceType::BabyChair => localization("Baby Chair", "Chaise haute"),
+			ServiceType::FamilyCar => localization("Family Car", "Voiture familiale"),
+			ServiceType::House => localization("Family-friendly House", "Maison familiale"),
+			ServiceType::Babysit => localization("Baby Sitting", "Baby Sitting"),
+			ServiceType::Activity => localization("Children Activity", "Activités enfantines"),
+			ServiceType::Teaching => localization("Teaching Lessons", "Cours particuliers"),
+			ServiceType::Others => localization("Others", "Autres"),
     	];
     }
     

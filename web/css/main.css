@@ -350,6 +350,8 @@ label.filter{
   padding-left: 10px;
   padding-right: 10px;
   position: relative;
+  cursor: pointer;
+  display:block;
 }
 .topmost_row{
 	margin-top:64px;
@@ -358,7 +360,6 @@ label.filter{
 	display: block;
   position: relative;
   margin-bottom: 12px;
-  cursor: pointer;
 }
 .likeImage>img{
 	height:36px;

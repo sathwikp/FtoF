@@ -77,8 +77,11 @@ $(window).bind( 'hashchange', function( event ){
 			$('#resultList').empty();
 			$('#resultno').text($(data).length);
 			$('#resultTpl').tmpl(data).appendTo('#resultList');
-			$("#resultList li:has(a)").click(function() {
-      			window.location = $("a:first",this).attr("href");
+			$("#resultList li:has(a)").each(function() {
+				var href = $("a:first",this).attr("href");
+				$(this).find('.family_image').click(function(){
+					window.location = href;
+				});
    			});
    			overlay.remove();
    		}).fail(function(){
