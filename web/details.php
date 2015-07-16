@@ -67,49 +67,71 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
  	</div>
-	<div class="family-card-image col-lg-12 col-sm-12 col-xs-12" style="background-image:url('img/profile/pics/<?php echo $profile['big_picture'];?>')">
+ 	<div>
+	<div class="col-lg-1 col-sm-12 col-xs-12" style="background:#fff">
 	</div>
-		
-	<div class="content container">
-    	<div classs="row">
-			<div class="family-summary">
-				<div class="col-lg-2 col-sm-3 col-xs-3">
+	<div class="family-card-image col-lg-7 col-sm-12 col-xs-12" style="background-image:url('img/profile/pics/<?php echo $profile['big_picture'];?>')">
+	</div>
+    <div class="col-lg-3 col-sm-12 col-xs-12" style="background:#fff;margin-top: 0%;border: 1px solid #E4CFCF;height: 550px;width:21%;">
+    	<div class="col-lg-9 col-sm-3 col-xs-3" style="margin-top: 10%; text-align:center;">
 					<span class="avatar-container" style="background-image:url('img/profile/avatars/<?php echo $profile['avatar'];?>')">
 					</span>
 				</div>
-				<div class="family-highlight col-lg-5 col-sm-6 col-xs-6">
-					<h2><?php echo $profile['name']; ?></h2>
+				<div class="family-highlight col-lg-12 col-sm-6 col-xs-6" style="
+    margin-top: 25px; text-align:center;">
+					<h2 style="text-align:center;"><?php echo $profile['name']; ?></h2>
 					<div class="font-color"><?php echo $profile['location'].' ('.$profile['region'].'), '.$profile['country']; ?></div>
 					<div class="font-color"><span class="services"><?php echo $profile['serviceno']; ?></span> services</div>
 				</div>
-				<div class="family-highlight col-lg-2 hidden-sm hidden-xs">
-					<img alt="Star" src="img/star.png" />
-                    <img alt="Star" src="img/star.png" />
-                    <img alt="Star" src="img/star.png" />
-                    <img alt="Star" src="img/star.png" />
-                    4/5
-				</div>
-				<div class="family-highlight col-lg-3 col-sm-3 col-xs-3">
+                
+                <div class="family-highlight col-lg-12 col-sm-3 col-xs-3" style="
+    margin-top: 38px;
+">
                 	<div class="sharing">
                     	<div class="likeFamily">
-                        	<img src="img/like_inactive.png" class="img-responsive" />
+                        	<img src="img/like_inactive.png" class="img-responsive">
                             <span>Save to Wish List</span>
                         </div>
                         <div class="shareSocialMedia">
-                        	<span class="shareTitle">Connect :</span>
-                            <a href="#"><img src="img/Email_icon.png" class="img-responsive" /></a>
-                            <a href="#"><img src="img/Fb_icon.png" class="img-responsive" /></a>
-                            <a href="#"><img src="img/Twitter_icon.png" class="img-responsive" /></a>
+<!-- AddToAny BEGIN 
+<div class="a2a_kit a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share_save">Share</a>
+<span class="a2a_divider"></span>
+<a class="a2a_button_email"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+</div>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+-->
+<!-- AddToAny BEGIN -->
+<div class="a2a_kit a2a_kit_size_20 a2a_default_style" style="margin: 0 auto; width: 100px;">
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_google_plus"></a>
+<a class="a2a_dd" href="https://www.addtoany.com/share_save"></a>
+</div>
+<script  type="text/javascript" >
+var a2a_config = a2a_config || {};
+a2a_config.icon_color = "#888888";
+</script>
+<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+
+
+<!-- AddToAny END -->
                         </div>
                     </div>
                 </div>
-			</div>
-		</div>
-        </div>
-   		<div class="family-description">
+	</div>
+    <div class="col-lg-1 col-sm-12 col-xs-12">
+	</div>
+	</div>
+		
+   		<div class="family-description" style="background-color:#ffffff;">
             <div class="container">
-                <div class="row">	
-                    <div class="col-lg-10 col-sm-10 col-xs-10 family_description_box">
+                <div class="row" style="border-bottom: 1px solid #E7DEDE;padding-bottom: 20px;">	
+                    <div class="col-lg-10 col-sm-10 col-xs-10 family_description_box" style="padding-top:20px;">
                         <h3>Family Description</h3>
                         <p class="font-color"><?php echo $profile['description']; ?></p>
                     </div>
@@ -140,7 +162,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	while ($service = $q->fetch(PDO::FETCH_ASSOC)) {
 			
 			?>
-            	<div class="row item-divider">
+            	<div class="row item-divider" <?php if ($i++%2==0) echo 'style="background-color: #F9F9F9;border-bottom:none;"'; ?> >
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
@@ -214,11 +236,19 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	?>
 				</form>
 		        <div class="row item-divider">
-                	<div class="Total-price">
+		        <div class="Total-price">
+		        <div class="col-lg-7 col-md-2 col-sm-4 col-xs-4" ></div>
+                	<div class="col-lg-3 col-md-2 col-sm-4 col-xs-4">
                     	<h3 class="TotalAmountLabel" style="display: inline;color: #16becf;">Total Amount : </h3>
-                        <h3 id="Amount"><span>0</span>&#8364;</h3>
+                        <h3 id="Amount" style="margin-left:14px"><span>0</span>&#8364;</h3>
+                    </div>
+                    <div class="col-lg-1 col-md-2 col-sm-4 col-xs-4">
                     	<button type="button" class="btn" id="modalBtn">Book Now</button>
                     </div>
+                    <div class="col-lg-1 col-md-2 col-sm-4 col-xs-4">
+                    	
+                    </div>
+                   </div> 
                 </div>				
         	</div>
 		</div>

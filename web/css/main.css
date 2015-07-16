@@ -225,7 +225,7 @@ input[type=text],input[type=password], input[type=search], input[type=email] {
 	margin-left: -6px;
 }
 .formSubmission{
-	margin-top:25%;
+	margin-top:20%;
 	text-align:center;
 }
 button[type=submit], input[type=submit], .Total-price button[type=button]{
@@ -237,6 +237,9 @@ button[type=submit], input[type=submit], .Total-price button[type=button]{
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 5%;
+}
+.Total-price button[type=button]{
+  padding: 7px 12px 7px 12px;
 }
 button[type=submit]:hover, input[type=submit]:hover, .Total-price button[type=button]:hover{
   border: 1px solid #ff7300;
@@ -701,8 +704,6 @@ span.decrease {
   	width: 80%;
 }
 .Total-price{
-	float:right;
-	padding-right:7%;
 	padding-top:1%;
 }
 .TotalAmountLabel{
