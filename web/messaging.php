@@ -138,6 +138,7 @@ theExit:
 
 			
 			$html_message = "<html><head/><body>"
+			."<p><img src='https://ftof.herokuapp.com/img/mail_header.png' /></p>"
 			
 			."<p>Bonjour ".$first_name.",</p>"
 
@@ -165,6 +166,7 @@ theExit:
 
 			."<a href='https://www.facebook.com/pages/Family2Family/820471384696590'>Family2Family Facebook</a><br/>"
 			."<a href='https://twitter.com/Family_Family2'>@Family_Family2 Twitter</a>"
+			."<p><img src='https://ftof.herokuapp.com/img/mail_footer_logo.jpg' /></p>"
 			."</body></html>";
 
 
