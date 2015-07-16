@@ -86,6 +86,17 @@ $(document).ready(function(){
 			encode      : true
 		}).done(function(data) {
 			console.log(data);
+			if (!data.success){
+				var errCont = $("#SendMail").find('.share-error');
+				errCont.html('');
+				var errUl = $('<ul  class="list-group" />').appendTo(errCont);
+				$(data.error).each(function(i,x){
+					errUl.append('<li class="list-group-item list-group-item-danger">'+x+'</li>');
+				});
+			} else {
+				$('form[name="mailform"]')[0].reset();
+				$("#SendMail").modal('hide');
+			}
 		});
 		
     	return false;
