@@ -40,7 +40,7 @@ $result = [];
 while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 	$new_element = array_merge($row,
 	[	
-		'stars' => rand(1, 5),
+		'stars' => round(rand(1, 5),1),
 		'arrival' => $arrival_date->format(__DATEFORMAT),
 		'departure' => $departure_date->format(__DATEFORMAT)
 	]);

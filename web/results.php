@@ -25,51 +25,32 @@ $SCRIPTS[] =
 //<li>service ${$value}</li>
 //{{/each}}
 //</ul>
-//</li>'	
+//</li>'
+
   '<li class="family_item background_white">'
-. '		<div class="family_image" style="background-image:url(\'img/profile/pics/${picture}\')">'
-. '			<div class="family_like">'
-. '				<div class="likeImage like_inactive">'
-. '					<img src="img/like_inactive.png" class="img-responsive" />'
-. '				</div>'
-. '			</div>'
+. '		<div class="family_image" style="background-image:url(\'img/profile/pics/${picture}\');width:29.33%;opacity:0.8">'
 . '		</div>'
-. '		<div class="item_sell padded git pull">'
+. '		<div class="item_sell padded padded_half">'
 . '			<div class="items_description">'
-. '				<h3 class="hidden-xs">'
-. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a>'
+. '			<div class="family_like" style="float:left;background-color:#EA4A4A;height:50px;padding:7px;width:50px;border-radius:10%;">'
+.'			<div class="likeImage like_inactive">'
+.'				<img src="img/Heart_button_icon.png" class="img-responsive" />'
+.'			</div>'
+.'			<div style="margin-top: 48px;margin-left: -10px;text-align:right">Rating'
+.'				<h3 style="color:#EA4A4A;text-align:right">${stars}/5</h3>'
+.'			</div>'
+.'		</div>'
+. '				<h3 class="hidden-xs" style="margin-top:22px;padding-left:78px;">'
+. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a> - <span style="font-size:14px;">Paris, France</span>'
 . '				</h3>'
-. '				<span class="hidden-xs smallText">'
-. '					Paris, France'
-. '				</span>'
 . '				<br/>'
-. '				<span class="hidden-xs servicesNumber">'
-. '					${services_no} service(s)'
-. '				</span>'
-. '				<div class="item_amenities">'
+. '				<div class="item_amenities" style="margin-left: 70px;padding-top:14px;">'
 . '                 {{each services}}'
 . '					<div class="item_border">'
 . '						<img src="${pic}" class="img-responsive icons" alt="${name}" title="${name}" />'
 . '						${price_per_day}&#8364;/day'
 . '					</div>'
 . '					{{/each}}'
-. '				</div>'
-. '				<div class="stars">'
-. '					{{if stars >= 1}}'
-. '					<img src="img/star.png" class="reponsive" />'
-. '					{{/if}}'
-. '					{{if stars >= 2}}'
-. '					<img src="img/star.png" class="reponsive" />'
-. '					{{/if}}'
-. '					{{if stars >= 3}}'
-. '					<img src="img/star.png" class="reponsive" />'
-. '					{{/if}}'
-. '					{{if stars >= 4}}'
-. '					<img src="img/star.png" class="reponsive" />'
-. '					{{/if}}'
-. '					{{if stars >= 5}}'
-. '					<img src="img/star.png" class="reponsive" />'
-. '					{{/if}}'
 . '				</div>'
 . '			</div>'
 . '		</div>'
@@ -95,7 +76,6 @@ $SCRIPTS[] =
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href=index.php">Home</a></li>
                     <li><a href="#">Signup/Login</a></li>
-                    <li><a href="#">Connect</a></li>
                     <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
@@ -187,7 +167,7 @@ $SCRIPTS[] =
                 <div class="srp-list col-sm-8 col-md-9" >
                 	<div class="row hidden-xs topmost_row"></div>
                     <div id="resultContainer">
-                    	<ul id="resultList">
+                    	<ul id="resultList" style="padding-bottom:4px;">
 						</ul>
 					</div>
             </div>

@@ -62,7 +62,6 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.php">Home</a></li>
                     <li><a href="#">Signup/Login</a></li>
-                    <li><a href="#">Connect</a></li>
                 	<li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
@@ -285,20 +284,16 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
           						<p>
                                  <label for="first_name">Enter your first name*:</label>
             						<input id="first_name" name="first_name" type="text" value="" class="input-large input-block" placeholder="Enter your first name">
-          						</p>
-          						<p>
+          						
                                  <label for="last_name">Enter your last name*:</label>
             						<input id="last_name" name="last_name" type="text" value="" class="input-large input-block" placeholder="Enter your last name">
-          						</p>
-          						<p>
+          						
                                  <label for="email_from">Enter your e-mail address*:</label>
             						<input id="email_from" name="email_from" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your e-mail address">
-          						</p>
-          						 <p>
+          						
                                  <label for="phone_number">Enter your phone number:</label>
             						<input id="phone_number" name="phone_number" type="text" value="" class="input-large input-block" placeholder="Enter your phone number">
-          						</p>
-          						<p>
+          						
           				  			<label for="comments">Additional comments:</label>
            							 <textarea id="comments" name="comments" rows="3" placeholder="Please enter your comments here!"></textarea>
           						</p>
