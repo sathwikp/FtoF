@@ -119,6 +119,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
         <div class="services-row">
         	<div class="container">
 				<form name="serviceSelection" >
+				<input type="hidden" name="id" value="<?php echo $id; ?>">
     <?php 
 
 
@@ -243,24 +244,26 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
             <div id="SendMail" class="modal fade" role="dialog">
             	<div class="modal-dialog">
                 	<div class="modal-content">
-                       <form accept-charset="UTF-8" action="MAILTO:someone@example.com" data-remote="true" method="post">
+                       <form accept-charset="UTF-8" name="mailform">
                     	<div class="modal-header">
                         	<button type="button" class="close" data-dismiss="modal">×</button>
-                        	Mail the Seller             
+                        	Finalize booking             
                         </div>
         				<div class="modal-body">
+          						<p>In order to confirm your booking, please complete this form.</p>
+          						<p>Your details will be sent to the family, who will contact you to follow up.</p>
           						<p>
-                                 <label for="send_to">Enter your mail id:</label>
-            						<input id="send_to" name="send_to" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your email id">
+                                 <label for="send_to">Enter your e-mail address:</label>
+            						<input id="send_to" name="send_to" type="email" multiple pattern="^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},*[\W]*)+$" value="" class="input-large input-block" placeholder="Enter your e-mail address">
           						</p>
           						<span class="share-error"></span>
           						<p>
-          				  			<label for="email_message">Personal message:</label>
+          				  			<label for="email_message">Additional comments:</label>
            							 <textarea id="email_message" name="message" rows="3" placeholder="Please enter your message here!"></textarea>
           						</p>
         					</div>
                      <div class="modal-footer">
-                         <input class="btn btn-primary" name="commit" type="submit" value="Send Email">
+                         <input class="btn btn-primary" name="commit" type="submit" value="Book">
                      </div>
                      
                      </div>

@@ -67,4 +67,19 @@ $(document).ready(function(){
 		theTotalFld.text(Math.round(theTotalPrice*100)/100); //rounds to 2 decimal places
     });
     
+    $('form[name="mailform"]').submit(function(e){
+    	e.preventDefault();
+    	
+    	$.ajax({
+			type        : 'POST', 
+			url         : 'messaging.php', 
+			data        : $('form[name="mailform"], form[name="serviceSelection"]').serialize(), 
+			dataType    : 'json', 
+			encode      : true
+		}).done(function(data) {
+		});
+		
+    	return false;
+    });
+    
 });

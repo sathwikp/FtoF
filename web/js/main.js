@@ -55,21 +55,41 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	$('form[name="search"] :input[name="location"]').typeahead({
+	    dynamic: true,
+	    hint: true,
+    	cache: true,
+	    display: ['citycountry', 'cityregioncountry'],
+	    source: {
+	    	location: {
+        		url: {
+            	type: "GET",
+            	url: "locationAjax.php",
+            	data: {
+                		q: "{{query}}"
+            		}
+        		}
+    		}
+	    },
+	    template: "{{name}} ({{region}}), {{countryname}}",
+	    callback: {
+        	//onSubmit: pushFormParams,
+        	onClickAfter: function (node, a, item, event) {
+        		$('form[name="search"] :input[name="locationid"]').val(item.id); 
+        		$('form[name="search"] :input[name="location"]').val($(a).text());
+    			$("#datepickerArrival").focus();
+        	}
+    	}
+	});
+  
+	//$('form[name="search"] :input[name="location"]').change(function (){
+	//	//console.log('onChange');
+	//    $('form[name="search"] :input[name="locationid"]').val('');
+	//});
 	
+	$('form[name="search"] :button[type="submit"]').click(function (){
+		//console.log('onChange');
+	    $('form[name="search"]').submit();
+	});
 	
 });
-addToCart = function(obj){
-	if($(obj).parent().parent().hasClass('Available')){
-		$(obj).parent().find(".ui_checkbox").prop('checked', true);
-		$(obj).parent().parent().fadeOut(600).hide(800,function(){
-		$(obj).parent().parent().parent().find('.AddedToCart').fadeIn(600).show(800).css('display','block');
-		});
-	}
-	else if($(obj).parent().parent().hasClass('AddedToCart')){
-		$(obj).parent().parent().parent().find(".ui_checkbox").prop('checked', false);
-		$(obj).parent().parent().fadeOut(600).hide(800,function(){
-		$(obj).parent().parent().parent().find('.Available').fadeIn(600).show(800).css('display','block');
-	});
-	}
-}
-

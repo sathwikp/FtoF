@@ -2,25 +2,8 @@
 
 <?php require '../vendor/autoload.php'; ?>
 
-<pre>
-
 <?php
 
-try {
-	$sendgrid = new SendGrid($api_user, $api_key);
-
-	$sendemail = new SendGrid\Email();
-
-	if(isset($_POST['email'])) {
-
-		function died($error) {
-		    echo "We are very sorry, but there were error(s) found with the form you submitted. ";
-		    echo "These errors appear below.<br /><br />";
-		    echo $error."<br /><br />";
-		    echo "Please go back and fix these errors.<br /><br />";
-		    die();
-		}
-		
 		if(!isset($_POST['first_name']) ||
 	        !isset($_POST['last_name']) ||
 	        !isset($_POST['email']) ||
@@ -35,26 +18,25 @@ try {
     	$telephone = $_POST['telephone']; // not required
     	$comments = $_POST['comments']; // required
 
-    	$error_message = "";
-    	$email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-  		if(!preg_match($email_exp,$email_from)) {
-   			$error_message .= 'The Email Address you entered does not appear to be valid.<br />';
+    	$error_message = [];
+  		if(!filter_var($email_from, FILTER_VALIDATE_EMAIL)) {
+   			$error_message[] = 'The Email Address you entered does not appear to be valid.';
  		}
 
- 		$string_exp = "/^[A-Za-z .'-]+$/";
-   		if(!preg_match($string_exp,$first_name)) {
- 	    	$error_message .= 'The First Name you entered does not appear to be valid.<br />';
+
+   		if(strlen($first_name) == 0 || strlen($first_name)>150) {
+ 	    	$error_message[] = 'The First Name you entered does not appear to be valid.';
  		}
  
-  		if(!preg_match($string_exp,$last_name)) {
- 		    $error_message .= 'The Last Name you entered does not appear to be valid.<br />';
+  		if(strlen($first_name) == 0 || strlen($first_name)>150) {
+ 		    $error_message[] = 'The Last Name you entered does not appear to be valid.';
 		}
  
-  		if(strlen($comments) < 2) {
-		    $error_message .= 'The Comments you entered do not appear to be valid.<br />';
+  		if(strlen($comments) > 50000) {
+		    $error_message[] = 'The Comments you entered do not appear to be valid.';
 		}
  
-  		if(strlen($error_message) > 0) {
+  		if(count($error_message) > 0) {
  		    died($error_message);
 		}
  
@@ -71,6 +53,9 @@ try {
 
         $email_subject .= "New message from: ".clean_string($first_name)." ".clean_string($last_name);
 
+		$sendgrid = new SendGrid($api_user, $api_key);
+		$sendemail = new SendGrid\Email();
+
 		$sendemail->addTo('family2family.email@gmail.com')->
 		          setFrom($email_from)->
 		          setSubject($email_subject)->
@@ -81,12 +66,8 @@ try {
 		$response = $sendgrid->send($sendemail);
 
 		print_r("Your message has been sent ");
-	}
 
 
-} catch (Exception $e) {!
-	print_r($e);
-}
 ?>
 
 </pre>
