@@ -130,7 +130,7 @@ theExit:
 			$email_message .=  "\nMerci de votre confiance. Si vous avez des questions ou que vous rencontrez une difficulté, n'hésitez pas à nous contacter.\n\n"
 
 			."Family@Family\n"
-			."Vous faciliter le voyage en famille et faire des rencontres inoubliables\n\n"
+			."\"Vous faciliter le voyage en famille et faire des rencontres inoubliables\"\n\n"
 
 			."Facebook: https://www.facebook.com/pages/Family2Family/820471384696590"
 			."Twitter: https://twitter.com/Family_Family2";
@@ -162,7 +162,7 @@ theExit:
 			$html_message .=  "<br/><p>Merci de votre confiance. Si vous avez des questions ou que vous rencontrez une difficulté, n'hésitez pas à nous contacter.<p>"
 
 			."<p>Family@Family</br>"
-			."Vous faciliter le voyage en famille et faire des rencontres inoubliables</p>"
+			."\"Vous faciliter le voyage en famille et faire des rencontres inoubliables\"</p>"
 
 			."<a href='https://www.facebook.com/pages/Family2Family/820471384696590'>Family2Family Facebook</a><br/>"
 			."<a href='https://twitter.com/Family_Family2'>@Family_Family2 Twitter</a>"
