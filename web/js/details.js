@@ -102,4 +102,19 @@ $(document).ready(function(){
     	return false;
     });
     
+    $('.likeFamily').click(function(){
+    	
+    	var heart = $(this).find('span.glyphicon-heart');
+		var id = $(this).attr('data-profileid');
+		
+    	$.ajax({
+			type        : 'GET', 
+			url         : 'addtowishlist.php', 
+			data        : {'id':id}, 
+			encode      : true
+		}).done(function() {
+			heart.toggleClass('wished');
+		}); 
+    });
+    
 });
