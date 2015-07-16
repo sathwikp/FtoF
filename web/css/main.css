@@ -652,7 +652,9 @@ span.decrease {
 	cursor: pointer;
 	cursor: hand; 
 }
-
+.srp-list >  ul{
+	margin-left:-5%;
+}
 
 .srp-list > div > ul{
 	margin-left:-5%;
