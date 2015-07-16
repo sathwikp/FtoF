@@ -12,6 +12,7 @@ $SCRIPTSRC[] = "js/jquery.ba-bbq.min.js";
 $SCRIPTSRC[] = "js/datepicker.js";
 $SCRIPTSRC[] = "js/round-buttons.js";
 $SCRIPTSRC[] = "js/results.js";
+$SCRIPTSRC[] = "js/Click.js";
 
 $SCRIPTS[] =
 [
@@ -152,27 +153,30 @@ $SCRIPTS[] =
                                 	<div class="filters-wrapper">
      	<?php
      		foreach (ServiceType::GetTypes() as $key => $val) {
-     			echo '' //'<div class="checkbox">'
-    				. '<label for="service__'.$key.'" class="filter">'
-      				. '<input type="checkbox" class="ui_checkbox" name="service__'.$key.'" value="'.$key.'"> <span class="ui_checkbox_target"></span>'. $val
-    				. '</label>'
+     			echo '<div class="checkMark">'
+    				. '<label for="service__'.$key.'" class="filter"></label>'
+      				. '<input type="checkbox" class="ui_checkbox" name="service__'.$key.'" value="'.$key.'"> <span class="ui_checkbox_target clr"></span><span>'. $val . '</span>'
+					. '</div>'
 					. '<br />';
      		}
      	 ?>                                	
                                     </div>
                                     <h4>Languages</h4>
                                 	<div class="filters-wrapper">
-    									<label for="french" class="filter">
-      										<input type="checkbox" class="ui_checkbox" name="french" value="french"> <span class="ui_checkbox_target"></span> French
-      									</label>
+                                		<div class="checkMark">
+    									<label for="french" class="filter"></label>
+      										<input type="checkbox" class="ui_checkbox" name="french" value="french"> <span class="ui_checkbox_target clr"></span><span> French </span>
+      									</div>
       									<br />
-    									<label for="english" class="filter">
-      										<input type="checkbox" class="ui_checkbox" name="english" value="english"> <span class="ui_checkbox_target"></span> English
-      									</label>
+      									<div class="checkMark">
+    									<label for="english" class="filter"></label>
+      										<input type="checkbox" class="ui_checkbox" name="english" value="english"> <span class="ui_checkbox_target clr"></span><span> English </span>
+      									</div>
       									<br />     
-    									<label for="spanish" class="filter">
-      										<input type="checkbox" class="ui_checkbox" name="spanish" value="spanish"> <span class="ui_checkbox_target"></span> Spanish
-      									</label>
+      									<div class="checkMark">
+    									<label for="spanish" class="filter"></label>
+      										<input type="checkbox" class="ui_checkbox" name="spanish" value="spanish"> <span class="ui_checkbox_target clr"></span><span> Spanish </span>
+      									</div>
       									<br />           									      									                                		
                                 	</div>
 							</div>
