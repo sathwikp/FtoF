@@ -41,7 +41,7 @@ $result = [];
 while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 	$new_element = array_merge($row,
 	[	
-		'stars' => round(rand(1, 5),1),
+		'stars' => isset($_SESSION['stars'][$row['id']]) ? $_SESSION['stars'][$row['id']] : ($_SESSION['stars'][$row['id']] = round(rand(1, 5),1)),
 		'wished' => (isset($_SESSION['favourites'][$row['id']]) && $_SESSION['favourites'][$row['id']]),
 		'arrival' => $arrival_date->format(__DATEFORMAT),
 		'departure' => $departure_date->format(__DATEFORMAT)
