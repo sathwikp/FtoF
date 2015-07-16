@@ -60,9 +60,9 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Signup/Login</a></li>
-                    <li><a href="#">Connect</a></li>
+                    <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
+                    <li><a href="#"><?php echo localization("Signup/Login", "Inscription/Connection"); ?></a></li>
+                    <!--<li><a href="#">Connect</a></li>-->
                 	<li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
@@ -94,10 +94,10 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 	<div class="sharing">
                     	<div class="likeFamily">
                         	<img src="img/like_inactive.png" class="img-responsive" />
-                            <span>Save to Wish List</span>
+                            <span><?php echo localization("Save to Wish List", "Ajouter aux favorits"); ?></span>
                         </div>
                         <div class="shareSocialMedia">
-                        	<span class="shareTitle">Connect :</span>
+                        	<span class="shareTitle"><?php echo localization("Connect", "Contact"); ?> :</span>
                             <a href="#"><img src="img/Email_icon.png" class="img-responsive" /></a>
                             <a href="#"><img src="img/Fb_icon.png" class="img-responsive" /></a>
                             <a href="#"><img src="img/Twitter_icon.png" class="img-responsive" /></a>
@@ -111,7 +111,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
             <div class="container">
                 <div class="row">	
                     <div class="col-lg-10 col-sm-10 col-xs-10 family_description_box">
-                        <h3>Family Description</h3>
+                        <h3><?php echo localization("Family Description", "Details de la famille"); ?></h3>
                         <p class="font-color"><?php echo $profile['description']; ?></p>
                     </div>
                 </div>
@@ -156,16 +156,16 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                                 <label>
-                                    <input placeholder="Arrival" type="text" name="arrival__<?php echo $service['service_type']; ?>" class="datepickerArrival" value="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-mindate="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-maxdate="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
+                                    <input placeholder="<?php echo localization("Arrival", "Arrivée"); ?>" type="text" name="arrival__<?php echo $service['service_type']; ?>" class="datepickerArrival" value="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-mindate="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-maxdate="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
                                 </label>
                                 <label>
-                                    <input placeholder="Departure" type="text" name="departure__<?php echo $service['service_type']; ?>" class="datepickerDeparture" value="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-mindate="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-maxdate="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
+                                    <input placeholder="<?php echo localization("Departure", "Départ"); ?>" type="text" name="departure__<?php echo $service['service_type']; ?>" class="datepickerDeparture" value="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-mindate="<?php echo $arrival_date->format(__DATEFORMAT); ?>" data-maxdate="<?php echo $departure_date->format(__DATEFORMAT); ?>" data-price="<?php echo $service['price_per_day'];?>">
                                 </label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
                         	<div class="TotalPrice">
                         	    <div>
-                        	    	<span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/day </span>
+                        	    	<span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/<?php echo localization("day", "jour"); ?> </span>
                         	    </div>
                                 <h3 class="service-price total-price">
                                     <span><?php echo round(($departure_date->diff($arrival_date)->days+1) * $service['price_per_day'],2); ?></span>&#8364;
@@ -189,7 +189,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> added to cart</h3>
+                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> <?php echo localization("added to cart", "ajouté(s) au panier"); ?></h3>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                         	
@@ -216,9 +216,9 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 				</form>
 		        <div class="row item-divider">
                 	<div class="Total-price">
-                    	<h3 class="TotalAmountLabel" style="display: inline;color: #16becf;">Total Amount : </h3>
+                    	<h3 class="TotalAmountLabel" style="display: inline;color: #16becf;"><?php echo localization("Total Amount", "Montant total"); ?> : </h3>
                         <h3 id="Amount"><span>0</span>&#8364;</h3>
-                    	<button type="button" class="btn" id="modalBtn">Book Now</button>
+                    	<button type="button" class="btn" id="modalBtn"><?php echo localization("Book Now", "Réserver"); ?></button>
                     </div>
                 </div>				
         	</div>
@@ -245,7 +245,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
         	<div class="container">
             	<div class="row family_description_box">
                 	<div class="reviews container col-lg-12 col-sm-12 col-xs-12">
-						<h3><?php echo $q->rowCount(); ?> Reviews</h3>
+						<h3><?php echo $q->rowCount(); ?> <?php echo localization("Reviews", "Avis"); ?></h3>
                     </div>
     <?php
     	while ($review = $q->fetch(PDO::FETCH_ASSOC)) {
@@ -277,11 +277,17 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                        <form accept-charset="UTF-8" name="mailform">
                     	<div class="modal-header">
                         	<button type="button" class="close" data-dismiss="modal">×</button>
-                        	Finalize booking             
+                        	<?php echo localization("Finalize booking", "Confirmer la réservation"); ?>             
                         </div>
         				<div class="modal-body">
-          						<p>In order to confirm your booking, please complete this form.</p>
-          						<p>Your details will be sent to the family, who will contact you to follow up.</p>
+          						<p>
+									<?php echo localization("In order to confirm your booking, please complete this form.",
+									"Afin de finaliser la transaction, veuillez remplir le formulaire ci-dessous."); ?>
+								</p>
+          						<p>
+									<?php echo localization("Your details will be sent to the family, who will contact you to follow up.",
+									"Vos coordonnées seront transmisent à la famille pour qu'ils puissent vous contacter."); ?>									
+								</p>
           						<p>
                                  <label for="first_name">Enter your first name*:</label>
             						<input id="first_name" name="first_name" type="text" value="" class="input-large input-block" placeholder="Enter your first name">
