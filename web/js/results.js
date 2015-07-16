@@ -81,6 +81,8 @@ $(window).bind( 'hashchange', function( event ){
       			window.location = $("a:first",this).attr("href");
    			});
    			overlay.remove();
+   		}).fail(function(){
+    		overlay.remove();  		
    		});
   }
 })

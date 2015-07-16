@@ -471,6 +471,11 @@ div#footer{
 }
 .likeFamily{
 	border: 1px solid #BCC8C8;
+	height:35px;
+	padding-top:7px;
+}
+.wished{
+	color:#EA4A4A;
 }
 .likeFamily:hover{
 	border: 1px solid #979E9E;

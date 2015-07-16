@@ -34,7 +34,11 @@ $SCRIPTS[] =
 . '			<div class="items_description">'
 . '			<div class="family_like" style="float:left;background-color:#EA4A4A;height:50px;padding:7px;width:50px;border-radius:10%;">'
 .'			<div class="likeImage like_inactive">'
+.'				{{if wished}}'
+.'				<img src="img/Heart_button_icon_active.png" class="img-responsive" />'
+.'				{{else}}'
 .'				<img src="img/Heart_button_icon.png" class="img-responsive" />'
+.'				{{/if}}'
 .'			</div>'
 .'			<div style="margin-top: 48px;margin-left: -10px;text-align:right">Rating'
 .'				<h3 style="color:#EA4A4A;text-align:right">${stars}/5</h3>'
@@ -74,7 +78,9 @@ $SCRIPTS[] =
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href=index.php"><?php echo localiztion("Home", "Accueil"); ?></a></li>
+
+                    <li><a href=index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
+
                     <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
                     <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
@@ -89,7 +95,7 @@ $SCRIPTS[] =
 			<label for="location">
 				<div class="typeahead-container">
      			<span class="typeahead-query">		
-     					<input name="location" type="search" placeholder="<?php echo localizaztion("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" >
+     					<input name="location" type="search" placeholder="<?php echo localization("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" >
      			</span>
      			</div>
 			</label>
@@ -102,7 +108,7 @@ $SCRIPTS[] =
             </label>
 			
             <label>
-            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localozation("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>">
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localization("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>">
 			<button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
             <input name="babyno" type="hidden" value="0" />
 			</span>            

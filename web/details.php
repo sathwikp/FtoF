@@ -88,22 +88,16 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
     margin-top: 38px;
 ">
                 	<div class="sharing">
-                    	<div class="likeFamily">
-                        	<img src="img/like_inactive.png" class="img-responsive">
+                    	<div class="likeFamily" data-profileid="<?php echo $id;?>">
+                        		<?php if (isset($_SESSION['favourites'][$id]) && $_SESSION['favourites'][$id]) {
+                        			echo '<span class="glyphicon glyphicon-heart wished"></span>';
+                        		} else {
+                        			echo '<span class="glyphicon glyphicon-heart"></span>';
+                        		}
+                        	?>
                             <span><?php echo localization("Save to Wish List", "Ajouter aux favorits"); ?></span>
                         </div>
                         <div class="shareSocialMedia">
-<!-- AddToAny BEGIN 
-<div class="a2a_kit a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share_save">Share</a>
-<span class="a2a_divider"></span>
-<a class="a2a_button_email"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_google_plus"></a>
-</div>
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
--->
 <!-- AddToAny BEGIN -->
 <div class="a2a_kit a2a_kit_size_20 a2a_default_style" style="margin: 0 auto; width: 100px;">
 <a class="a2a_button_facebook"></a>
