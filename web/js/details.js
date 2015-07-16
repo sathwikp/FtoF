@@ -85,7 +85,7 @@ $(document).ready(function(){
 			dataType    : 'json', 
 			encode      : true
 		}).done(function(data) {
-			console.log(data);
+			//console.log(data);
 			if (!data.success){
 				var errCont = $("#SendMail").find('.share-error');
 				errCont.html('');
