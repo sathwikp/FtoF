@@ -43,4 +43,28 @@ $(document).ready(function(){
         $("#SendMail").modal();
     });
     
+    $("form[name='serviceSelection'] :input").change(function(){
+    	var theTotalPrice = 0;
+    	
+    	$("form[name='serviceSelection'] :input:checked").each(function(){
+    		//console.log($(this).val());
+    		var arrDate = $(this).closest('div').siblings()
+    			.find('.datepickerArrival').datepicker('getDate');
+    			
+    		var depDate =  $(this).closest('div').siblings()
+    			.find('.datepickerDeparture').datepicker('getDate');
+    			
+    		var dayDiff = Math.abs(Math.ceil((depDate - arrDate) / (1000 * 60 * 60 * 24)))+1;
+			var price = Number($(this).closest('div').siblings()
+    			.find('.datepickerArrival').attr('data-price'));
+    			
+    		theTotalPrice += dayDiff*price;
+    	});
+    	
+    	//console.log(theTotalPrice);
+    	
+    	var theTotalFld = $('#Amount > span');
+		theTotalFld.text(Math.round(theTotalPrice*100)/100); //rounds to 2 decimal places
+    });
+    
 });
