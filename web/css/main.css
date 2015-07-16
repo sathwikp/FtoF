@@ -435,7 +435,7 @@ div#footer{
 	
 }
 .family .family-card-image{
-	background:url('../img/Family1.jpg') no-repeat 50% 20%;
+	background: transparent no-repeat 50% 20%;
 	height:550px;
 	position: relative;
 	-webkit-background-size: cover;
@@ -445,6 +445,14 @@ div#footer{
 }
 .family-summary{
 	padding:25px 10px 20px 10px;
+}
+.avatar-container{
+  	border-radius: 50%;
+  	width:150px;
+  	height:150px;
+  	display:block;
+  	background-repeat: no-repeat;
+  	background-position: 50% 0;
 }
 .family-highlight {
 	padding:2%;

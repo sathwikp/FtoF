@@ -103,14 +103,14 @@ abstract class ServiceType
     		ServiceType::Transfer => 'img/Taxi_icon.png',
     		ServiceType::Toys => 'img/Teddy_bear_icon.png',
     		
-			ServiceType::CarSeat => 'img/Baby_trolley.png',
-			ServiceType::BabyChair => 'img/Baby_trolley.png',
-			ServiceType::FamilyCar => 'img/Baby_trolley.png',
-			ServiceType::House => 'img/Baby_trolley.png',
-			ServiceType::Babysit => 'img/Baby_trolley.png',
-			ServiceType::Activity => 'img/Baby_trolley.png',
-			ServiceType::Teaching => 'img/Baby_trolley.png',
-			ServiceType::Others => 'img/Baby_trolley.png',
+			ServiceType::CarSeat => 'img/car_seat.png',
+			ServiceType::BabyChair => 'img/baby_chair.png',
+			ServiceType::FamilyCar => 'img/family_car.png',
+			ServiceType::House => 'img/house.png',
+			ServiceType::Babysit => 'img/babysit.png',
+			ServiceType::Activity => 'img/activity.png',
+			ServiceType::Teaching => 'img/teaching.png',
+			ServiceType::Others => 'img/others.png',
     	];
     }
 }

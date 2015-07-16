@@ -26,7 +26,7 @@ $SCRIPTS[] =
 //</ul>
 //</li>'	
   '<li class="family_item background_white">'
-. '		<div class="family_image" style="background-image:url(\'img/F2F2.jpg\')">'
+. '		<div class="family_image" style="background-image:url(\'img/profile/pics/${picture}\')">'
 . '			<div class="family_like">'
 . '				<div class="likeImage like_inactive">'
 . '					<img src="img/like_inactive.png" class="img-responsive" />'
