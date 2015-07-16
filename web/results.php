@@ -82,7 +82,6 @@ $SCRIPTS[] =
                     <li><a href=index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
 
                     <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
-                    <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
         </div>

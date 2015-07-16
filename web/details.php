@@ -62,7 +62,6 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
                     <li><a href="#"><?php echo localization("Signup/Login", "Inscription/Connection"); ?></a></li>
-                	<li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
                </ul>
           </div>
         </div>

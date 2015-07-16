@@ -33,15 +33,15 @@ $SCRIPTSRC[] = "js/main.js";
             </button>
  		<div class="collapse navbar-collapse navHeaderCollapse">
   			<ul class="nav navbar-nav navbar-right">
-				<li ><a href="home.html" class="dropdown-toggle" data-toggle="dropdown"><?php echo localization("English", "Anglais"); ?><b class="caret"></b></a>
+				<li ><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo localization("Language", "Langage"); ?><b class="caret"></b></a>
                 	<ul class="dropdown-menu">
-                      <li><a href="#"><?php echo localization("French", "Français"); ?></a></li>
-                      <li class="active"><a href="#"><?php echo localization("English", "Anglais"); ?></a></li>
+                      <li <?php if ($_SESSION['lang'] =='fr') echo 'class="active"';?>><a href="?lang=fr"><?php echo localization("French", "Français"); ?></a></li>
+                      <li <?php if ($_SESSION['lang'] =='en') echo 'class="active"';?>><a href="?lang=en"><?php echo localization("English", "Anglais"); ?></a></li>
                       <!--<li><a href="#">German</a></li>-->
                     </ul>
                 </li>
                 <li><a href="#"><?php echo localization("Sign up/Login", "Inscription/Connection"); ?></a></li>
-                <li><a href="home.html"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
+               
            </ul>
       </div>
  	</div>
