@@ -1,3 +1,5 @@
+<?php require 'init.php.inc';?>
+
 <?php
 
 $PAGETITLE = "F2F | Welcome";
@@ -57,7 +59,7 @@ $SCRIPTSRC[] = "js/main.js";
 			<label for="location">
 				<div class="typeahead-container">
      			<span class="typeahead-query">		
-     					<input name="location" type="text" placeholder="<?php echo localizaztion("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" />
+     					<input name="location" type="text" placeholder="<?php echo localization("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" />
      			</span>
      			</div>
 			</label>
@@ -68,7 +70,7 @@ $SCRIPTSRC[] = "js/main.js";
             <input placeholder="<?php echo localization("Departure","Départ"); ?>" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
             <label>
-            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localozation("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>"><button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localization("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>"><button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
             <input name="babyno" type="hidden" value="0" /></span>            
             </label>
             <label>
@@ -246,3 +248,4 @@ $SCRIPTSRC[] = "js/main.js";
 </body>
 
 <?php include 'endpage.php.inc';?>
+<?php require 'destroy.php.inc';?>
