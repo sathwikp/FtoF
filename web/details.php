@@ -25,7 +25,7 @@ $SCRIPTSRC[] = "js/details.js";
 
 <?php
 $qparams = [];
-$sql = 	"select p.name, p.description, p.picture, l.name as location, l.countryname as country, l.region as region, count(*) as serviceno "
+$sql = 	"select p.name, p.description, p.avatar, p.big_picture, l.name as location, l.countryname as country, l.region as region, count(*) as serviceno "
 	. "from profile p, porref l, offered_service s "
 	. "where p.location_id = l.id "
 	. "and p.id = s.profile_id "
@@ -34,7 +34,7 @@ $sql = 	"select p.name, p.description, p.picture, l.name as location, l.countryn
 	. "and period @> '["
 	. $arrival_date->format('Y-m-d').", "
 	. $departure_date->format('Y-m-d')."]'::daterange "
-	. "group by p.name, p.description, p.picture, l.name, l.countryname, l.region ";
+	. "group by p.name, p.description, p.avatar, p.big_picture, l.name, l.countryname, l.region ";
 
 $qparams[":id"] = $id;
 	
@@ -67,14 +67,15 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
           </div>
         </div>
  	</div>
-	<div class="family-card-image col-lg-12 col-sm-12 col-xs-12">
+	<div class="family-card-image col-lg-12 col-sm-12 col-xs-12" style="background-image:url('img/profile/pics/<?php echo $profile['big_picture'];?>')">
 	</div>
 		
 	<div class="content container">
     	<div classs="row">
 			<div class="family-summary">
 				<div class="col-lg-2 col-sm-3 col-xs-3">
-					<img alt="Family Name" src="img/IdCard1.png" />
+					<span class="avatar-container" style="background-image:url('img/profile/avatars/<?php echo $profile['avatar'];?>')">
+					</span>
 				</div>
 				<div class="family-highlight col-lg-5 col-sm-6 col-xs-6">
 					<h2><?php echo $profile['name']; ?></h2>
