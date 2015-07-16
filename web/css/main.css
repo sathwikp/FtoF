@@ -389,8 +389,9 @@ div>h2{
 	text-align: left;
 }
 .icons{
-	height:40px;
+	height:44px;
 	width:40px;
+	padding-bottom:4px;
 }
 span.smallText{
 	float:left;
@@ -411,9 +412,8 @@ span.servicesNumber{
 	margin-right:8px;
 	display:inline;
 	border-radius:15%;
-	border:1px solid #ff7300;
-	font-size:10px;
-	color:#ff7300;
+	font-size:11px;
+	color:#000;
 	text-align:center;
 }
 .stars{
@@ -495,6 +495,9 @@ div#footer{
 .items-sell{
 	width:75px;
 }
+.AddedToCart .items-sell{
+	width:45px;
+}
 .services-row{
 	padding:20px;
 }
@@ -522,10 +525,17 @@ div#footer{
 	margin-top:15px;
 }
 .Add-cart{
-	width:80px;
+	width:55px;margin-top:18px;margin-left:22px;
+	opacity:0.8;
+}
+.Remove-cart{
+	width:55px;margin-left:22px;
 	opacity:0.8;
 }
 .Add-cart:hover{
+	opacity:1;
+}
+.Remove-cart:hover{
 	opacity:1;
 }
 .item-divider{
@@ -693,4 +703,7 @@ input[type=email], textarea{
 #Amount{
 	display:inline;
 	color:#ff7300;
+}
+.AddedToCart{
+	display:none
 }

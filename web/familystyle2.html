@@ -103,7 +103,7 @@
         <div class="services-row">
         	<div class="container">
             	<div class="row item-divider" style="background-color: #FAFAFA;border-bottom:none;">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
                                 <div class="item_border">
@@ -138,12 +138,12 @@
                             </div>                   	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
+                        	<label for="stroller" class="filter"></label>
+                            <input type="checkbox" class="ui_checkbox" id="stroller" name="stroller" value="">
+                            <img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
                         </div>
-                    </div>              
-                </div>
-                <div class="row item-divider" style="border-bottom:none;">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
                                 <div class="item_border">
@@ -152,78 +152,26 @@
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                        	<h3>Strolley rental </h3>
-				<p class="font-color">Très bel appartement 8ème étage sur 8. Face mer promenade des anglais, proche aéroport- gare, commerces, TV Hifi, terrasse 7m2. 
-                			</p>
+                        	<h3>Stroller added to cart</h3>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<form>
-                                <label>
-                                    <input placeholder="Arrival" type="text" name="arrival" id="datepickerArrival" value="">
-                                </label>
-                                <label>
-                                    <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
-                                </label>
-							</form>
+                        	
                         </div>
                         <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
-                        	<div class="TotalPrice">
-                                   
-                                <div>
-                                    <span class="service-price"> 25$/day </span>
-                                </div>   
+                        	<div class="TotalPrice"> 
                                 <h3 class="service-price total-price">
                                     145$
                                 </h3>
-                            </div>                    	
+                            </div>                   	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;"/></a>
+                        	    		
+                        	<img onclick="addToCart(this);" class="Remove-cart" alt="" src="img\Cross_icon.png" />
                         </div>
-                    </div>              
-                </div>
-                <div class="row item-divider" style="background-color: #FAFAFA;border-bottom:none;">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-                        	<div class="items-section">
-                                <div class="item_border">
-                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                        	<h3>Strolley rental </h3>
-				<p class="font-color">Très bel appartement 8ème étage sur 8. Face mer promenade des anglais, proche aéroport- gare, commerces, TV Hifi, terrasse 7m2. 
-                			</p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<form>
-                                <label>
-                                    <input placeholder="Arrival" type="text" name="arrival" id="datepickerArrival" value="">
-                                </label>
-                                <label>
-                                    <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
-                                </label>
-							</form>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
-                        	<div class="TotalPrice">
-                                   
-                                <div>
-                                    <span class="service-price"> 25$/day </span>
-                                </div>   
-                                <h3 class="service-price total-price">
-                                    145$
-                                </h3>
-                            </div>                    	
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;"/></a>
-                        </div>
-                    </div>              
+                    </div>            
                 </div>
                 <div class="row item-divider" style="border-bottom:none;">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
                                 <div class="item_border">
@@ -258,12 +206,40 @@
                             </div>                   	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;"/></a>
+                        	<label for="stroller" class="filter"></label>
+                            <input type="checkbox" class="ui_checkbox" id="stroller" name="stroller" value="">
+                            <img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
+                        </div>
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Stroller added to cart</h3>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice"> 
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	    		
+                        	<img onclick="addToCart(this);" class="Remove-cart" alt="" src="img\Cross_icon.png" />
                         </div>
                     </div>              
                 </div>
                 <div class="row item-divider" style="background-color: #FAFAFA;border-bottom:none;">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
                                 <div class="item_border">
@@ -295,15 +271,43 @@
                                 <h3 class="service-price total-price">
                                     145$
                                 </h3>
-                            </div>                    	
+                            </div>                   	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;"/></a>
+                        	<label for="stroller" class="filter"></label>
+                            <input type="checkbox" class="ui_checkbox" id="stroller" name="stroller" value="">
+                            <img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
                         </div>
-                    </div>              
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Stroller added to cart</h3>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice"> 
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	    		
+                        	<img onclick="addToCart(this);" class="Remove-cart" alt="" src="img\Cross_icon.png" />
+                        </div>
+                    </div>               
                 </div>
                 <div class="row item-divider" style="border-bottom:none;">
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
                                 <div class="item_border">
@@ -335,12 +339,176 @@
                                 <h3 class="service-price total-price">
                                     145$
                                 </h3>
-                            </div>                  	
+                            </div>                   	
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<a href=""><img class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;"/></a>
+                        	<label for="stroller" class="filter"></label>
+                            <input type="checkbox" class="ui_checkbox" id="stroller" name="stroller" value="">
+                            <img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
                         </div>
-                    </div>              
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Stroller added to cart</h3>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice"> 
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	    		
+                        	<img onclick="addToCart(this);" class="Remove-cart" alt="" src="img\Cross_icon.png" />
+                        </div>
+                    </div> 
+                </div>
+                <div class="row item-divider" style="background-color: #FAFAFA;border-bottom:none;">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Strolley rental </h3>
+				<p class="font-color">Très bel appartement 8ème étage sur 8. Face mer promenade des anglais, proche aéroport- gare, commerces, TV Hifi, terrasse 7m2. 
+                			</p>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	<form>
+                                <label>
+                                    <input placeholder="Arrival" type="text" name="arrival" id="datepickerArrival" value="">
+                                </label>
+                                <label>
+                                    <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
+                                </label>
+							</form>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice">
+                                   
+                                <div>
+                                    <span class="service-price"> 25$/day </span>
+                                </div>   
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	<label for="stroller" class="filter"></label>
+                            <input type="checkbox" class="ui_checkbox" id="stroller" name="stroller" value="">
+                            <img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
+                        </div>
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Stroller added to cart</h3>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice"> 
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	    		
+                        	<img onclick="addToCart(this);" class="Remove-cart" alt="" src="img\Cross_icon.png" />
+                        </div>
+                    </div>             
+                </div>
+                <div class="row item-divider" style="border-bottom:none;">
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Strolley rental </h3>
+				<p class="font-color">Très bel appartement 8ème étage sur 8. Face mer promenade des anglais, proche aéroport- gare, commerces, TV Hifi, terrasse 7m2. 
+                			</p>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	<form>
+                                <label>
+                                    <input placeholder="Arrival" type="text" name="arrival" id="datepickerArrival" value="">
+                                </label>
+                                <label>
+                                    <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
+                                </label>
+							</form>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice">
+                                   
+                                <div>
+                                    <span class="service-price"> 25$/day </span>
+                                </div>   
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	<label for="stroller" class="filter"></label>
+                            <input type="checkbox" class="ui_checkbox" id="stroller" name="stroller" value="">
+                            <img onclick="addToCart(this);" class="Add-cart" alt="" src="img\Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" />
+                        </div>
+                    </div>  
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 AddedToCart">
+                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
+                        	<div class="items-section">
+                                <div class="item_border">
+                                    <img alt="" src="img\Baby_trolley.png" class="img-responsive items-sell"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+                        	<h3>Stroller added to cart</h3>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+                        	<div class="TotalPrice"> 
+                                <h3 class="service-price total-price">
+                                    145$
+                                </h3>
+                            </div>                   	
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+                        	    		
+                        	<img onclick="addToCart(this);" class="Remove-cart" alt="" src="img\Cross_icon.png" />
+                        </div>
+                    </div>               
                 </div>
                 <div class="row item-divider" style="  background-color: #FAFAFA;">
                 	<div class="Total-price">
@@ -418,5 +586,6 @@
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/Click.js"></script>
   </body>
   </html>
