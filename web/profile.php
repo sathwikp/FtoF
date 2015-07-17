@@ -2,13 +2,10 @@
 
 <?php
 
-if (!array_key_exists('id',$_GET) 
-	//|| !array_key_exists('arrival',$_GET)
-	//|| !array_key_exists('departure',$_GET) 
-	) {
+if (!$user->is_loggedin()) {
 	redirect_to_home();
 }
-$id = intval($_GET['id']);
+$id = intval($_SESSION['user_session']);
 //$datespair = parse_and_validate_dates($_GET['arrival'], $_GET['departure']);
 if (!($id > 0)
  //|| $datespair == FALSE
@@ -68,7 +65,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
-                    <li><a href="#"><?php echo localization("Signup/Login", "Inscription/Connection"); ?></a></li>
+                    <li><?php echo $user->is_loggedin() ? '<a href="logout.php"> ' .localization("Logout", "Deconnection").'</a>' : '<a href="javascript:void(0)" data-toggle="modal" onclick="openLoginModal();">' .localization("Sign up/Login", "Inscription/Connection").'</a>'; ?></li>
                </ul>
           </div>
         </div>
@@ -93,35 +90,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 <div class="family-highlight col-lg-12 col-sm-3 col-xs-3" style="
     margin-top: 38px;
 ">
-                	<div class="sharing">
-                    	<div class="likeFamily" data-profileid="<?php echo $id;?>">
-                        		<?php if (isset($_SESSION['favourites'][$id]) && $_SESSION['favourites'][$id]) {
-                        			echo '<span class="glyphicon glyphicon-heart wished"></span>';
-                        		} else {
-                        			echo '<span class="glyphicon glyphicon-heart"></span>';
-                        		}
-                        	?>
-                            <span><?php echo localization("Save to Wish List", "Ajouter aux favorits"); ?></span>
-                        </div>
-                        <div class="shareSocialMedia">
-<!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_20 a2a_default_style" style="margin: 0 auto; width: 100px;">
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_google_plus"></a>
-<a class="a2a_dd" href="https://www.addtoany.com/share_save"></a>
-</div>
-<script  type="text/javascript" >
-var a2a_config = a2a_config || {};
-a2a_config.icon_color = "#888888";
-</script>
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
-
-
-
-                        </div>
-                    </div>
+                	
                 </div>
 	</div>
     <div class="col-lg-1 col-sm-12 col-xs-12">
@@ -141,7 +110,7 @@ a2a_config.icon_color = "#888888";
         <div class="services-row">
         	<div class="container">
 				<form name="serviceSelection" >
-				<input type="hidden" name="id" value="<?php echo $id; ?>">
+
     <?php 
 
 
@@ -162,44 +131,28 @@ a2a_config.icon_color = "#888888";
 	while ($service = $q->fetch(PDO::FETCH_ASSOC)) {
 			
 			?>
-            	<div class="row item-divider" style="<?php if ($i++%2==0) echo 'background-color: #F9F9F9;'; ?>border-bottom:none;" >
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
-                    	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
-                        	<div class="items-section">
-                                <div class="item_border">
-                                    <img alt="" src="<?php echo ServiceType::GetPics()[$service['service_type']]; ?>" class="img-responsive items-sell"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
-                        	<h3><?php echo ServiceType::GetTypes()[$service['service_type']]; ?> </h3>
-				<p class="font-color"><?php echo $service['service_desc'];?></p>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                                <label>
-                                    <input placeholder="<?php echo localization("Arrival", "Arrivée"); ?>" type="text" name="arrival__<?php echo $service['service_type']; ?>" class="datepickerArrival" value="" >
-                                </label>
-                                <label>
-                                    <input placeholder="<?php echo localization("Departure", "Départ"); ?>" type="text" name="departure__<?php echo $service['service_type']; ?>" class="datepickerDeparture" value="" >
-                                </label>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
-                        	<div class="TotalPrice">
-                        	    <div>
-                        	    	<span class="service-price"> <?php echo $service['price_per_day'];?>&#8364;/<?php echo localization("day", "jour"); ?> </span>
-                        	    </div>
-                                <h3 class="service-price total-price">
-                                    <span><?php //echo round(($departure_date->diff($arrival_date)->days+1) * $service['price_per_day'],2); ?></span>&#8364;
-                                </h3>    
-                            </div>                  	
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                        	<label for="service__<?php echo $service['service_type']; ?>" class="filter"></label>
-                        	<input type="checkbox" class="ui_checkbox" name="service__<?php echo $service['service_type']; ?>" value="<?php echo $service['service_type']; ?>" data-servicename="<?php echo ServiceType::GetTypes()[$service['service_type']]; ?>">
-
-                            <a href="javascript:void(0);" class="add-to-cart"><img class="Add-cart" alt="" src="img/Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" /></a>
-                        	
-                        </div>
+            	<div class="row item-divider" style="<?php if ($i++%2==0) echo 'background-color: #F9F9F9;'; ?>border-bottom:none;text-align:center" >
+                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<label>
+						<select name="type__<?php echo $i; ?>">
+							<?php
+							foreach(ServiceType::GetTypes() as $k => $v) {
+								$selected = ($k==$service['service_type']) ? 'selected' : '';
+								echo '<option value="'.$k.'" '.$selected.'>'.$v.'</option>';
+							}
+							?>
+						</select>
+						</label>
+						 <label>
+                        <input placeholder="<?php echo localization("Available from", "Disponible du"); ?>" type="text" name="from__<?php echo $i; ?>" class="datepickerFrom" value="" >
+                        </label>
+                        <label>
+                        <input placeholder="<?php echo localization("Until", "Jusqu'à"); ?>" type="text" name="to__<?php echo $i; ?>" class="datepickerTo" value="">
+                        </label>
+						<label>
+						<input name="price__<?php echo $i; ?>" placeholder="<?php echo localization("Price per day", "Prix par jour"); ?>" type="text">
+						</label>
+						
                     </div>   
                   
                 </div>                
