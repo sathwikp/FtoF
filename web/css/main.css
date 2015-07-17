@@ -196,12 +196,13 @@ div.bubble-head:hover{
 }
 .navbar-inverse .navbar-nav > li > a {
 	color:#F4EFEF;
-	font-size:1.1em;
+	font-size:0.9em;
 	font-weight:bold;
 	margin-top:30px;
 }
 .family .navbar-inverse .navbar-nav > li > a, .search .navbar-inverse .navbar-nav > li > a {
-	margin-top:0px;
+	margin-top:0px;\
+	font-size:1.1em;
 }
 input[type=text],input[type=password], input[type=search], input[type=email] {
   -webkit-appearance: none;
@@ -716,4 +717,8 @@ span.decrease {
 }
 .AddedToCart{
 	display:none
+}
+.main-nav a{
+	font-family:0.9em;
+	font-family:Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
