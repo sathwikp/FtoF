@@ -64,7 +64,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
+                    <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>         <?php if ($user->is_loggedin()) echo '<li><a href="profile.php">Profile</a></li>' ; ?>  
                     <li><?php echo $user->is_loggedin() ? '<a href="logout.php"> ' .localization("Logout", "Deconnection").'</a>' : '<a href="javascript:void(0)" data-toggle="modal" onclick="openLoginModal();">' .localization("Sign up/Login", "Inscription/Connection").'</a>'; ?></li>
                </ul>
           </div>
@@ -107,18 +107,17 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
                 </div>
             </div>
         </div>
-        <div class="services-row">
+        <div class="service-update-row">
         	<div class="container">
-				<form name="serviceSelection" >
-
     <?php 
 
 
 	{
 	$qparams = [];
-	$sql = 	"select service_type, available, period, price_fix, price_per_day, service_desc "
+	$sql = 	"select ctid, service_type, available, to_char(lower(period),'MM/DD/YYYY') as from, to_char(upper(period),'MM/DD/YYYY') as to, price_fix, price_per_day, service_desc "
 		. "from offered_service "
-		. "where profile_id = :id ";
+		. "where profile_id = :id "
+		. "order by service_type, period ";
 		//. "and period @> '["
 		//. $arrival_date->format('Y-m-d').", "
 		//. $departure_date->format('Y-m-d')."]'::daterange ";
@@ -133,8 +132,11 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 			?>
             	<div class="row item-divider" style="<?php if ($i++%2==0) echo 'background-color: #F9F9F9;'; ?>border-bottom:none;text-align:center" >
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                		<form  action="editservice.php" method="post">
+                		<input type="hidden" name="ctid" value="<?php echo $service['ctid']; ?>">
+						<div class="form-inline">
 						<label>
-						<select name="type__<?php echo $i; ?>">
+						<select class="form-control" name="type">
 							<?php
 							foreach(ServiceType::GetTypes() as $k => $v) {
 								$selected = ($k==$service['service_type']) ? 'selected' : '';
@@ -144,15 +146,30 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 						</select>
 						</label>
 						 <label>
-                        <input placeholder="<?php echo localization("Available from", "Disponible du"); ?>" type="text" name="from__<?php echo $i; ?>" class="datepickerFrom" value="" >
+                        <input placeholder="<?php echo localization("Available from", "Disponible du"); ?>" type="text" name="from" class="datepicker form-control" value="<?php echo $service['from']; ?>" >
                         </label>
                         <label>
-                        <input placeholder="<?php echo localization("Until", "Jusqu'à"); ?>" type="text" name="to__<?php echo $i; ?>" class="datepickerTo" value="">
+                        <input placeholder="<?php echo localization("Until", "Jusqu'à"); ?>" type="text" name="to" class="datepicker form-control" value="<?php echo $service['to']; ?>">
                         </label>
 						<label>
-						<input name="price__<?php echo $i; ?>" placeholder="<?php echo localization("Price per day", "Prix par jour"); ?>" type="text">
+						<div class="input-group">
+						<input name="price" placeholder="<?php echo localization("Price per day", "Prix par jour"); ?>" type="text" value="<?php echo $service['price_per_day']; ?>" class="form-control" style="width:70px">
+						<span class="input-group-addon">&euro;/day</span>
+						</div>
+						</label>
+						<label>
+						<input type="submit" value="Save" class="form-control">
+						</label>
+						</div>
+						<div class="form-inline">
+						<textarea class="form-control" rows="3" style="width:700px" name="desc"><?php echo $service['service_desc'];?></textarea>
+												
+						<label>
+						<a class="btn btn-default" href="delservice.php?ctid=<?php echo $service['ctid']; ?>">Delete</a>
 						</label>
 						
+						</div>
+						</form>
                     </div>   
                   
                 </div>                
@@ -163,9 +180,9 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 
 	}
 	?>
-				</form>
-		        <div class="row item-divider">
-
+				
+		        <div class="row item-divider" style="text-align:right">
+					<a class="btn btn-default" href="addservice.php">Add service</a>
                 </div>				
         	</div>
 		</div>

@@ -201,7 +201,7 @@ div.bubble-head:hover{
 	margin-top:30px;
 }
 .family .navbar-inverse .navbar-nav > li > a, .search .navbar-inverse .navbar-nav > li > a {
-	margin-top:0px;\
+	margin-top:0px;
 	font-size:1.1em;
 }
 input[type=text],input[type=password], input[type=search], input[type=email] {
@@ -726,4 +726,12 @@ span.decrease {
 .main-nav a{
 	font-family:0.9em;
 	font-family:Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.service-update-row input {
+	height:inherit;
+	width:inherit;
+	border:1px solid #ccc;
+	padding:5px 12px 5px 12px;
+	background: #fff;
+	color: #000;
 }
