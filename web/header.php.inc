@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="css/base/jquery-ui.min.css" />
     <link rel="stylesheet" href="css/jquery.typeahead.min.css" />
     <!-- custom style guide -->
-    <link rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
+    <link rel="stylesheet" href="css/main.css" /> 
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

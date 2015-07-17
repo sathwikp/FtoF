@@ -32,7 +32,7 @@ $SCRIPTSRC[] = "js/main.js";
                 <span class="icon-bar"></span>
             </button>
  		<div class="collapse navbar-collapse navHeaderCollapse">
-  			<ul class="nav navbar-nav navbar-right">
+  			<ul class="nav navbar-nav navbar-right main-nav">
 				<li ><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo localization("Language", "Langage"); ?><b class="caret"></b></a>
                 	<ul class="dropdown-menu">
                       <li <?php if ($_SESSION['lang'] =='fr') echo 'class="active"';?>><a href="?lang=fr"><?php echo localization("French", "Français"); ?></a></li>
@@ -40,7 +40,7 @@ $SCRIPTSRC[] = "js/main.js";
                       <!--<li><a href="#">German</a></li>-->
                     </ul>
                 </li>
-                <li><a href="#"><?php echo localization("Sign up/Login", "Inscription/Connection"); ?></a></li>
+                <li><a href="#" class="cd-signin" data-toggle="modal"><?php echo localization("Sign up/Login", "Inscription/Connection"); ?></a></li>
                
            </ul>
       </div>
@@ -242,6 +242,8 @@ $SCRIPTSRC[] = "js/main.js";
 </div>
 </div>
 </div>
+
+<?php include 'login-modal.php.inc';?>
 
 <?php include 'footer.php.inc';?>
 
