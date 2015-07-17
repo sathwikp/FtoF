@@ -15,6 +15,13 @@ function sanitize($input) {
 
     	$error_message = [];
 		
+		if (!isset($_SERVER['HTTP_REFERER']) ||
+			(strpos($_SERVER['HTTP_REFERER'], 'localhost') === FALSE &&
+			strpos($_SERVER['HTTP_REFERER'], 'ftof.herokuapp.com') === FALSE)) {
+	        $error_message[] = "Technical error: not allowed to perform this action";	
+	        goto theExit;				
+		}
+		
 		if (!isset($_POST['id']) ||
 			!(intval($_POST['id']) > 0)) {
 	        $error_message[] = "Technical error: unknown profile id";	
