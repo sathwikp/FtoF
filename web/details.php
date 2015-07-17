@@ -155,7 +155,7 @@ a2a_config.icon_color = "#888888";
 	while ($service = $q->fetch(PDO::FETCH_ASSOC)) {
 			
 			?>
-            	<div class="row item-divider" <?php if ($i++%2==0) echo 'style="background-color: #F9F9F9;border-bottom:none;"'; ?> >
+            	<div class="row item-divider" style="<?php if ($i++%2==0) echo 'background-color: #F9F9F9;'; ?>border-bottom:none;" >
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 Available">
                     	<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs">
                         	<div class="items-section">
