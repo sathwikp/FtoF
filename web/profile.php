@@ -125,7 +125,7 @@ while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
                 <div class="row" style="border-bottom: 1px solid #E7DEDE;padding-bottom: 20px;">	
                     <div class="col-lg-10 col-sm-10 col-xs-10 family_description_box" style="padding-top:20px;">
                         <h3><?php echo localization("Family Description", "Details de la famille"); ?></h3>
-                        <p class="font-color"><span class="edit_area" id="description"><?php echo $profile['description']; ?></span></p>
+                        <p class="font-color"><div class="edit_area" id="description"><?php echo $profile['description']; ?></div></p>
                     </div>
                 </div>
             </div>
