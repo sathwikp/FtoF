@@ -19,12 +19,12 @@ function lookup($string){
    print_r($response);
    $geometry = $response['results'][0]['geometry'];
  
-    $longitude = $geometry['location']['lat'];
-    $latitude = $geometry['location']['lng'];
+    $longitude = $geometry['location']['lng'];
+    $latitude = $geometry['location']['lat'];
  
     $array = array(
-        'latitude' => $geometry['location']['lng'],
-        'longitude' => $geometry['location']['lat'],
+        'latitude' => $geometry['location']['lat'],
+        'longitude' => $geometry['location']['lng'],
         'location_type' => $geometry['location_type'],
     );
  
@@ -35,7 +35,7 @@ function lookup($string){
 $city = '1725 chemin du Camouyer, 06330 Roquefort les Pins';
  
 $array = lookup($city);
-print_r($array);
+print_r($array, $latitude, $longitude);
  
 ?>
 </pre>
