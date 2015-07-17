@@ -38,8 +38,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password
 			else
 			{
 				if($user->register($umail,$upass))	{
-					
-					//done!
+					$user->login($umail,$upass);
 				} 
 				else
 				{

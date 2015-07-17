@@ -30,8 +30,8 @@ function sanitize($input) {
 		$profile_id = intval($_SESSION['user_session']);
 		
 
-				$sql = 	"insert into offered_service (service_type, profile_id, period) "
-					  . "values (0, :pid, daterange(current_date, current_date)) ";
+				$sql = 	"insert into offered_service (service_type, profile_id, period, available) "
+					  . "values (0, :pid, daterange(current_date, current_date), TRUE) ";
 
 				$qparams = [
 					 		":pid" => $profile_id
