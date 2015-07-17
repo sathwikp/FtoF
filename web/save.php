@@ -20,13 +20,14 @@ function sanitize($input) {
 	        goto theExit;				
 		}
 		
-		if (!isset($_POST['profile_id']) ||
-			!(intval($_POST['profile_id']) > 0)) {
+		
+		
+		if (!$user->is_loggedin()) {
 	        $error_message[] = "Technical error: unknown profile id";	
 	        goto theExit;	
 		}
 
-		$profile_id = intval($_POST['profile_id']);
+		$profile_id = intval($_SESSION['user_session']);
 		
 		if (!isset($_POST['id'])) {
 	        $error_message[] = "Technical error: unknown field id";	

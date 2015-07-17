@@ -85,7 +85,8 @@ $SCRIPTS[] =
 
                     <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
 
-                    <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
+                <li><?php echo $user->is_loggedin() ? '<a href="logout.php"> ' .localization("Logout", "Deconnection").'</a>' : '<a href="javascript:void(0)" data-toggle="modal" onclick="openLoginModal();">' .localization("Sign up/Login", "Inscription/Connection").'</a>'; ?></li>
+  
                </ul>
           </div>
         </div>
@@ -191,6 +192,8 @@ $SCRIPTS[] =
         </div>
     </div>
     </form>
+    
+<?php include 'login-modal.php.inc';?>
 
 <?php include 'footer.php.inc';?>
 

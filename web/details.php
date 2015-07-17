@@ -61,7 +61,8 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
-                    <li><a href="#"><?php echo localization("Signup/Login", "Inscription/Connection"); ?></a></li>
+                    <li><?php echo $user->is_loggedin() ? '<a href="logout.php"> ' .localization("Logout", "Deconnection").'</a>' : '<a href="javascript:void(0)" data-toggle="modal" onclick="openLoginModal();">' .localization("Sign up/Login", "Inscription/Connection").'</a>'; ?></li>
+  
                </ul>
           </div>
         </div>
@@ -357,6 +358,8 @@ a2a_config.icon_color = "#888888";
              
             </div>
 	</div>
+
+<?php include 'login-modal.php.inc';?>			 
 			 
 <?php include 'footer.php.inc';?>
 
