@@ -1,11 +1,9 @@
  $(document).ready(function() {
      $('.edit').editable('save.php', {
-         submitdata : {profile_id: "1"},
          indicator : 'Saving...',
          tooltip   : 'Click to edit...'
      });
      $('.edit_area').editable('save.php', {
-        submitdata : {profile_id: "1"},
          type      : 'textarea',
          cancel    : 'Cancel',
          submit    : 'OK',
@@ -25,6 +23,18 @@
       changeMonth: true,//this option for allowing user to select month
       changeYear: true, //this option for allowing user to select from year range
  
+    });
+    
+    $("#locationSelect").change(function(){
+    	var theval = $(this).val();
+    	$.ajax({
+			type        : 'POST', 
+			url         : 'save.php', 
+			data        : {'id':'location_id','value':theval},  
+			encode      : true
+		}).done(function(data) {
+			
+		});
     });
     
  });

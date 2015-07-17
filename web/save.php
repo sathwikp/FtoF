@@ -54,6 +54,7 @@ function sanitize($input) {
 		switch ($id) {
 			case 'name':
 			case 'description':
+			case 'location_id':
 			
 			{
 				$sql = 	"update profile set ".$id."= :fval "
