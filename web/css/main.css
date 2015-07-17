@@ -727,6 +727,7 @@ span.decrease {
 	font-family:0.9em;
 	font-family:Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+.ajaxupload button,
 .edit_area button,
 .service-update-row input {
 	height:inherit;
