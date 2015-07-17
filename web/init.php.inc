@@ -98,6 +98,7 @@ abstract class ServiceType
     const Activity = 9;
     const Teaching = 10;
     const Others = 11;
+    const Crib = 12;
     
     static public function GetTypes() { 
     	return [
@@ -113,6 +114,7 @@ abstract class ServiceType
 			ServiceType::Activity => localization("Children Activity", "Activités enfantines"),
 			ServiceType::Teaching => localization("Teaching Lessons", "Cours particuliers"),
 			ServiceType::Others => localization("Others", "Autres"),
+            ServiceType::Others => localization("Crib", "Landeau"),
     	];
     }
     
@@ -131,6 +133,7 @@ abstract class ServiceType
 			ServiceType::Activity => 'img/activity.png',
 			ServiceType::Teaching => 'img/teaching.png',
 			ServiceType::Others => 'img/others.png',
+            ServiceType::Crib => 'img/crib.png',
     	];
     }
 }
