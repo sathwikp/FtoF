@@ -77,10 +77,33 @@ $(window).bind( 'hashchange', function( event ){
 			$('#resultList').empty();
 			$('#resultno').text($(data).length);
 			$('#resultTpl').tmpl(data).appendTo('#resultList');
-			$("#resultList li:has(a)").click(function() {
-      			window.location = $("a:first",this).attr("href");
+			/*
+			$("#resultList li:has(a)").each(function() {
+				var href = $("a:first",this).attr("href");
+				$(this).find('.family_image').click(function(){
+					window.location = href;
+				});
    			});
+   			*/
+   			$("#resultList .likeImage a").click(function() {
+   				var img = $(this).find('img');
+   				var id = $(this).attr('data-id');
+   				$.ajax({
+					type        : 'GET', 
+					url         : 'addtowishlist.php', 
+					data        : {'id':id}, 
+					encode      : true
+				}).done(function() {
+					if (img.attr('src') == 'img/Heart_button_icon_active.png') 
+						img.attr('src','img/Heart_button_icon.png');
+					else
+						img.attr('src','img/Heart_button_icon_active.png');
+				});
+			});
+			 
    			overlay.remove();
+   		}).fail(function(){
+    		overlay.remove();  		
    		});
   }
 })

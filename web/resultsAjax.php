@@ -15,10 +15,11 @@ $services = array_map("intval",preg_grep_keys("/service__\d+/",$_POST));
 
 $location_id = intval($_POST['locationid']);
 
-$sql = 	"select p.id, p.name, p.description, p.picture, count(*) as services_no, array_to_json(array_agg(s.service_type)) as services_type,  array_to_json(array_agg(s.price_per_day)) as services_price_per_day "
-	. "from profile p, offered_service s "
+$sql = 	"select p.id, p.name, p.description, p.picture, l.name as cityname, l.countryname, count(*) as services_no, array_to_json(array_agg(s.service_type)) as services_type,  array_to_json(array_agg(s.price_per_day)) as services_price_per_day "
+	. "from profile p, offered_service s, porref l "
 	. "where p.id = s.profile_id "
 	. "and s.available = TRUE "
+	. "and l.id = p.location_id "
 	. "and p.location_id = ".$location_id. " " 
 	. "and s.period @> '["
 	. $arrival_date->format('Y-m-d').", "
@@ -29,7 +30,7 @@ if (count($services)>0) {
 	$sql .= "and s.service_type in (".implode($services,', ').")";
 }
 	
-$sql .=	"group by p.id, p.name, p.description, p.picture "
+$sql .=	"group by p.id, p.name, p.description, p.picture, l.name, l.countryname "
 	. "order by count(*) desc";
 
 $q = $db->prepare($sql);
@@ -37,10 +38,12 @@ $q->execute();
 
 $result = [];
 
+
 while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 	$new_element = array_merge($row,
 	[	
-		'stars' => round(rand(1, 5),1),
+		'stars' => isset($_SESSION['stars'][$row['id']]) ? $_SESSION['stars'][$row['id']] : ($_SESSION['stars'][$row['id']] = round(rand(1, 5),1)),
+		'wished' => (isset($_SESSION['favourites'][$row['id']]) && $_SESSION['favourites'][$row['id']]),
 		'arrival' => $arrival_date->format(__DATEFORMAT),
 		'departure' => $departure_date->format(__DATEFORMAT)
 	]);
@@ -56,6 +59,9 @@ while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 			'name' => ServiceType::GetTypes()[$types[$i]]
 		];
 	}
+	
+	if ($new_element['name'] == 'Obama family')
+		$new_element['stars']=5;
 	
 	$result[] = $new_element;
 }

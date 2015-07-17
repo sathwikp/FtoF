@@ -28,27 +28,35 @@ $SCRIPTS[] =
 //</li>'
 
   '<li class="family_item background_white">'
-. '		<div class="family_image" style="background-image:url(\'img/profile/pics/${picture}\');width:29.33%;opacity:0.8">'
+. '		<div class="family_image" style="background-image:url(\'img/profile/pics/${picture}\');width:29.33%;opacity:0.8"><span/>'
 . '		</div>'
 . '		<div class="item_sell padded padded_half">'
 . '			<div class="items_description">'
 . '			<div class="family_like" style="float:left;background-color:#EA4A4A;height:50px;padding:7px;width:50px;border-radius:10%;">'
 .'			<div class="likeImage like_inactive">'
+.'				<a href="javascript:void(0);" data-id="${id}">'
+.'				{{if wished}}'
+.'				<img src="img/Heart_button_icon_active.png" class="img-responsive" />'
+.'				{{else}}'
 .'				<img src="img/Heart_button_icon.png" class="img-responsive" />'
+.'				{{/if}}'
+.'				</a>'
 .'			</div>'
-.'			<div style="margin-top: 48px;margin-left: -10px;text-align:right">Rating'
+.'			<div style="margin-top: 48px;margin-left: -10px;text-align:right">'
+. 				localization("Rating","Évaluation")
 .'				<h3 style="color:#EA4A4A;text-align:right">${stars}/5</h3>'
 .'			</div>'
 .'		</div>'
 . '				<h3 class="hidden-xs" style="margin-top:22px;padding-left:78px;">'
-. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a> - <span style="font-size:14px;">Paris, France</span>'
+. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a> - <span style="font-size:14px;">${cityname}, ${countryname}</span>'
 . '				</h3>'
 . '				<br/>'
 . '				<div class="item_amenities" style="margin-left: 70px;padding-top:14px;">'
 . '                 {{each services}}'
 . '					<div class="item_border">'
 . '						<img src="${pic}" class="img-responsive icons" alt="${name}" title="${name}" />'
-. '						${price_per_day}&#8364;/day'
+. '						${price_per_day}&#8364;/'
+. 						localization("day","jour")
 . '					</div>'
 . '					{{/each}}'
 . '				</div>'
@@ -74,9 +82,10 @@ $SCRIPTS[] =
                 </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href=index.php">Home</a></li>
-                    <li><a href="#">Signup/Login</a></li>
-                    <li><a href="#"><img src="img/Shopping_Cart_icon.png" class="img-responsive cart" /></a></li>
+
+                    <li><a href="index.php"><?php echo localization("Home", "Accueil"); ?></a></li>
+
+                    <li><a href="#"><?php echo localization("Sign up/Login", "Connection"); ?></a></li>
                </ul>
           </div>
         </div>
@@ -89,30 +98,35 @@ $SCRIPTS[] =
 			<label for="location">
 				<div class="typeahead-container">
      			<span class="typeahead-query">		
-     					<input name="location" type="search" placeholder="Where are you travelling to?" autocomplete="off" >
+     					<input name="location" type="search" placeholder="<?php echo localization("Where are you travelling to?", "Quelle est votre destination?"); ?>" autocomplete="off" >
      			</span>
      			</div>
 			</label>
 
             <label>
-            <input placeholder="Arrival" type="text" name="arrival" id="datepickerArrival" value="">
+            <input placeholder="<?php echo localization("Arrival","Arrivée"); ?>" type="text" name="arrival" id="datepickerArrival" value="">
             </label>
             <label>
-            <input placeholder="Departure" type="text" name="departure" id="datepickerDeparture" value="">
+            <input placeholder="<?php echo localization("Departure","Départ"); ?>" type="text" name="departure" id="datepickerDeparture" value="">
             </label>
+			
             <label>
-            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="How many kids with age 0 to 2?"><button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
-            <input name="babyno" type="hidden" value="0" /></span>            
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localization("How many kids with age 0 to 2?", "Combien d'enfants entre 0 et 2 ans?"); ?>">
+			<button type="button" class="round-button baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <input name="babyno" type="hidden" value="0" />
+			</span>            
             </label>
+			
             <label>
-            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="How many kids with age 3 to 6?"><button type="button" class="round-button older-baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <span class='round-button-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localization("How many kids with age 3 to 6?", "Combien d'enfants entre 3 et 6 ans?"); ?>"><button type="button" class="round-button older-baby-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
             <input name="oldbabyno" type="hidden" value="0" /></span>
             </label>
+			
             <label>
-            <span class='round-button-cont rightmost-cont' data-toggle="tooltip" data-placement="top" title="How many kids older than 6?"><button type="button" class="round-button boy-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
+            <span class='round-button-cont rightmost-cont' data-toggle="tooltip" data-placement="top" title="<?php echo localization("How many kids older than 6?", "Combien d'enfants de plus de 6 ans?"); ?>"><button type="button" class="round-button boy-button" ><span><span class="counter">0</span></span></button><span class="decrease"></span>
             <input name="boyno" type="hidden" value="0" /></span>
-            </label>                                    
-                                               
+			
+            </label>                                                           
             </div>
         </div>
     </div>
@@ -123,13 +137,13 @@ $SCRIPTS[] =
                     <div class="background_white">
                         <div class="hidden-xs">
                     		<div class="total_search_result">
-                            	<p><span id='resultno'></span> search results</p>
+                            	<p><span id='resultno'></span><?php echo localization(" search results", " Résultats"); ?></p>
                             </div>
                             <hr class="divider">
                         </div>
                         <div class="filter_padding">
                            	<div class="filters">
-                            	<h4>Services</h4>
+                            	<h4><?php echo localization("Services", "Services"); ?></h4>
                                 	<div class="filters-wrapper">
      	<?php
      		foreach (ServiceType::GetTypes() as $key => $val) {
@@ -141,23 +155,26 @@ $SCRIPTS[] =
      		}
      	 ?>                                	
                                     </div>
-                                    <h4>Languages</h4>
+                                    <h4><?php echo localization("Languages", "Langue"); ?></h4>
                                 	<div class="filters-wrapper">
                                 		<div class="checkMark">
     									<label for="french" class="filter"></label>
-      										<input type="checkbox" class="ui_checkbox" name="french" value="french"> <span class="ui_checkbox_target clr"></span><span> French </span>
+      										<input type="checkbox" class="ui_checkbox" name="french" value="french"> <span class="ui_checkbox_target clr"></span>
+											<span> <?php echo localization("French", "Français"); ?></span>
       									</div>
       									<br />
       									<div class="checkMark">
     									<label for="english" class="filter"></label>
-      										<input type="checkbox" class="ui_checkbox" name="english" value="english"> <span class="ui_checkbox_target clr"></span><span> English </span>
+      										<input type="checkbox" class="ui_checkbox" name="english" value="english"> <span class="ui_checkbox_target clr"></span>
+											<span> <?php echo localization("English", "Anglais"); ?></span>
       									</div>
       									<br />     
-      									<div class="checkMark">
+      									<!--<div class="checkMark">
     									<label for="spanish" class="filter"></label>
-      										<input type="checkbox" class="ui_checkbox" name="spanish" value="spanish"> <span class="ui_checkbox_target clr"></span><span> Spanish </span>
+      										<input type="checkbox" class="ui_checkbox" name="spanish" value="spanish"> <span class="ui_checkbox_target clr"></span>
+											<span> Spanish </span>
       									</div>
-      									<br />           									      									                                		
+      									<br />-->           									      									                                		
                                 	</div>
 							</div>
                             <hr class="divider">

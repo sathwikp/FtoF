@@ -63,6 +63,26 @@ function parse_and_validate_dates($arrival, $departure){
 	return [$arr_date, $dep_date];
 }
 
+if (!isset($_SESSION['lang'])) {
+	$_SESSION['lang'] = 'en';
+}
+
+if (isset($_GET['lang'])) {
+	$lang = strtolower(trim($_GET['lang']));
+	if ($lang == 'en' || $lang == 'fr') {
+		$_SESSION['lang'] = $lang;
+	}
+}
+
+function localization($en, $fr) {
+	switch ($_SESSION['lang']) {
+		case 'en':
+			return $en;
+		case 'fr':
+			return $fr;
+	}
+}
+
 //Classes
 abstract class ServiceType
 {
@@ -81,18 +101,18 @@ abstract class ServiceType
     
     static public function GetTypes() { 
     	return [
-    		ServiceType::Stroller => 'Stroller',
-    		ServiceType::Bike => 'Bike / Rollers',
-    		ServiceType::Transfer => 'Airport Transfer',
-    		ServiceType::Toys => 'Baby Toys / Books',
-			ServiceType::CarSeat => 'Baby Car Seat',
-			ServiceType::BabyChair => 'Baby Chair',
-			ServiceType::FamilyCar => 'Family Car',
-			ServiceType::House => 'Family-friendly House',
-			ServiceType::Babysit => 'Baby Sitting',
-			ServiceType::Activity => 'Children Activity',
-			ServiceType::Teaching => 'Teaching Lessons',
-			ServiceType::Others => 'Others',
+    		ServiceType::Stroller => localization("Stroller","Poussette"),
+    		ServiceType::Bike => localization("Bike / Rollers", "Vélo / Rollers"),
+    		ServiceType::Transfer => localization("Airport Transfer", "Transfert aéroport"),
+    		ServiceType::Toys => localization("Baby Toys / Books", "Jouets / Livres"),
+			ServiceType::CarSeat => localization("Baby Car Seat", "Siège auto"),
+			ServiceType::BabyChair => localization("Baby Chair", "Chaise haute"),
+			ServiceType::FamilyCar => localization("Family Car", "Voiture familiale"),
+			ServiceType::House => localization("Family-friendly House", "Maison familiale"),
+			ServiceType::Babysit => localization("Baby Sitting", "Baby Sitting"),
+			ServiceType::Activity => localization("Children Activity", "Activités enfantines"),
+			ServiceType::Teaching => localization("Teaching Lessons", "Cours particuliers"),
+			ServiceType::Others => localization("Others", "Autres"),
     	];
     }
     

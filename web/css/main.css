@@ -351,6 +351,7 @@ label.filter{
   padding-left: 10px;
   padding-right: 10px;
   position: relative;
+  display:block;
 }
 .topmost_row{
 	margin-top:64px;
@@ -359,7 +360,6 @@ label.filter{
 	display: block;
   position: relative;
   margin-bottom: 12px;
-  cursor: pointer;
 }
 .likeImage>img{
 	height:36px;
@@ -441,7 +441,7 @@ div#footer{
 }
 .family .family-card-image{
 	background: transparent no-repeat 50% 20%;
-	height:550px;
+	height:520px;
 	position: relative;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -472,6 +472,11 @@ div#footer{
 }
 .likeFamily{
 	border: 1px solid #BCC8C8;
+	height:35px;
+	padding-top:7px;
+}
+.wished{
+	color:#EA4A4A;
 }
 .likeFamily:hover{
 	border: 1px solid #979E9E;

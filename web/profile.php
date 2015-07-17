@@ -2,18 +2,21 @@
 
 <?php
 
-if (!array_key_exists('id',$_GET) || !array_key_exists('arrival',$_GET)  || !array_key_exists('departure',$_GET) ) {
+if (!array_key_exists('id',$_GET) 
+	//|| !array_key_exists('arrival',$_GET)
+	//|| !array_key_exists('departure',$_GET) 
+	) {
 	redirect_to_home();
 }
 $id = intval($_GET['id']);
-$datespair = parse_and_validate_dates($_GET['arrival'], $_GET['departure']);
-if (!($id > 0) || $datespair == FALSE) { 
+//$datespair = parse_and_validate_dates($_GET['arrival'], $_GET['departure']);
+if (!($id > 0)
+ //|| $datespair == FALSE
+ ) { 
 	redirect_to_home();
 }
 
-list($arrival_date, $departure_date) = $datespair;
-
-$PAGETITLE = "F2F | Services Detail";
+$PAGETITLE = "F2F | Update your profile";
 
 //$SCRIPTSRC[] = "js/jquery.tmpl.min.js";
 
@@ -32,9 +35,9 @@ $sql = 	"select p.name, p.description, p.avatar, p.big_picture, l.name as locati
 	. "and p.id = s.profile_id "
 	. "and s.available = TRUE "
 	. "and p.id = :id "
-	. "and period @> '["
-	. $arrival_date->format('Y-m-d').", "
-	. $departure_date->format('Y-m-d')."]'::daterange "
+	//. "and period @> '["
+	//. $arrival_date->format('Y-m-d').", "
+	//. $departure_date->format('Y-m-d')."]'::daterange "
 	. "group by p.name, p.description, p.avatar, p.big_picture, l.name, l.countryname, l.region ";
 
 $qparams[":id"] = $id;
