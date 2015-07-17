@@ -36,6 +36,7 @@ $city = '1725 chemin du Camouyer, 06330 Roquefort les Pins';
  
 $array = lookup($city);
 echo $array['latitude']; 
+echo '\n'
 echo $array['longitude'];
  
 ?>
