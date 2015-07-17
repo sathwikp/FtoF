@@ -48,6 +48,23 @@ $(document).ready(function(){
     });
 
 	$("#modalBtn").click(function(){
+		$("#SendMail #selectedServices").html('');
+		$('form[name="serviceSelection"] :input:checked').each(function(){
+			var price = Number($(this).closest('div').siblings()
+				.find('.datepickerArrival').attr('data-price'));
+			var arrival = $(this).closest('div').siblings()
+				.find('.datepickerArrival').datepicker('getDate');
+			var departure = $(this).closest('div').siblings()
+				.find('.datepickerDeparture').datepicker('getDate');
+			var arrivaltxt = $(this).closest('div').siblings()
+				.find('.datepickerArrival').val();
+			var departuretxt = $(this).closest('div').siblings()
+				.find('.datepickerDeparture').val();				
+			var dayDiff = Math.abs(Math.ceil((departure - arrival) / (1000 * 60 * 60 * 24)))+1;
+			
+			$('<li class="list-group-item"><span class="badge">'+dayDiff*price+'&#8364;'+'</span>'+$(this).attr('data-servicename')+' - '+arrivaltxt+', '+departuretxt+'</li>')
+				.appendTo($("#SendMail #selectedServices"));
+		});
         $("#SendMail").modal();
     });
     
@@ -96,6 +113,7 @@ $(document).ready(function(){
 			} else {
 				$('form[name="mailform"]')[0].reset();
 				$("#SendMail").modal('hide');
+				$("#Success").modal();
 			}
 		});
 		

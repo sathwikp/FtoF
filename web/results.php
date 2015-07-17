@@ -48,7 +48,7 @@ $SCRIPTS[] =
 .'			</div>'
 .'		</div>'
 . '				<h3 class="hidden-xs" style="margin-top:22px;padding-left:78px;">'
-. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a> - <span style="font-size:14px;">Paris, France</span>'
+. '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a> - <span style="font-size:14px;">${cityname}, ${countryname}</span>'
 . '				</h3>'
 . '				<br/>'
 . '				<div class="item_amenities" style="margin-left: 70px;padding-top:14px;">'

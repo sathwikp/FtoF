@@ -188,7 +188,7 @@ a2a_config.icon_color = "#888888";
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                         	<label for="service__<?php echo $service['service_type']; ?>" class="filter"></label>
-                        	<input type="checkbox" class="ui_checkbox" name="service__<?php echo $service['service_type']; ?>" value="<?php echo $service['service_type']; ?>">
+                        	<input type="checkbox" class="ui_checkbox" name="service__<?php echo $service['service_type']; ?>" value="<?php echo $service['service_type']; ?>" data-servicename="<?php echo ServiceType::GetTypes()[$service['service_type']]; ?>">
 
                             <a href="javascript:void(0);" class="add-to-cart"><img class="Add-cart" alt="" src="img/Add_icon.png" style="width:55px;margin-top:18px;margin-left:22px;" /></a>
                         	
@@ -294,7 +294,18 @@ a2a_config.icon_color = "#888888";
                 </div>
             </div>
         </div>
-        
+
+            <div id="Success" class="modal fade" role="dialog">
+            	<div class="modal-dialog">
+                	<div class="modal-content" style="padding:30px;">
+                    <h3><?php echo localization("Congratulations!",
+                    "Bravo!"); ?></h3>
+                    <h4><?php echo localization("Your booking has been done successfully.",
+                    "Votre réservation a été confirmée."); ?></h4>
+                    </div> 
+            	</div>
+			</div>
+			
             <div id="SendMail" class="modal fade" role="dialog">
             	<div class="modal-dialog">
                 	<div class="modal-content">
@@ -304,6 +315,12 @@ a2a_config.icon_color = "#888888";
                         	<?php echo localization("Finalize booking", "Confirmer la réservation"); ?>             
                         </div>
         				<div class="modal-body">
+          						<p>
+									<?php echo localization("You selected the following services:",
+									"Récapitulatif de votre commande:"); ?>
+								</p>          						
+          						<ul id="selectedServices" class="list-group">
+								</ul>
           						<p>
 									<?php echo localization("In order to confirm your booking, please complete this form.",
 									"Afin de finaliser la transaction, veuillez remplir le formulaire ci-dessous."); ?>
