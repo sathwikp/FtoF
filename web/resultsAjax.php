@@ -60,6 +60,9 @@ while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 		];
 	}
 	
+	if ($new_element['name'] == 'Obama family')
+		$new_element['stars']=5;
+	
 	$result[] = $new_element;
 }
 
