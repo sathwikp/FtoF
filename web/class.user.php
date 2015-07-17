@@ -10,7 +10,7 @@ class USER
 		$this->db = $DB_con;
 	}
 	
-	public function register($fname,$lname,$umail,$upass)
+	public function register($umail,$upass)
 	{
 		try
 		{
