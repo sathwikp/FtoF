@@ -3,7 +3,13 @@
 session_start();
 
 // Database connection
-$dbopts = parse_url(getenv('DATABASE_URL'));
+if (getenv("HEROKU_POSTGRESQL_BRONZE_URL") === false) {
+	$dbopts = parse_url(getenv('DATABASE_URL'));
+}
+else
+{
+	$dbopts = parse_url(getenv('HEROKU_POSTGRESQL_BRONZE_URL'));
+}
 
 $dsn = 'pgsql:'
     . 'host='.$dbopts["host"].';'
