@@ -1,7 +1,7 @@
 <?php
 require('../vendor/autoload.php');
 // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
-$s3 = Aws\S3\S3Client::factory(['signature' => 'v4']);
+$s3 = Aws\S3\S3Client::factory(['signature' => 'v4','region'=>'eu-central-1']);
 //$s3Client = S3Client::factory(array('key'=>YOUR_AWS_KEY, 'secret'=>YOUR_AWS_SECRET, 'signature' => 'v4', 'region'=>'eu-central-1'));
 $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 ?>
