@@ -30,16 +30,13 @@ $SCRIPTSRC[] = "js/profile.js";
 
 <?php
 $qparams = [];
-$sql = 	"select p.name, p.description, p.avatar, p.big_picture, l.name as location, l.countryname as country, l.region as region, count(*) as serviceno "
-	. "from profile p, porref l, offered_service s "
-	. "where p.location_id = l.id "
-	. "and p.id = s.profile_id "
-	. "and s.available = TRUE "
-	. "and p.id = :id "
+$sql = 	"select p.name, p.description, p.avatar, p.big_picture, p.location_id "
+	. "from profile p "
+	. "where p.id = :id ";
 	//. "and period @> '["
 	//. $arrival_date->format('Y-m-d').", "
 	//. $departure_date->format('Y-m-d')."]'::daterange "
-	. "group by p.name, p.description, p.avatar, p.big_picture, l.name, l.countryname, l.region ";
+
 
 $qparams[":id"] = $id;
 	
@@ -83,8 +80,34 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 				<div class="family-highlight col-lg-12 col-sm-6 col-xs-6" style="
     margin-top: 25px; text-align:center;">
 					<h2 style="text-align:center;" class="edit" id="name"><?php echo $profile['name']; ?></h2>
-					<div class="font-color"><?php echo $profile['location'].' ('.$profile['region'].'), '.$profile['country']; ?></div>
-					<div class="font-color"><span class="services"><?php echo $profile['serviceno']; ?></span> services</div>
+					<div class="font-color"><select>
+<?php
+{
+$sql = 	"select id, name "
+	. "from porref "
+	. "where countrycode = 'FR' "
+	. "and locationtype = 'C' "
+	. "order by name ASC ";
+	//. "and period @> '["
+	//. $arrival_date->format('Y-m-d').", "
+	//. $departure_date->format('Y-m-d')."]'::daterange "
+
+
+	
+$q = $db->prepare($sql);
+$q->execute();
+
+while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
+	$selected = ($loc['id']==$profile['location_id'])?'selected':'';
+	echo '<option value="'.$loc['id'].'" '.$selected.'>'.$loc['name'].'</option>';
+}
+
+
+}
+
+?>					
+					</select></div>
+					
 				</div>
                 
                 <div class="family-highlight col-lg-12 col-sm-3 col-xs-3" style="
