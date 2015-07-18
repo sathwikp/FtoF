@@ -71,7 +71,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 	<div class="col-lg-1 col-sm-12 col-xs-12" style="background:#fff">
 	</div>
 	<div class="family-card-image col-lg-7 col-sm-12 col-xs-12" style="background-image:url('img/profile/pics/<?php echo $profile['big_picture'];?>')">
-
+		<p style="margin-top: 11%;text-align:center;font-weight: bold;color: #fff;"><?php echo localization("Please email us your family picture at family2family.email@gmail.com.", "Family2Family est encore en version Beta pour changer votre photo de profil, merci de nous envoyer un mail à family2family.email@gmail.com"); ?></p>
 	</div>
     <div class="col-lg-3 col-sm-12 col-xs-12" style="background:#fff;margin-top: 0%;border: 1px solid #E4CFCF;height: 520px;width:21%;">
     	<div class="col-lg-9 col-sm-3 col-xs-3" style="margin-top: 10%; text-align:center;">
