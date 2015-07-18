@@ -40,7 +40,9 @@ $SCRIPTSRC[] = "js/main.js";
                       <!--<li><a href="#">German</a></li>-->
                     </ul>
                 </li>
-                <li><a href="#" class="cd-signin" data-toggle="modal"><?php echo localization("Sign up/Login", "Inscription/Connection"); ?></a></li>
+        
+                <?php if ($user->is_loggedin()) echo '<li><a href="profile.php">Profile</a></li>' ; ?>       
+                <li><?php echo $user->is_loggedin() ? '<a href="logout.php"> ' .localization("Logout", "Deconnection").'</a>' : '<a href="javascript:void(0)" data-toggle="modal" onclick="openLoginModal();">' .localization("Sign up/Login", "Inscription/Connection").'</a>'; ?></li>
                
            </ul>
       </div>

@@ -1,17 +1,9 @@
-<?php
-require_once 'dbconfig.php';
+<?php require 'init.php.inc';?>
 
-if($_SESSION['user_session']!="")
-{
-	$user->redirect('home.php');
-}
-if(isset($_GET['logout']) && $_GET['logout']=="true")
-{
+<?php
+
 	$user->logout();
 	$user->redirect('index.php');
-}
-if(!isset($_SESSION['user_session']))
-{
-	$user->redirect('index.php');
-}
 
+?>
+<?php require 'destroy.php.inc';?>

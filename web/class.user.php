@@ -10,14 +10,14 @@ class USER
 		$this->db = $DB_con;
 	}
 	
-	public function register($fname,$lname,$umail,$upass)
+	public function register($umail,$upass)
 	{
 		try
 		{
 			$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->db->prepare("INSERT INTO profile (email,password) 
-		                                               VALUES(:umail, :upass)");
+			$stmt = $this->db->prepare("INSERT INTO profile (email,password,picture,big_picture,avatar) 
+		                                               VALUES(:umail, :upass, 'placeholder.png', 'placeholder.png', 'placeholder.png')");
 												  
 			$stmt->bindparam(":umail", $umail);
 			$stmt->bindparam(":upass", $new_password);										  

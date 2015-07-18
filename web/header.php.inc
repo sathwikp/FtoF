@@ -17,9 +17,8 @@
     <link rel="stylesheet" href="css/base/jquery-ui.min.css" />
     <link rel="stylesheet" href="css/jquery.typeahead.min.css" />
     <!-- custom style guide -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Gem style -->
     <link rel="stylesheet" href="css/main.css" /> 
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<link href="css/login-register.css" rel="stylesheet" />
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -28,7 +27,8 @@
     <script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/ModalSignIn.js"></script>
+    <script src="js/login-register.js" type="text/javascript"></script>
+
 	<?php
 		if (isset($SCRIPTSRC)) {
 			foreach ($SCRIPTSRC as $src) {

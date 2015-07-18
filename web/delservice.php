@@ -9,7 +9,7 @@ function sanitize($input) {
 		//header('Content-Type: application/json; Charset=UTF-8');
 
 		// Sanitize all the incoming data
-		$_POST = array_map('sanitize', $_POST);
+		//$_POST = array_map('sanitize', $_POST);
 
     	$error_message = [];
 		
@@ -22,7 +22,6 @@ function sanitize($input) {
 		}
 		
 		
-		
 		if (!$user->is_loggedin()) {
 	        $error_message[] = "Technical error: unknown profile id";	
 	        goto theExit;	
@@ -30,64 +29,34 @@ function sanitize($input) {
 
 		$profile_id = intval($_SESSION['user_session']);
 		
-		if (!isset($_POST['id'])) {
-	        $error_message[] = "Technical error: unknown field id";	
-	        goto theExit;	
-		}
-		
-		$id = ($_POST['id']);
 
-		if (!isset($_POST['value'])) {
-	        $error_message[] = "Technical error: unknown field value";	
-	        goto theExit;	
-		}
-		
-		$value = ($_POST['value']);
-/*		
-		$services = array_map("intval",preg_grep_keys("/service__\d+/",$_POST));
-		
-		if (!count($services)>0) {
-			$error_message[] = "You should select at least one service";	
-	        goto theExit;	
-		}
-*/
-
-		switch ($id) {
-			case 'name':
-			case 'description':
-			case 'location_id':
-			
-			{
-				$sql = 	"update profile set ".$id."= :fval "
-					. "where id = :pid ";
+				$sql = 	"delete from offered_service "
+					. "where ctid = :ctid and profile_id = :pid ";
 
 				$qparams = [
-					 		//":fid" => $id,
-					 		":fval" => $value,
-					 		":pid" => $profile_id,
+					 		":ctid" => $_GET['ctid'],
+					 		":pid" => $profile_id
 					 	];
 	
 				$q = $db->prepare($sql);
 				$q->execute($qparams);	
-			}
-			
-			break;
-			default: 
-		}		
+
 
  
 theExit:
-  		if(count($error_message) > 0) {
+  		//if(count($error_message) > 0) {
  		    //echo json_encode([
  		    //	'success' => FALSE,
  		    //	'error' => $error_message
  		    //]);
- 		    
- 		    echo '';
+ 		  //  
+ 		 //   echo '';
+//
+//		} else {
+ //		    echo $value;
+//		}
 
-		} else {
- 		    echo $value;
-		}
+	$user->redirect('profile.php');
 ?>
 
 <?php require 'destroy.php.inc'; ?>

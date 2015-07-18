@@ -1,14 +1,16 @@
 <?php
 require_once 'init.php.inc';
 
-if(isset($_POST['btn-signup']))
+if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['password2']))
 {
-	$umail = trim($_POST['txt_umail']);
-	$upass = trim($_POST['txt_upass']);	
+	$error = [];
 	
+	$umail = trim($_POST['email']);
+	$upass = trim($_POST['password']);
+	$upass2 = trim($_POST['password2']);
 
 	if($umail=="")	{
-		$error[] = "provide email id !";	
+		$error[] = "Please provide email address!";	
 	}
 	else if(!filter_var($umail, FILTER_VALIDATE_EMAIL))	{
 	    $error[] = 'Please enter a valid email address !';
@@ -18,6 +20,9 @@ if(isset($_POST['btn-signup']))
 	}
 	else if(strlen($upass) < 8){
 		$error[] = "Password must be at least 8 characters long";	
+	}
+	else if($upass != $upass2){
+		$error[] = "Password does not match the password confirmation";	
 	}
 	else
 	{
@@ -32,74 +37,33 @@ if(isset($_POST['btn-signup']))
 			}
 			else
 			{
-				if($user->register($fname,$lname,$umail,$upass))	{
-					
-					$user->redirect('sign-up.php?joined');
+				if($user->register($umail,$upass))	{
+					$user->login($umail,$upass);
+				} 
+				else
+				{
+					$error[] = "Unknown error";
 				}
 			}
 		}
 		catch(PDOException $e)
 		{
-			echo $e->getMessage();
+			$error[] = $e->getMessage();
 		}
-	}	
+	}
+	
+	if (count($error)>0) {
+			echo json_encode([
+				'success' => FALSE,
+				'error' => $error
+			]);
+	}	else {
+			echo json_encode([
+				'success' => TRUE
+			]);
+	}
 }
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Sign up : cleartuts</title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"  />
-<link rel="stylesheet" href="style.css" type="text/css"  />
-</head>
-<body>
-<div class="container">
-    	<div class="form-container">
-        <form method="post">
-            <h2>Sign up.</h2><hr />
-            <?php
-			if(isset($error))
-			{
-			 	foreach($error as $error)
-			 	{
-					 ?>
-                     <div class="alert alert-danger">
-                        <i class="glyphicon glyphicon-warning-sign"></i> &nbsp; <?php echo $error; ?>
-                     </div>
-                     <?php
-				}
-			}
-			else if(isset($_GET['joined']))
-			{
-				 ?>
-                 <div class="alert alert-info">
-                      <i class="glyphicon glyphicon-log-in"></i> &nbsp; Successfully registered <a href='index.php'>login</a> here
-                 </div>
-                 <?php
-			}
-			?>
-            <div class="form-group">
-            <div class="form-group">
-            <input type="text" class="form-control" name="txt_umail" placeholder="Enter E-Mail ID" value="<?php if(isset($error)){echo $umail;}?>" />
-            </div>
-            <div class="form-group">
-            	<input type="password" class="form-control" name="txt_upass" placeholder="Enter Password" />
-            </div>
-            <div class="clearfix"></div><hr />
-            <div class="form-group">
-            	<button type="submit" class="btn btn-block btn-primary" name="btn-signup">
-                	<i class="glyphicon glyphicon-open-file"></i>&nbsp;SIGN UP
-                </button>
-            </div>
-            <br />
-            <label>have an account ! <a href="index.php">Sign In</a></label>
-        </form>
-       </div>
-</div>
-
-</body>
-</html>
 
 <?php require_once 'destroy.php.inc'; ?>
