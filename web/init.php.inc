@@ -120,7 +120,7 @@ abstract class ServiceType
 			ServiceType::Activity => localization("Children Activity", "Activités enfantines"),
 			ServiceType::Teaching => localization("Teaching Lessons", "Cours particuliers"),
 			ServiceType::Others => localization("Others", "Autres"),
-            ServiceType::Others => localization("Crib", "Landeau"),
+            ServiceType::Crib => localization("Crib", "Landeau"),
     	];
     }
     
