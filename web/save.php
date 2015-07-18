@@ -53,8 +53,9 @@ function sanitize($input) {
 */
 
 		switch ($id) {
-			case 'name':
 			case 'description':
+				$value = nl2br($value);
+			case 'name':			
 			case 'location_id':
 			
 			{

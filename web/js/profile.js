@@ -8,7 +8,16 @@
          cancel    : 'Cancel',
          submit    : 'OK',
          indicator : '<img src="img/loading.gif">',
-         tooltip   : 'Click to edit...'
+         tooltip   : 'Click to edit...',
+			data : function(value,settings) {
+				value = value.replace(/(\r\n|\n|\r)/gi,"");
+				var retval = value.replace(/<br>/gi,"\n");
+				return retval;
+			},
+			callback: function(value, settings) {
+				var retval = value.replace(/<br>/gi, '\n');
+				$(this).html(retval);	
+			}
      });
      $(".ajaxupload").editable("upload.php", { 
         indicator : "<img src='img/loading.gif'>",
