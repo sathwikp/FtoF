@@ -15,7 +15,8 @@ function sanitize($input) {
 		
 		if (!isset($_SERVER['HTTP_REFERER']) ||
 			(strpos($_SERVER['HTTP_REFERER'], 'localhost') === FALSE &&
-			strpos($_SERVER['HTTP_REFERER'], 'ftof.herokuapp.com') === FALSE)) {
+			strpos($_SERVER['HTTP_REFERER'], 'ftof.herokuapp.com') === FALSE &&
+			strpos($_SERVER['HTTP_REFERER'], 'family2family.eu') === FALSE)) {
 	        $error_message[] = "Technical error: not allowed to perform this action";	
 	        goto theExit;				
 		}
