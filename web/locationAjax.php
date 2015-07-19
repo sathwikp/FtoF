@@ -10,7 +10,7 @@ $querystr = trim($_GET["q"]);
 $city = trim($params[0]);
 
 $sql = 	"select id, name, region, countryname, least( levenshtein(lower(name || ' ' || region || ' ' || countryname), lower(:query)), levenshtein(lower(name || ' ' || countryname), lower(:query)), levenshtein(lower(name || ' ' || region), lower(:query)), levenshtein(lower(name), lower(:query)) ) as distance "
-	. "from porref "
+	. "from porref_nearest "
 	//. "where name ILIKE '".$city."%' "
 	. "where least( levenshtein(lower(name || ' ' || region || ' ' || countryname), lower(:query)), levenshtein(lower(name || ' ' || countryname), lower(:query)), levenshtein(lower(name || ' ' || region), lower(:query)), levenshtein(lower(name), lower(:query)) ) < 10 "
 	. "and locationtype='C' "

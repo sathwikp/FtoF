@@ -87,7 +87,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 <?php
 {
 $sql = 	"select id, name "
-	. "from porref "
+	. "from porref_nearest "
 	. "where countrycode = 'FR' "
 	. "and locationtype = 'C' "
 	. "order by name ASC ";
