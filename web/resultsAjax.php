@@ -15,11 +15,11 @@ $services = array_map("intval",preg_grep_keys("/service__\d+/",$_POST));
 
 $location_id = intval($_POST['locationid']);
 
-$sql_locations = "select l.nearest from porref_nearest l "
-	. "where l.id = ".$location_id;
-$q = $db->prepare($sql_locations);
-$q->execute()
-$result_of_sql_locations = $q->fetch(PDO::FETCH_ASSOC);
+//$sql_locations = "select l.nearest from porref_nearest l "
+//	. "where l.id = ".$location_id;
+//$q = $db->prepare($sql_locations);
+//$q->execute();
+//$result_of_sql_locations = $q->fetch(PDO::FETCH_ASSOC);
 
 
 $sql = 	"select p.id, p.name, p.description, p.picture, l.name as cityname, l.countryname, count(*) as services_no, array_to_json(array_agg(s.service_type)) as services_type,  array_to_json(array_agg(s.price_per_day)) as services_price_per_day "
@@ -27,14 +27,14 @@ $sql = 	"select p.id, p.name, p.description, p.picture, l.name as cityname, l.co
 	. "where p.id = s.profile_id "
 	. "and s.available = TRUE "
 	. "and l.id = p.location_id "
-	. "and p.location_id in (".$result_of_sql_locations. ") " 
+	. "and (p.location_id = ".$location_id." or ".$location_id." = ANY (l.nearest)) " 
 	. "and s.period @> '["
 	. $arrival_date->format('Y-m-d').", "
 	. $departure_date->format('Y-m-d')."]'::daterange ";
 	
 
 if (count($services)>0) {
-	$sql .= "and s.service_type in (".implode($services,', ').")";
+	$sql .= "and s.service_type in (".implode($services,', ').") ";
 }
 	
 $sql .=	"group by p.id, p.name, p.description, p.picture, l.name, l.countryname "
