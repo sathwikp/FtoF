@@ -27,7 +27,7 @@ $SCRIPTSRC[] = "js/details.js";
 <?php
 $qparams = [];
 $sql = 	"select p.name, p.description, p.avatar, p.big_picture, l.name as location, l.countryname as country, l.region as region, count(*) as serviceno "
-	. "from profile p, porref l, offered_service s "
+	. "from profile p, porref_nearest l, offered_service s "
 	. "where p.location_id = l.id "
 	. "and p.id = s.profile_id "
 	. "and s.available = TRUE "

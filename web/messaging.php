@@ -183,7 +183,87 @@ theExit:
 			$sendemail = new SendGrid\Email();
 
 			$sendemail->addTo($email_from)->
-					  addBcc('family2family.email@gmail.com')->
+					  addTo('family2family.email@gmail.com')->
+					  setFrom('family2family.email@gmail.com')->
+					  setSubject($email_subject)->
+					  setText($email_message)->
+					  setHtml($html_message);
+		
+			$response = $sendgrid->send($sendemail);
+			
+// =======================================================================================	
+// ========================== CONFIRMATION EMAIL TO THE	SELLER ===========================
+// =======================================================================================		
+			$email_subject = "Family2Family nouvelle commande";
+			
+			$email_message = "Bonjour ".$dest_name.",\n\n"
+
+			.$first_name . " a sélectionné un ou plusieurs service(s) sur votre page Family2Family !\n\n" 
+
+			."Voici le contenu de la commande :\n";
+			
+			foreach ($servicelist as $service) {
+				$email_message .= "   - ".$service['name']." - ".$service['datespair'][0]->format('d-m-Y')." au ".$service['datespair'][1]->format('d-m-Y')." - ".round($service['tot_price'],2)."€\n";
+			}
+			$email_message .= "\nTotal de la commande : ".round($overall_price,2)."€\n\n";
+
+			if (strlen($comments)>0) {
+				$email_message .= "Commentaires ajoutés \n" . nl2br($comments) . "\n\n";
+			}
+
+			$email_message .=  "\nLa prochaine étape est de contacter directement ".$first_name." pour vous arranger pour l'échange.\n"
+			. "Voici ses coordonnées :\n"
+			. "mail : ".$email_from."\n"
+			. "téléphone : ".$telephone."\n\n"
+
+			. "Merci de votre confiance. Si vous avez des questions ou que vous rencontrez une difficulté, n'hésitez pas à nous contacter.\n\n"
+
+
+			."Family@Family\n"
+			."\"Vous faciliter le voyage en famille et faire des rencontres inoubliables\"\n\n"
+
+			."Facebook: https://www.facebook.com/pages/Family2Family/820471384696590"
+			."Twitter: https://twitter.com/Family_Family2";
+
+
+			
+			$html_message = "<html><head/><body>"
+			."<p><img src='https://ftof.herokuapp.com/img/mail_header.png' /></p>"
+			
+			."<p>Bonjour ".$dest_name.",</p>"
+
+			."<p>". $first_name . " a sélectionné un ou plusieurs service(s) sur votre page Family2Family !<br />" 
+
+			."<p>Voici le contenu de la commande :</p><ul>";
+			
+			foreach ($servicelist as $service) {
+				$html_message .= "<li>".$service['name']." - ".$service['datespair'][0]->format('d-m-Y')." au ".$service['datespair'][1]->format('d-m-Y')." - ".round($service['tot_price'],2)."€</li>";
+			}
+			$html_message .= "</ul><p>Total de la commande : ".round($overall_price,2)."€</p>";
+
+			if (strlen($comments)>0) {
+				$html_message .= "<p>Commentaires ajoutés: <br/>" . $comments . "</p>";
+			}
+			
+			$html_message .=  "<p>La prochaine étape est de contacter directement ".$first_name." pour vous arranger pour l'échange.<br/>"
+			. "Voici ses coordonnées :<br/>"
+			. "mail : ".$email_from."<br/>"
+			. "téléphone : ".$telephone."</p>"
+			
+			.  "<br/><p>Merci de votre confiance. Si vous avez des questions ou que vous rencontrez une difficulté, n'hésitez pas à nous contacter.<p>"
+
+			."<p>Family@Family</br>"
+			."\"Vous faciliter le voyage en famille et faire des rencontres inoubliables\"</p>"
+
+			."<a href='https://www.facebook.com/pages/Family2Family/820471384696590'>Family2Family Facebook</a><br/>"
+			."<a href='https://twitter.com/Family_Family2'>@Family_Family2 Twitter</a>"
+			."<p><img src='https://ftof.herokuapp.com/img/mail_footer_logo.jpg' /></p>"
+			."</body></html>";			
+			
+			$sendemail = new SendGrid\Email();
+
+			$sendemail->addTo($dest_email)->
+					  setBcc('family2family.email@gmail.com')->
 					  setFrom('family2family.email@gmail.com')->
 					  setSubject($email_subject)->
 					  setText($email_message)->
