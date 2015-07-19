@@ -133,6 +133,7 @@ while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
                 </div>
             </div>
         </div>
+        <a name="service-list" />
         <div class="service-update-row">
         	<div class="container">
     <?php 

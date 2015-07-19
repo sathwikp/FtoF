@@ -8,8 +8,10 @@ function sanitize($input) {
 
 		//header('Content-Type: application/json; Charset=UTF-8');
 
+		try {
+
 		// Sanitize all the incoming data
-		//$_POST = array_map('sanitize', $_POST);
+		$_POST = array_map('sanitize', $_POST);
 
     	$error_message = [];
 		
@@ -48,7 +50,7 @@ function sanitize($input) {
 				$q = $db->prepare($sql);
 				$q->execute($qparams);	
 
-
+		} catch(Exception $e){}
  
 theExit:
   		//if(count($error_message) > 0) {
@@ -63,7 +65,7 @@ theExit:
  //		    echo $value;
 //		}
 
-	$user->redirect('profile.php');
+	$user->redirect('profile.php#service-list');
 ?>
 
 <?php require 'destroy.php.inc'; ?>
