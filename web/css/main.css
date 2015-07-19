@@ -741,3 +741,11 @@ span.decrease {
 	padding-top:25px;
 	padding-bottom:10px;
 }
+.socialHome{
+	width:20px;
+	height:20px;
+	opacity:0.8;
+}
+.socialHome:hover{
+	opacity:1;
+}
