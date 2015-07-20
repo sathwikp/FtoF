@@ -16,9 +16,10 @@ class USER
 		{
 			$new_password = password_hash($upass, PASSWORD_DEFAULT);
 			
-			$stmt = $this->db->prepare("INSERT INTO profile (email,password,picture,big_picture,avatar) 
-		                                               VALUES(:umail, :upass, 'img/profile/pics/placeholder.png', 'img/profile/pics/placeholder.png', 'img/profile/avatars/placeholder.png')");
-												  
+			$stmt = $this->db->prepare("INSERT INTO profile (name,email,password,picture,big_picture,avatar) 
+		                                               VALUES(:uname,:umail, :upass, 'img/profile/pics/placeholder.png', 'img/profile/pics/placeholder.png', 'img/profile/avatars/placeholder.png')");
+			
+			$stmt->bindparam(":uname", split('@', $umail)[0]);									  
 			$stmt->bindparam(":umail", $umail);
 			$stmt->bindparam(":upass", $new_password);										  
 				
