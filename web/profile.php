@@ -53,7 +53,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
   <body class="family">  
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/><img src="img/beta.png" class="img-responsive" style="width:35px;margin-top:-86px;margin-left:-15px;/></a>
+            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/><img src="img/beta.png" class="img-responsive" style="width:35px;margin-top:-86px;margin-left:-15px;"/></a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -209,7 +209,7 @@ while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
 						</label>
 						</div>
 						<div class="form-inline">
-						<textarea class="form-control" rows="3" style="width:700px" name="desc"><?php echo $service['service_desc'];?></textarea>
+						<textarea class="form-control" rows="3" style="width:700px" name="desc" placeholder="<?php echo localization("Add a brief description about the service you are providing", "Add a brief description about the service you are providing"); ?>"><?php echo $service['service_desc'];?></textarea>
 												
 						<label>
 						<a class="btn btn-default" href="delservice.php?ctid=<?php echo $service['ctid']; ?>">Delete</a>

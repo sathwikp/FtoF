@@ -47,7 +47,7 @@ $SCRIPTS[] =
 .'				<h3 style="color:#EA4A4A;text-align:right">${stars}/5</h3>'
 .'			</div>'
 .'		</div>'
-. '				<h3 class="hidden-xs" style="margin-top:22px;padding-left:78px;">'
+. '				<h3 style="margin-top:22px;padding-left:78px;">'
 . '					<a href="details.php?id=${id}&arrival=${arrival}&departure=${departure}" >${name}</a> - <span style="font-size:14px;">${cityname}, ${countryname}</span>'
 . '				</h3>'
 . '				<br/>'
@@ -74,7 +74,7 @@ $SCRIPTS[] =
   
   	<div class="navbar navbar-inverse navbar-static-top">
         <div class="container">
-            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/><img src="img/beta.png" class="img-responsive" style="width:35px;margin-top:-86px;margin-left:-15px;/></a>
+            <a href="index.php" class="navbar-brand"><img src="img/F2F_word_blue.png" class="img-responsive"/><img src="img/beta.png" class="img-responsive" style="width:35px;margin-top:-86px;margin-left:-15px;"/></a>
                 <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
