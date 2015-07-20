@@ -19,7 +19,7 @@ $PAGETITLE = "F2F | Update your profile";
 
 //$SCRIPTSRC[] = "js/Click.js";
 
-$SCRIPTSRC[] = "js/jquery.ajaxfileupload.js";
+$SCRIPTSRC[] = "js/jquery.form.min.js";
 $SCRIPTSRC[] = "js/jquery.jeditable.mini.js";
 $SCRIPTSRC[] = "js/jquery.jeditable.ajaxupload.js";
 $SCRIPTSRC[] = "js/profile.js";
@@ -70,14 +70,34 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
  	<div>
 	<div class="col-lg-1 col-sm-12 col-xs-12" style="background:#fff">
 	</div>
-	<div class="family-card-image col-lg-7 col-sm-12 col-xs-12" style="background-image:url('img/profile/pics/<?php echo $profile['big_picture'];?>')">
-		<p style="margin-top: 11%;text-align:center;font-weight: bold;color: #fff;"><?php echo localization("Please email us your family picture at family2family.email@gmail.com.", "Family2Family est encore en version Beta pour changer votre photo de profil, merci de nous envoyer un mail à family2family.email@gmail.com"); ?></p>
+	<div class="family-card-image col-lg-7 col-sm-12 col-xs-12" style="background-image:url('<?php echo $profile['big_picture'];?>')" id="family-card-image">
+		<div style="padding-top: 11%;text-align:center;font-weight: bold;color: #fff;"  class="picture-upload" data-imgcontid="family-card-image"><a href="javascript:void(0);"><img src="img/upload.png" style="width:70px" /></a>
+		<span class="file-upload-form">
+		<form action="upload.php" method="POST" enctype="multipart/form-data" data-imgcontid="family-card-image">
+		<input type="hidden" name="id" value="picture">
+                <label>
+                <input class="form-control" type="file" name="value" style="width:300px" />
+                </label>
+        </form>
+        <span>
+		</div>
 	</div>
     <div class="col-lg-3 col-sm-12 col-xs-12" style="background:#fff;margin-top: 0%;border: 1px solid #E4CFCF;height: 520px;width:21%;">
     	<div class="col-lg-9 col-sm-3 col-xs-3" style="margin-top: 10%; text-align:center;">
-					<span class="avatar-container" style="background-image:url('img/profile/avatars/<?php echo $profile['avatar'];?>')">
+					<div class="avatar-container" style="background-image:url('<?php echo $profile['avatar'];?>')" id="avatar-container">
+
+		<div style="padding-top: 25%;text-align:center;font-weight: bold;color: #fff;"  class="picture-upload" data-imgcontid="family-card-image"><a href="javascript:void(0);"><img src="img/upload.png" style="width:40px" /></a>
+		<span class="file-upload-form">
+		<form action="upload.php" method="POST" enctype="multipart/form-data" data-imgcontid="avatar-container">
+		<input type="hidden" name="id" value="avatar">
+                <label>
+                <input class="form-control" type="file" name="value" style="width:150px" />
+                </label>
+        </form>
+        <span>
+		</div>
 					
-					</span>
+					</div>
 				</div>
 				<div class="family-highlight col-lg-12 col-sm-6 col-xs-6" style="
     margin-top: 25px; text-align:center;">

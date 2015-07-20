@@ -28,7 +28,7 @@ $SCRIPTS[] =
 //</li>'
 
   '<li class="family_item background_white">'
-. '		<div class="family_image" style="background-image:url(\'img/profile/pics/${picture}\');width:29.33%;opacity:0.8"><span/>'
+. '		<div class="family_image" style="background-image:url(\'${picture}\');width:29.33%;opacity:0.8"><span/>'
 . '		</div>'
 . '		<div class="item_sell padded padded_half">'
 . '			<div class="items_description">'
