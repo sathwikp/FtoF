@@ -28,11 +28,20 @@
     });
     
 
-	$( ".datepicker" ).datepicker({
+	$( 'input[name="from"].datepicker' ).datepicker({
       changeMonth: true,//this option for allowing user to select month
       changeYear: true, //this option for allowing user to select from year range
- 
+      onClose: function(dateText){
+      	$(this).closest('div').find( 'input[name="to"].datepicker' ).datepicker( "option", "minDate", dateText );
+		$(this).closest('div').find( 'input[name="to"].datepicker' ).focus();
+      }
     });
+
+	$( 'input[name="to"].datepicker' ).datepicker({
+      changeMonth: true,//this option for allowing user to select month
+      changeYear: true, //this option for allowing user to select from year range
+    });
+    
     
     $("#locationSelect").change(function(){
     	var theval = $(this).val();
