@@ -24,6 +24,14 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 	<![endif]-->
+	<script type="text/javascript">
+		<?php
+			echo localization(
+				'function localization(en, fr) { return en; }',
+				'function localization(en, fr) { return fr; }'
+			);
+		?>
+	</script>
     <script src="js/jquery-2.1.4.min.js"></script>
 	<script src="js/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

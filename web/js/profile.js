@@ -19,14 +19,6 @@
 				$(this).html(retval);	
 			}
      });
-     $(".ajaxupload").editable("upload.php", { 
-        indicator : "<img src='img/loading.gif'>",
-        type      : 'ajaxupload',
-        submit    : 'Upload',
-        cancel    : 'Cancel',
-        tooltip   : "Click to upload..."
-    });
-    
 
 	$( 'input[name="from"].datepicker' ).datepicker({
       changeMonth: true,//this option for allowing user to select month
@@ -53,6 +45,50 @@
 		}).done(function(data) {
 			
 		});
+    });
+    
+    $('.file-upload-form form').ajaxForm({ 
+        	// dataType identifies the expected content type of the server response 
+        	dataType:  'json', 
+        	// success identifies the function to invoke when the server response 
+        	// has been received 
+        	success:    function (data,x,y,z) {
+                    var form = $(z[0]);
+                    if (data.success) {
+                    	var imgcont = form.attr('data-imgcontid');
+                    	$('#'+imgcont).css('background-image',"url('"+data.url+"')");
+                    }
+                    else
+                    {
+                    	alert(data.error);
+                    }
+                    
+                    form.closest('.picture-upload').find('a').show();
+                    form.closest('.file-upload-form').hide();
+                }, 
+    	});
+    	
+    $('.file-upload-form').hide();
+    
+    $('.file-upload-form form input').change(function (){
+    	$(this).closest('form').submit();
+    });
+    
+    $('.picture-upload a').click(function(){
+    	$(this).closest('.picture-upload').find('.file-upload-form').show();
+    	$(this).hide();
+    });
+    
+    $('body').click(function(e){
+    		if( $(e.target).closest(".picture-upload").length > 0 ) {
+        		return true;
+     		}
+    	
+    		$('.picture-upload').each(function(){
+    			$(this).find('a').show();
+    			$(this).find('.file-upload-form').hide();
+    		});
+    	
     });
     
  });

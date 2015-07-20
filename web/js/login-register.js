@@ -12,7 +12,7 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Register');
+        $('.modal-title').html(localization('Register','Inscription'));
     }); 
     $('.error').removeClass('alert alert-danger').html('');
        
@@ -24,7 +24,7 @@ function showLoginForm(){
             $('.login-footer').fadeIn('fast');    
         });
         
-        $('.modal-title').html('Login');
+        $('.modal-title').html(localization('Login','Connection'));
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }
@@ -56,14 +56,16 @@ function loginAjax(){
             if(data == 1){
                 window.location.reload();            
             } else {
-                 shakeModal(["Invalid email/password combination"]); 
+                 shakeModal([localization(
+                 	"Invalid email/password combination",
+                 	"Identifiant ou mot de passe invalide"
+                 )]); 
             }
         });
 }
 
 function registerAjax(){
-
-        
+    
         $.ajax({
 			type        : 'POST', 
 			url         : 'sign-up.php', 

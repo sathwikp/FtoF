@@ -71,11 +71,11 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
  	<div>
 	<div class="col-lg-1 col-sm-12 col-xs-12" style="background:#fff">
 	</div>
-	<div class="family-card-image col-lg-7 col-sm-12 col-xs-12" style="background-image:url('img/profile/pics/<?php echo $profile['big_picture'];?>')">
+	<div class="family-card-image col-lg-7 col-sm-12 col-xs-12" style="background-image:url('<?php echo $profile['big_picture'];?>')">
 	</div>
     <div class="col-lg-3 col-sm-12 col-xs-12" style="background:#fff;margin-top: 0%;border: 1px solid #E4CFCF;height: 520px;width:21%;">
     	<div class="col-lg-9 col-sm-3 col-xs-3" style="margin-top: 10%; text-align:center;">
-					<span class="avatar-container" style="background-image:url('img/profile/avatars/<?php echo $profile['avatar'];?>')">
+					<span class="avatar-container" style="background-image:url('<?php echo $profile['avatar'];?>')">
 					</span>
 				</div>
 				<div class="family-highlight col-lg-12 col-sm-6 col-xs-6" style="
