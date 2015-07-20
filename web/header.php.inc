@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta property="og:image" content="F2F_word_blue.png" />
+    <meta property="og:image" content="F2F_word_orange_bg.png" />
     <title><?php echo $PAGETITLE; ?></title>
     <!-- favicon -->
     <link rel="icon" type="image/png" href="img/F2F_short.png">
