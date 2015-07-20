@@ -81,7 +81,7 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 				</div>
 				<div class="family-highlight col-lg-12 col-sm-6 col-xs-6" style="
     margin-top: 25px; text-align:center;">
-					<h2 style="text-align:center;" class="edit" id="name"><?php echo $profile['name']; ?></h2>
+					<h2 style="text-align:center;" class="edit" id="name"><?php echo $profile['name'] == '' ? split('@', $profile['email'])[0] : $profile['name']; ?></h2>
 					<div class="font-color"><select  class="form-control" id="locationSelect">
 					<option <?php echo $profile['location_id'] ? '' : 'selected' ; ?> disabled>Choose a location</option>
 <?php
