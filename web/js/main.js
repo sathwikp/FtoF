@@ -92,4 +92,18 @@ $(document).ready(function(){
 	    $('form[name="search"]').submit();
 	});
 	
+	 $('.profile-link').popover({
+                    content: 'You have successfully signed up.<br/>Start editing your profile!',
+                    trigger: 'focus',
+                    html: 'true',
+                    placement:'bottom',
+                });
+                
+    $('body').on('click', function() {
+    	$('.profile-link').each(function() {
+        	$(this).popover('hide');        
+    	});	
+	});
+	
+	
 });

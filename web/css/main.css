@@ -749,3 +749,6 @@ span.decrease {
 .socialHome:hover{
 	opacity:1;
 }
+.popover{
+	width:300px;
+}

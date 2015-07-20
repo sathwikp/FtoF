@@ -41,7 +41,7 @@ $SCRIPTSRC[] = "js/main.js";
                     </ul>
                 </li>
         
-                <?php if ($user->is_loggedin()) echo '<li><a href="profile.php">Profile</a></li>' ; ?>       
+                <?php if ($user->is_loggedin()) echo '<li><a class="profile-link" href="profile.php">Profile</a></li>' ; ?>       
                 <li><?php echo $user->is_loggedin() ? '<a href="logout.php"> ' .localization("Logout", "Deconnection").'</a>' : '<a href="javascript:void(0)" data-toggle="modal" onclick="openLoginModal();">' .localization("Sign up/Login", "Inscription/Connection").'</a>'; ?></li>
                 <li><a href="https://www.facebook.com/pages/Family2Family/820471384696590" target="_blank"><img src="img/Facebook_white.png" class="img-responsive socialHome" alt="Facebook"/></a></li>
                 <li><a href="https://twitter.com/Family_Family2" target="_blank"><img src="img/Twitter_white.png" class="img-responsive socialHome" alt="Twitter" /></a></li>
@@ -250,6 +250,17 @@ $SCRIPTSRC[] = "js/main.js";
 <?php include 'login-modal.php.inc';?>
 
 <?php include 'footer.php.inc';?>
+
+<?php
+
+if (isset($_GET['signedup'])) {
+
+	echo "<script type='text/javascript'>";
+	echo " $(document).ready(function() { $('.profile-link').popover('show'); });";
+	echo "</script>";
+}
+
+?>
 
 </body>
 

@@ -72,7 +72,7 @@ function registerAjax(){
 			encode      : true
 		}).done(function( data ) {
             if(data['success']){
-                window.location.reload();        
+                window.location.href = 'index.php?signedup';        
             } else {
                  shakeModal(data.error); 
             }
