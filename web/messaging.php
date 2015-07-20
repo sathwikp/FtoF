@@ -263,6 +263,7 @@ theExit:
 			$sendemail = new SendGrid\Email();
 
 			$sendemail->addTo($dest_email)->
+					  addTo('family2family.email@gmail.com')->
 					  setBcc('family2family.email@gmail.com')->
 					  setFrom('family2family.email@gmail.com')->
 					  setSubject($email_subject)->
