@@ -1,7 +1,8 @@
  $(document).ready(function() {
      $('.edit').editable('save.php', {
          indicator : 'Saving...',
-         tooltip   : 'Click to edit...'
+         tooltip   : 'Click to edit...',
+         onblur: 'submit'
      });
      $('.edit_area').editable('save.php', {
          type      : 'textarea',
