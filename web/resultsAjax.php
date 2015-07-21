@@ -19,6 +19,7 @@ $sql = 	"select p.id, p.name, p.description, p.picture, l.name as cityname, l.co
 	. "from profile p, offered_service s, porref_nearest l "
 	. "where p.id = s.profile_id "
 	. "and s.available = TRUE "
+	. "and s.price_per_day is not null "	
 	. "and l.id = p.location_id "
 	. "and (p.location_id = ".$location_id." or ".$location_id." = ANY (l.nearest)) " 
 	. "and s.period @> '["
@@ -56,6 +57,7 @@ while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 	$insql = 	"select service_type, available, period, price_fix, price_per_day "
 		. "from offered_service "
 		. "where profile_id = :id "
+		. "and price_per_day is not null "
 		. "and period @> '["
 		. $arrival_date->format('Y-m-d').", "
 		. $departure_date->format('Y-m-d')."]'::daterange ";
