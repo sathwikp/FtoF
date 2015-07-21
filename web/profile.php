@@ -101,15 +101,21 @@ $profile = $q->fetch(PDO::FETCH_ASSOC);
 				<div class="family-highlight col-lg-12 col-sm-6 col-xs-6" style="
     margin-top: 25px; text-align:center;">
 					<h2 style="text-align:center;" class="edit" id="name"><?php echo $profile['name']; ?></h2>
-					<div class="font-color"><select  class="form-control" id="locationSelect">
-					<option <?php echo $profile['location_id'] ? '' : 'selected' ; ?> disabled>Choose a location</option>
+					<div class="font-color">
+					<select  class="form-control" id="countrySelect">
+					<option <?php echo $profile['location_id'] ? '' : 'selected' ; ?> disabled>Choose a country</option>
 <?php
 {
-$sql = 	"select id, name "
-	. "from porref_nearest "
-	. "where countrycode = 'FR' "
-	. "and locationtype = 'C' "
-	. "order by name ASC ";
+$sql = 	"select countrycode, countryname ";
+
+if ($profile['location_id']) {
+	$sql .= ", ".$profile['location_id']." = ANY(array_agg(id)) as selected ";
+}
+
+$sql .= "from porref_nearest "
+	. "where locationtype = 'C' "
+	. "group by countrycode, countryname "
+	. "order by countryname ASC ";
 	//. "and period @> '["
 	//. $arrival_date->format('Y-m-d').", "
 	//. $departure_date->format('Y-m-d')."]'::daterange "
@@ -118,13 +124,43 @@ $sql = 	"select id, name "
 	
 $q = $db->prepare($sql);
 $q->execute();
-
+$countrycode=null;
 while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
-	$selected = ($loc['id']==$profile['location_id'])?'selected':'';
-	echo '<option value="'.$loc['id'].'" '.$selected.'>'.$loc['name'].'</option>';
+	$selected = '';
+	if (isset($loc['selected']) && $loc['selected']) {
+		$selected = 'selected';
+		$countrycode = $loc['countrycode'];
+	}
+	echo '<option value="'.$loc['countrycode'].'" '.$selected.'>'.$loc['countryname'].'</option>';
 }
 
 
+}
+
+?>					
+					</select>
+					</div>
+					<div class="font-color">	
+					<select  class="form-control" id="locationSelect">
+					<option <?php echo $profile['location_id'] ? '' : 'selected' ; ?> disabled>Choose a location</option>
+<?php
+
+if ($countrycode != null) {
+{
+	$sql = 	"select id, name "
+		. "from porref_nearest "
+		. "where countrycode = :countrycode "
+		. "and locationtype = 'C' "
+		. "order by name ASC ";
+	
+	$q = $db->prepare($sql);
+	$q->execute(['countrycode'=>$countrycode]);
+
+	while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
+		$selected = ($loc['id']==$profile['location_id'])?'selected':'';
+		echo '<option value="'.$loc['id'].'" '.$selected.'>'.$loc['name'].'</option>';
+	}
+}
 }
 
 ?>					

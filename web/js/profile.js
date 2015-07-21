@@ -35,6 +35,20 @@
       changeYear: true, //this option for allowing user to select from year range
     });
     
+    $("#countrySelect").change(function(){
+    	var theval = $(this).val();
+    	$.ajax({
+			type        : 'POST', 
+			url         : 'locationsByCountry.php', 
+			data        : {'countrycode':theval},  
+			encode      : true
+		}).done(function(data) {
+			$("#locationSelect").html('<option selected disabled>Choose a location</option>');
+			$(data).each(function(idx,item){
+				$('<option value='+item.id+'>'+item.name+'</option>').appendTo("#locationSelect");
+			});
+		});
+    });
     
     $("#locationSelect").change(function(){
     	var theval = $(this).val();
