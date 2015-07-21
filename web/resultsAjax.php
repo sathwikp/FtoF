@@ -51,28 +51,26 @@ while ($row = $q->fetch(PDO::FETCH_ASSOC)) {
 	$types = json_decode($new_element['services_type']);
 	$prices = json_decode($new_element['services_price_per_day']);
 	
-	{
-	$qparams = [];
-	$sql = 	"select service_type, available, period, price_fix, price_per_day "
+	
+	$inqparams = [];
+	$insql = 	"select service_type, available, period, price_fix, price_per_day "
 		. "from offered_service "
 		. "where profile_id = :id "
 		. "and period @> '["
 		. $arrival_date->format('Y-m-d').", "
 		. $departure_date->format('Y-m-d')."]'::daterange ";
 
-	$qparams[":id"] = $row['id'];
+	$inqparams[":id"] = $row['id'];
 	
-	$q = $db->prepare($sql);
-	$q->execute($qparams);
-	while ($service = $q->fetch(PDO::FETCH_ASSOC)) {
+	$inq = $db->prepare($insql);
+	$inq->execute($inqparams);
+	while ($inservice = $inq->fetch(PDO::FETCH_ASSOC)) {
 		$new_element['services'][] = [
-			'type' => $service['service_type'],
-			'price_per_day' => $service['price_per_day'],
-			'pic' => ServiceType::GetPics()[$service['service_type']],
-			'name' => ServiceType::GetTypes()[$service['service_type']]
+			'type' => $inservice['service_type'],
+			'price_per_day' => $inservice['price_per_day'],
+			'pic' => ServiceType::GetPics()[$inservice['service_type']],
+			'name' => ServiceType::GetTypes()[$inservice['service_type']]
 		];
-	}
-	
 	}
 	
 	
