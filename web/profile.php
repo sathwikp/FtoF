@@ -21,7 +21,6 @@ $PAGETITLE = "F2F | Update your profile";
 
 $SCRIPTSRC[] = "js/jquery.form.min.js";
 $SCRIPTSRC[] = "js/jquery.jeditable.mini.js";
-$SCRIPTSRC[] = "js/jquery.jeditable.ajaxupload.js";
 $SCRIPTSRC[] = "js/profile.js";
 
 ?>

@@ -36,7 +36,7 @@ function sanitize($input) {
 
 
 
-				$sql = 	"update offered_service set service_type = :type, period = daterange('".$from->format('Y-m-d')."', '".$to->format('Y-m-d')."'), price_per_day = :price, service_desc = :desc "
+				$sql = 	"update offered_service set service_type = :type, period = daterange('".$from->format('Y-m-d')."', '".$to->format('Y-m-d')."','[]'), price_per_day = :price, service_desc = :desc "
 					. "where ctid = :ctid and profile_id = :pid ";
 
 				$qparams = [

@@ -33,7 +33,7 @@ function sanitize($input) {
 		
 
 				$sql = 	"insert into offered_service (service_type, profile_id, period, available) "
-					  . "values (0, :pid, daterange(current_date, current_date), TRUE) ";
+					  . "values (0, :pid, daterange(current_date, current_date,'[]'), TRUE) ";
 
 				$qparams = [
 					 		":pid" => $profile_id
