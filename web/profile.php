@@ -160,7 +160,7 @@ while($loc = $q->fetch(PDO::FETCH_ASSOC)) {
 
 	{
 	$qparams = [];
-	$sql = 	"select ctid, service_type, available, to_char(lower(period),'MM/DD/YYYY') as from, to_char(upper(period),'MM/DD/YYYY') as to, price_fix, price_per_day, service_desc "
+	$sql = 	"select ctid, service_type, available, to_char(lower(period),'MM/DD/YYYY') as from, to_char((upper(period) - interval '1 day')::date,'MM/DD/YYYY') as to, price_fix, price_per_day, service_desc "
 		. "from offered_service "
 		. "where profile_id = :id "
 		. "order by service_type, period ";
