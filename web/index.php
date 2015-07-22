@@ -55,7 +55,8 @@ $SCRIPTSRC[] = "js/main.js";
     	<div class="col-lg-12 col-sm-12 col-xs-12">
             <div class="punchLine">
                 <p><?php echo localization("We make travelling with children easier","Vous faciliter le voyage en famille"); ?></p>
-                <p class="smallPunchLine"><?php echo localization("Find all you need at destination", "Tout le nécessaire à l’arrivée"); ?></p>
+                <p class="smallPunchLine"><?php echo localization("Find all you need at destination", "Tout le nécessaire à l’arrivée"); ?>                
+               </p>
             </div>
             <div class="formSubmission">
             <form name="search" action="results.php">
@@ -89,6 +90,9 @@ $SCRIPTSRC[] = "js/main.js";
             <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
             </label>
             </form>
+            </div>
+            <div style="text-align:center; margin-top:30px">
+            	 <a href="http://bonjouridee.com/family2family/" target="_blank" ><img width='120' height='120' alt='Startup Bonjouridee' src='http://bonjouridee.com/wp-content/uploads/2014/02/badge-reference-sur-bonjouridee-350.png' /></a>
             </div>
         </div>
     </div>
