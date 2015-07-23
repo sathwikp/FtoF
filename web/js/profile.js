@@ -106,4 +106,26 @@
     	
     });
     
+    if ($('.editservice-form[data-available=false]').length) {
+    	$('#addservice').addClass('disabled');
+    	$('#addservicewrapper').tooltip(); 
+    }
+    
+    var checkEditForm = function(){
+    	var thePrice = $(this).closest('form').find('input[name="price"]').val();
+    	var submit = $(this).closest('form').find('input[type="submit"]');
+    	if (thePrice == "" || !(Number(thePrice) >= 0)) {
+    		submit.attr('disabled', 'disabled');
+    		$(this).closest('form').find('input[name="price"]').tooltip();
+    		$(this).closest('form').find('input[name="price"]').addClass('errinput');
+    	} else {
+    		submit.removeAttr('disabled');
+    		$(this).closest('form').find('input[name="price"]').tooltip('destroy');
+    		$(this).closest('form').find('input[name="price"]').removeClass('errinput');
+    	}
+    };
+    
+    $('form.editservice-form :input').bind('input',checkEditForm);
+    $('form.editservice-form :input').each(checkEditForm);
+    
  });

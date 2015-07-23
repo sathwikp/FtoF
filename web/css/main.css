@@ -752,3 +752,6 @@ span.decrease {
 .popover{
 	width:300px;
 }
+.errinput {
+border: 1px solid rgb(160,0,0) !important;
+}

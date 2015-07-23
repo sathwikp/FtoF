@@ -196,10 +196,10 @@ if ($countrycode != null) {
 
 	{
 	$qparams = [];
-	$sql = 	"select ctid, service_type, available, to_char(lower(period),'MM/DD/YYYY') as from, to_char((upper(period) - interval '1 day')::date,'MM/DD/YYYY') as to, price_fix, price_per_day, service_desc "
+	$sql = 	"select ctid, service_type, available, to_char(lower(period),'MM/DD/YYYY') as from, to_char((upper(period) - interval '1 day')::date,'MM/DD/YYYY') as to, price_fix, price_per_day, service_desc, available "
 		. "from offered_service "
 		. "where profile_id = :id "
-		. "order by service_type, period ";
+		. "order by available DESC, service_type, period ";
 		//. "and period @> '["
 		//. $arrival_date->format('Y-m-d').", "
 		//. $departure_date->format('Y-m-d')."]'::daterange ";
@@ -214,7 +214,7 @@ if ($countrycode != null) {
 			?>
             	<div class="row item-divider" style="<?php if ($i++%2==0) echo 'background-color: #F9F9F9;'; ?>border-bottom:none;text-align:center" >
                 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                		<form  action="editservice.php" method="post">
+                		<form class="editservice-form" action="editservice.php" method="post" data-available="<?php echo $service['available'] ? 'true' : 'false'; ?>">
                 		<input type="hidden" name="ctid" value="<?php echo $service['ctid']; ?>">
 						<div class="form-inline">
 						<label>
@@ -235,12 +235,12 @@ if ($countrycode != null) {
                         </label>
 						<label>
 						<div class="input-group">
-						<input name="price" placeholder="<?php echo localization("Price per day", "Prix par jour"); ?>" type="text" value="<?php echo $service['price_per_day']; ?>" class="form-control" style="width:70px">
+						<input name="price" placeholder="<?php echo localization("Price per day", "Prix par jour"); ?>" type="text" value="<?php echo $service['price_per_day']; ?>" class="form-control" style="width:70px" data-toggle="tooltip" data-placement="top" data-original-title="Please enter a valid price">
 						<span class="input-group-addon">&euro;/day</span>
 						</div>
 						</label>
 						<label>
-						<input type="submit" value="Save" class="form-control">
+						<input type="submit" value="Save" class="form-control" >
 						</label>
 						</div>
 						<div class="form-inline">
@@ -264,7 +264,8 @@ if ($countrycode != null) {
 	?>
 				
 		        <div class="row item-divider" style="text-align:right">
-					<a class="btn btn-default" href="addservice.php">Add service</a>
+					<span class="pull-right" style="display:block; width:100px" id="addservicewrapper" data-toggle="tooltip" data-placement="top" data-original-title="Please save your newly added service first!">
+					<a class="btn btn-default" id="addservice" href="addservice.php" >Add service</a></span>
                 </div>				
         	</div>
 		</div>
